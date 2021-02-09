@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
+import DefaultInput from './defaultInput';
 
 export default function App() {
+
+  let info = 'Filip!';
+  console.log("Application running!");
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <DefaultInput>Placeholder</DefaultInput>
+      <Text>Netinfo: {info}</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -14,7 +19,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'hsla(200, 50%, 50%,1)',
     alignItems: 'center',
     justifyContent: 'center',
   },
