@@ -6,7 +6,6 @@ import DisplayValue from './displayValue';
 
 export default function App() {
 
-  let info = 'Värde i databasen: ';
   console.log("Application running!");
 
   return (
