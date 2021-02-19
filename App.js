@@ -9,18 +9,6 @@ export default function App() {
   let info = 'Värde i databasen: ';
   console.log("Application running!");
 
-  /* fetch('http://localhost:5000')
-     .then(response => response.json())
-     .then((data) => {
-       info += data.value;
-       console.log(data);
-       console.log(info);
- 
-     })
-     .catch((error) => {
-       console.error(error);
-     }); */
-
   return (
     <View style={styles.container}>
       <DefaultInput>Placeholder</DefaultInput>
@@ -38,3 +26,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+//How to do a regular fetch.
+
+/* fetch('http://localhost:5000')
+   .then(response => response.json())
+   .then((data) => {
+    #Do stuff here
+   })
+   .catch((error) => {
+     console.error(error);
+   }); */
