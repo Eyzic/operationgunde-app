@@ -5,7 +5,7 @@ import DefaultInput from './defaultInput';
 
 export default function App() {
 
-  let info = 'Filip!';
+  let info = 'Frida!';
   console.log("Application running!");
   return (
     <View style={styles.container}>
