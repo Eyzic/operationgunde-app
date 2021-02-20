@@ -5,7 +5,7 @@ import DefaultInput from './defaultInput';
 
 export default function App() {
 
-  let info = 'historik';
+  let info = 'historik sida';
   console.log("Application running!");
   return (
     <View style={styles.container}>
@@ -19,7 +19,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'hsla(200, 50%, 50%,1)',
+    backgroundColor: 'hsla(285, 50%, 50%,1)',
     alignItems: 'center',
     justifyContent: 'center',
   },
