@@ -1,8 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View, Image } from 'react-native';
 import DefaultInput from './defaultInput';
-import { Image } from 'react-native';
 
 export default function App() {
   let info = 'Operation Gunde';
@@ -11,7 +10,7 @@ export default function App() {
     <View style={styles.container}>
       <Image
         style={styles.Logo}
-        source={require('./167086572.png')}
+        source={require('./SvanBild.png')}
       />
       <Text style={styles.Rubrik} >
         {info}
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: 'hsla(205, 80%, 82%,1)',
+    backgroundColor: 'hsla(207, 47%, 82%,1)',
     alignItems: 'center',
     justifyContent: 'center',
   },
