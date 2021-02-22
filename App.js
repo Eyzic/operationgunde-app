@@ -11,7 +11,7 @@ export default function App() {
     <View style={styles.container}>
       <Image
         style={styles.Logo}
-        source={require('/Users/Jessica/Desktop/Chalmers/Kandidatarbete/operationgunde-app/167086572.png')}
+        source={require('./167086572.png')}
       />
       <Text style={styles.Rubrik} >
         {info}
