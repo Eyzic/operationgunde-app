@@ -13,26 +13,22 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
 
-<view style={{backgroundColor: 'hsla(0, 50%, 50%,1)',
-     width: 100,
-     height: 70,
-     alignSelf: "flex-start",
+
+<view style={{backgroundColor: 'hsla(0, 50%, 100%,1)',
+     height:'95%',
+     width:'98%',
+     borderRadius: 10,
+     
   }
 }>
- 
-    </view>
+ <Button style={styles.btnSize}
+   title= "knapp"
+   >
+            
+          </Button>
 
-    <view style={{
-      backgroundColor: 'hsla(200, 50%, 50%,1)' ,
-       width: 70,
-       height: 90,
-       
-       }}>
- 
     </view>
-
-   
-  
+    
     
     </SafeAreaView>
   );
@@ -53,9 +49,18 @@ const styles = StyleSheet.create({
      flexDirection: "row",
     backgroundColor: 'hsla(264, 16%, 47%,1)',
     //'hsla(285, 50%, 50%,1)'
-   // alignItems: 'center',
+    alignItems: 'center',
     justifyContent: 'center' ,
     alignItems: "center" ,//secondary axis
-    //paddingTop: Platform.OS == "ios"? 20 :30,
+   // paddingTop: Platform.OS == "ios"? 20 :30,
   },
+
+  btnContainer:{
+    flexDirection:"row",
+    justifyContent:"space-between"
+},
+btnSize:{
+    width:50
+},
+
 });
