@@ -1,11 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Button, Text, Image, TextInput, TouchableWithoutFeedback, View , SafeAreaView, TouchableOpacity, Alert, Platform, Dimensions} from 'react-native';
+import { StyleSheet, Button, Text, Image, TextInput, TouchableWithoutFeedback, View , SafeAreaView, TouchableOpacity, Alert, Platform, Dimensions, PixelRatio} from 'react-native';
 import DefaultInput from './defaultInput';
 import { useDimensions, useDeviceOrientation} from '@react-native-community/hooks';
 export default function App() {
   
+const {
+width: SCREEN_WIDTH,
+height: SCREEN_HEIGHT,
+} = Dimensions.get('window');
+const scale= SCREEN_WIDTH/320;
 
+const radie=normalize(10);
+
+function normalize(size) {
+  const newSize =size*scale
+  if (Platform.OS === 'ios') {
+    return Math.round(PixelRatio.roundToNearestPixel(newSize))
+  } else {
+    return Math.round(PixelRatio.roundToNearestPixel(newSize)) -2
+  }
+}
   
     
     return (
@@ -16,7 +31,7 @@ export default function App() {
         backgroundColor: 'hsla(240, 13%, 15%,1)',
         height: '95%',
         width: '98%',
-        borderRadius: 10,
+        borderRadius: radie,
         zIndex: 0,
         position: 'absolute'
 
@@ -50,20 +65,73 @@ export default function App() {
 />
 </View> */}
       </View>
+    
+
+      <View style={ {
+        
+        backgroundColor: 'hsla(240, 14%, 11%,1)',
+        height: '10%',
+        width: '100%',
+        borderRadius: radie*2,
+        zIndex: 1,
+        position: 'absolute',
+        bottom: '0%',
+        flexDirection: "row",
+        justifyContent: 'space-around',
+        padding: normalize(6),
+        
+
+      }}>
+
+<Button style={{
+           
+           // position: 'relative'
+         }}
+ 
+         color="pink"
+         
+        title="///"
+   
+ />
+        <Button style={{
+           fontSize: normalize(10)
+           
+          // position: 'relative'
+        }}
+        color="pink"
+        
+       title="+"
+       onPress={() => Alert.alert('vore ju kul om det fungerade')}
+  
+/>
+<Button style={{
+           
+          // position: 'relative'
+        }}
+
+        color="pink"
+        
+       title="///"
+  
+/>
+
+         </View>
+         
+
 
       <View style={ {
         
         backgroundColor: 'hsla(240, 13%, 0%,0.5)',
         height: '20%',
         width: '96%',
-        borderRadius: 10,
+        borderRadius: radie,
         zIndex: 1,
         position: 'absolute',
         top: '4%'
 
       }}>
         <Text style={{
-          fontSize: devicePixelRatio*50,
+          fontSize: normalize(35),
           color: 'hsla(342, 78%, 72%,1)',
           zIndex:2,
           position: 'relative',
@@ -75,6 +143,8 @@ export default function App() {
         }}>
           operationGunde
         </Text>
+
+        
 </View>
       </SafeAreaView>
     );
