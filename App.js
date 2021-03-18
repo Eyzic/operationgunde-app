@@ -4,37 +4,37 @@ import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View, Image, But
 import DefaultInput from './defaultInput';
 
 export default function App() {
-  let info = 'Operation Gunde' ;
+  let info = 'Din dagsform' ;
   let space = ' ';
   console.log("Application running!");
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.Logo}
-        source={require('./SvanBild.png')}
-      />
-      <Text style={styles.Rubrik} >
-        {info}
-        </Text>
-      <StatusBar style="auto" />
-
+    
+    <View style={[styles.container, {
+      // Try setting `flexDirection` to "row".
+      flexDirection: "column"
+      //flexDirection: "row"
+    }]}>
+      <View style={{ flex: 1, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
       <Text style={styles.Rubrik} >
         {space}
       </Text>
-
       <Text style={styles.Rubrik} >
         {space}
+        {space}
+        {'Din'}
       </Text>
+      <Text style={styles.Rubrik} >
+        {space}
+        {space}
+        {'dagsform'}
+      </Text>
+      </View>
+      <View style={{ flex: 0.05, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />
+      <View style={{ flex: 1, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} />
+      <View style={{ flex: 0.05, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />
+      <View style={{ flex: 1, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} />
 
-      <Button
-        title="Logga in"
-        onPress={() => Alert.alert('Funktion kommer snart')}
-      />
       
-      <Button
-        title="Registrera dig"
-        onPress={() => Alert.alert('Funktion kommer snart')}
-      />
 
     </View>
   );
@@ -43,18 +43,21 @@ export default function App() {
 
 const styles = StyleSheet.create({
   Logo: {
-    width: 250,
-    height: 250,
+    flex:1,
+    padding:100,
+    width: 400,
+    height: 100,
   },
   container: {
     flex: 1,
-    backgroundColor: 'hsla(207, 47%, 82%,1)',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding:0,
+    backgroundColor: 'hsla(272, 100%, 97%,1)',
+    //alignItems: 'center',
+    //justifyContent: 'center',
   },
   Rubrik: {
     fontFamily: "MarkerFelt-Wide",
-    fontSize: 30,
+    fontSize: 40,
   }
   
 });
