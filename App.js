@@ -14,27 +14,21 @@ export default function App() {
       flexDirection: "column"
       //flexDirection: "row"
     }]}>
-      <View style={{ flex: 1, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+      <View style={{ flex: 0.9, left:25,top:45, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
       <Text style={styles.Rubrik} >
-        {space}
+        {'Din \ndagsform '}
       </Text>
-      <Text style={styles.Rubrik} >
-        {space}
-        {space}
-        {'Din'}
-      </Text>
-      <Text style={styles.Rubrik} >
-        {space}
-        {space}
-        {'dagsform'}
+      <Image source={require( './Springa.png')}
+       style={{width: 100, height: 100, left:240, top: -100}} />
+      <Text style={{fontFamily: "MarkerFelt-Wide",fontSize: 20, top:-90, left: 10}} >
+        {'Taggad och redo'}
       </Text>
       </View>
-      <View style={{ flex: 0.05, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />
+      <View style={{ flex: 0.04, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />
       <View style={{ flex: 1, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} />
-      <View style={{ flex: 0.05, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />
+      <View style={{ flex: 0.04, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />
       <View style={{ flex: 1, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} />
-
-      
+      <View style={{ flex: 0.35, backgroundColor: "'hsla(0, 0%, 100%,1)'" }} />
 
     </View>
   );
@@ -42,18 +36,10 @@ export default function App() {
 
 
 const styles = StyleSheet.create({
-  Logo: {
-    flex:1,
-    padding:100,
-    width: 400,
-    height: 100,
-  },
   container: {
     flex: 1,
     padding:0,
     backgroundColor: 'hsla(272, 100%, 97%,1)',
-    //alignItems: 'center',
-    //justifyContent: 'center',
   },
   Rubrik: {
     fontFamily: "MarkerFelt-Wide",
