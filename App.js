@@ -3,7 +3,6 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View, Image, Button, SafeAreaView, Alert } from 'react-native';
 import DefaultInput from './defaultInput';
 import { ScrollView } from 'react-native';
-// lägg till safeAreaView
 
 export default function App() {
   let info = 'Din dagsform' ;
