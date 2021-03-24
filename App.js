@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Button, Text, Image, TextInput, TouchableWithoutFeedback, View , SafeAreaView, TouchableOpacity, Alert, Platform, Dimensions, PixelRatio, ScrollView, Input} from 'react-native';
 import DefaultInput from './defaultInput';
-import { useDimensions, useDeviceOrientation} from '@react-native-community/hooks';
+//import { useDimensions, useDeviceOrientation} from '@react-native-community/hooks';
 //import LinearGradient from 'react-native-linear-gradient';
 export default function App() {
   
