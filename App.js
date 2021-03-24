@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View, Image, Button, SafeAreaView, Alert } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View, Image, Button, SafeAreaView, Alert, Platform, Dimensions, PixelRatio } from 'react-native';
 import DefaultInput from './defaultInput';
 import { ScrollView } from 'react-native';
 
@@ -8,7 +8,7 @@ const {
   width: SCREEN_WIDTH,
   height: SCREEN_HEIGHT,
   } = Dimensions.get('window');
-  const scale= SCREEN_WIDTH/320;
+  const scale= SCREEN_WIDTH/420;
   
   function normalize(size) {
     const newSize =size*scale
