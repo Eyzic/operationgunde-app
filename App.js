@@ -273,9 +273,6 @@ color: 'white',
           
           />
         
-
-
-        
       </View>
     
     </SafeAreaView>
