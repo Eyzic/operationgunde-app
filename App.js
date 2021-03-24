@@ -4,25 +4,27 @@ import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View, Image, But
 import DefaultInput from './defaultInput';
 import { ScrollView } from 'react-native';
 
+const {
+  width: SCREEN_WIDTH,
+  height: SCREEN_HEIGHT,
+  } = Dimensions.get('window');
+  const scale= SCREEN_WIDTH/320;
+  
+  function normalize(size) {
+    const newSize =size*scale
+    if (Platform.OS === 'ios') {
+      return Math.round(PixelRatio.roundToNearestPixel(newSize))
+    } else {
+      return Math.round(PixelRatio.roundToNearestPixel(newSize)) -2
+    }
+  }
+
 export default function App() {
   let info = 'Din dagsform' ;
   let space = ' ';
   console.log("Application running!");
 
-  const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-    } = Dimensions.get('window');
-    const scale= SCREEN_WIDTH/320;
-    
-    function normalize(size) {
-      const newSize =size*scale
-      if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-      } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) -2
-      }
-    }
+
 
   return (
     <View style={[styles.container, {
@@ -213,7 +215,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding:normalize(0),
+    padding:0,
     backgroundColor: 'hsla(272, 100%, 97%,1)',
   },
   container2: {
