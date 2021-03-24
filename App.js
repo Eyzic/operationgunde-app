@@ -246,14 +246,9 @@ color: 'white',
         height: normalize(80),
         width: '100%',
         marginBottom:normalize(10),
-        //borderRadius: radie*2,
-        //zIndex: 1,
-        //position: 'absolute',
-        //bottom: '0%',
+        
         flexDirection: "row",
-        //justifyContent: 'space-around',
-        //padding: normalize(6),
-        //padding: 10,
+        
 
       }}>
         
@@ -262,6 +257,27 @@ color: 'white',
  
 
     </ScrollView>
+
+    <View style={ {
+        
+        backgroundColor: 'hsla(268, 100%, 100%,0.63)',
+        height: normalize(60),
+        width: '100%',
+        //marginBottom:normalize(10),
+        
+        flexDirection: "row",
+
+      }}>
+         <Image source={require('./assets/1.PNG')}
+          //style={{width: normalize(10), height: normalize(10)}}
+          
+          />
+        
+
+
+        
+      </View>
+    
     </SafeAreaView>
     );
   }
