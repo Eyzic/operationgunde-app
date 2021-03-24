@@ -8,21 +8,36 @@ export default function App() {
   let info = 'Din dagsform' ;
   let space = ' ';
   console.log("Application running!");
+
+  const {
+    width: SCREEN_WIDTH,
+    height: SCREEN_HEIGHT,
+    } = Dimensions.get('window');
+    const scale= SCREEN_WIDTH/320;
+    
+    function normalize(size) {
+      const newSize =size*scale
+      if (Platform.OS === 'ios') {
+        return Math.round(PixelRatio.roundToNearestPixel(newSize))
+      } else {
+        return Math.round(PixelRatio.roundToNearestPixel(newSize)) -2
+      }
+    }
+
   return (
-    <SafeAreaView >
     <View style={[styles.container, {
       // Try setting `flexDirection` to "row".
       flexDirection: "column"
       //flexDirection: "row"
     }]}>
 
-      <View style={{ flex: 0.7, left:25,top:45, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+      <View style={{ flex: 0.7, left:normalize(25),top:normalize(45), backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
         <Text style={styles.Rubrik} >
           {'Din \ndagsform '}
         </Text>
         <Image source={require( './Springa.png')}
-          style={{width: 125, height: 125, left:230, top: -95}} />
-        <Text style={{fontFamily: "MarkerFelt-Wide",fontSize: 20, top:-115, left: 10}} >
+          style={{width: normalize(125), height: normalize(125), left:normalize(230), top:normalize(-95)}} />
+        <Text style={{fontFamily: "MarkerFelt-Wide",fontSize: normalize(20), top:normalize(-115), left: normalize(10)}} >
           {'Taggad och redo'}
         </Text>
       </View>
@@ -191,7 +206,6 @@ export default function App() {
       </View>
 
     </View>
-    </SafeAreaView>
   );
 }
 
@@ -199,56 +213,56 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding:0,
+    padding:normalize(0),
     backgroundColor: 'hsla(272, 100%, 97%,1)',
   },
   container2: {
-    paddingVertical:20
+    paddingVertical:normalize(20)
   },
   Rubrik: {
     fontFamily: "MarkerFelt-Wide",
-    fontSize: 40,
+    fontSize: normalize(40),
   },
   text: {
     fontFamily: "MarkerFelt-Wide",
-    fontSize: 20,
-    left: 25,
+    fontSize: normalize(20),
+    left: normalize(25),
   },
   text2: {
     fontFamily: "MarkerFelt-Wide",
-    fontSize: 20,
-    left: 15,
+    fontSize: normalize(20),
+    left: normalize(15),
   },
   text3: {
     fontFamily: "MarkerFelt-Wide",
-     fontSize: 20,
-     top:10,
-     left:25
+     fontSize: normalize(20),
+     top:normalize(10),
+     left:normalize(25)
   },
   text4: {
     fontFamily: "MarkerFelt-Wide",
-     fontSize: 60,
-     top:10,
-     left:70,
+     fontSize: normalize(60),
+     top:normalize(10),
+     left:normalize(70),
   },
 
   box: {
-    width: 30,
-    height: 30,
+    width: normalize(30),
+    height: normalize(30),
   },
 
   box2: {
-    width: 26,
-    height: 35,
+    width: normalize(26),
+    height: normalize(35),
   },
   boxis: {
-    width: 10,
-    height: 10,
+    width: normalize(10),
+    height: normalize(10),
   },
 
   boxis2: {
-    width: 6,
-    height: 13,
+    width: normalize(6),
+    height: normalize(13),
   },
   row: {
     flexDirection: "row",
