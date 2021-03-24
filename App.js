@@ -57,7 +57,7 @@ function normalize(size) {
 <View
 style={{
 borderBottomColor: 'black',
-borderBottomWidth: normalize(3),
+borderBottomWidth: normalize(2),
 
 }}>
   
@@ -191,14 +191,7 @@ color: 'white',
         height: normalize(80),
         width: '100%',
         marginBottom:normalize(10),
-        //borderRadius: radie*2,
-        //zIndex: 1,
-        //position: 'absolute',
-        //bottom: '0%',
         flexDirection: "row",
-        //justifyContent: 'space-around',
-        //padding: normalize(6),
-        //padding: 10,
 
       }}>
         
@@ -210,14 +203,9 @@ color: 'white',
         height: normalize(80),
         width: '100%',
         marginBottom:normalize(10),
-        //borderRadius: radie*2,
-        //zIndex: 1,
-        //position: 'absolute',
-        //bottom: '0%',
+
         flexDirection: "row",
-        //justifyContent: 'space-around',
-        //padding: normalize(6),
-        //padding: 10,
+
 
       }}>
         
@@ -228,14 +216,7 @@ color: 'white',
         height: normalize(80),
         width: '100%',
         marginBottom:normalize(10),
-        //borderRadius: radie*2,
-        //zIndex: 1,
-        //position: 'absolute',
-        //bottom: '0%',
         flexDirection: "row",
-        //justifyContent: 'space-around',
-        //padding: normalize(6),
-        //padding: 10,
 
       }}>
         
@@ -246,7 +227,31 @@ color: 'white',
         height: normalize(80),
         width: '100%',
         marginBottom:normalize(10),
+        flexDirection: "row",
         
+
+      }}>
+        
+      </View>
+
+      <View style={ {
+        
+        backgroundColor: 'hsla(268, 100%, 96%,0.63)',
+        height: normalize(80),
+        width: '100%',
+        marginBottom:normalize(10),
+        flexDirection: "row",
+        
+
+      }}>
+        
+      </View>     
+       <View style={ {
+        
+        backgroundColor: 'hsla(268, 100%, 96%,0.63)',
+        height: normalize(80),
+        width: '100%',
+        marginBottom:normalize(10),
         flexDirection: "row",
         
 
@@ -260,17 +265,29 @@ color: 'white',
 
     <View style={ {
         
-        backgroundColor: 'hsla(268, 100%, 100%,0.63)',
-        height: normalize(60),
+        backgroundColor: 'hsla(0, 100%, 99%,1)',
+        height: normalize(45),
         width: '100%',
         //marginBottom:normalize(10),
-        
+        alignItems: 'center',
         flexDirection: "row",
+        justifyContent: 'space-around'
 
       }}>
-         <Image source={require('./assets/1.PNG')}
-          //style={{width: normalize(10), height: normalize(10)}}
-          
+         <Image source={require('./1.png')}
+          style={{width: normalize(40), height: normalize(40)}}
+          />
+                  <Image source={require('./2.png')}
+          style={{width: normalize(40), height: normalize(40)}}
+          />
+                  <Image source={require('./3.png')}
+          style={{width: normalize(40), height: normalize(40)}}
+          />
+                  <Image source={require('./4.png')}
+          style={{width: normalize(40), height: normalize(40)}}
+          />
+                  <Image source={require('./5.png')}
+          style={{width: normalize(40), height: normalize(40)}}
           />
         
       </View>
@@ -305,5 +322,3 @@ color: 'white',
 
 
   });
- 
-
