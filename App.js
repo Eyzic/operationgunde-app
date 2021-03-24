@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, TextInput, TouchableWithoutFeedback, View, Image, Button, SafeAreaView, Alert, Platform, Dimensions, PixelRatio } from 'react-native';
+import React, {Component} from 'react';
+import { StyleSheet, Text, TextInput,  TouchableOpacity,TouchableWithoutFeedback, View, Image, Button, SafeAreaView, Alert, Platform, Dimensions, PixelRatio } from 'react-native';
 import DefaultInput from './defaultInput';
 import { ScrollView } from 'react-native';
+
 
 const {
   width: SCREEN_WIDTH,
@@ -19,7 +20,8 @@ const {
     }
   }
 
-export default function App() {
+export default function App(){
+
   let info = 'Din dagsform' ;
   let space = ' ';
   console.log("Application running!");
@@ -200,11 +202,33 @@ export default function App() {
       </View>
 
       <View style={styles.menu} >
-      <Button
-        title=" Menyrad"
-        onPress={() => Alert.alert('Funktion kommer snart')}
-      />
-
+      
+      <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+        <Image
+          source={require('./1.png')}
+          style={{width: normalize(80), height: normalize(80), left:normalize(10), top:normalize(0)}} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+        <Image
+          source={require('./2.png')}
+          style={{width: normalize(80), height: normalize(80), left:normalize(10), top:normalize(0)}} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+        <Image
+          source={require('./3.png')}
+          style={{width: normalize(80), height: normalize(80), left:normalize(10), top:normalize(0)}} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+        <Image
+          source={require('./4.png')}
+          style={{width: normalize(80), height: normalize(80), left:normalize(13), top:normalize(0)}} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+        <Image
+          source={require('./5.png')}
+          style={{width: normalize(80), height: normalize(80), left:normalize(10), top:normalize(3)}} />
+      </TouchableOpacity>
+      
       </View>
 
     </View>
@@ -276,5 +300,9 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     flex: 0.30, 
     backgroundColor: 'hsla(0, 0%, 100%,1)',
+  },
+  btn: {
+    width: 50,
+    height: 50,
   },
 });
