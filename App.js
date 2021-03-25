@@ -28,214 +28,216 @@ export default function App() {
   console.log("Application running!");
 
 
-
   return (
-    <View style={[styles.container, {
-      // Try setting `flexDirection` to "row".
-      flexDirection: "column"
-      //flexDirection: "row"
-    }]}>
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT /*borderWidth: 5, borderColor: 'green' */ }}>
+        <ScrollView vertical={true} style={{ flexGrow: 1, borderWidth: 3, borderColor: 'red' }, styles.light_transparent}>
 
-      <PageHeader>
-      </PageHeader>
+          <PageHeader>
+          </PageHeader>
 
-      <View style={{ flex: 0.35, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-        <ScrollView horizontal={true} >
-          <Text style={styles.text2}>
-            {'Denna text går att skrolla i sidled, här kommer vi lägga in dom olika målen '}
-            {'personen har och hur långt man kommit med dom i procent tror jag, tex dagens steg, '}
-            {'hur långt man har kommit med antalet timmar man planerat att träna, antal km man tänkt springa'}
-            {'\nOBS: har inte orkat kolla ännu vad de typsnittet vi valt i figma motsvarar i react native'}
-          </Text>
+          <View style={{ flex: 0.35, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+            <ScrollView horizontal={true} >
+              <Text style={styles.text2}>
+                {'Denna text går att skrolla i sidled, här kommer vi lägga in dom olika målen '}
+                {'personen har och hur långt man kommit med dom i procent tror jag, tex dagens steg, '}
+                {'hur långt man har kommit med antalet timmar man planerat att träna, antal km man tänkt springa'}
+                {'\nOBS: har inte orkat kolla ännu vad de typsnittet vi valt i figma motsvarar i react native'}
+              </Text>
+            </ScrollView>
+          </View>
+
+          { /*<View style={{ flex: 0.04, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />*/}
+
+
+          <View style={{ flex: 0.37, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+            <Text style={styles.text}>
+              {'\nVecka 12'}
+              {'\n \nMån     Tis     Ons     Tor      Fre      Lö       Sö'}
+            </Text>
+          </View>
+
+          <View style={styles.row} >
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
+
+          </View>
+          <View style={{ flex: 0.07, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} />
+          <View style={{ flex: 0.04, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />
+          <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+            <Text style={styles.text3}>
+              {'Muskeltrötthet'} {'                22 Mars 2021'}
+            </Text>
+          </View>
+          <View style={styles.row} >
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+          </View>
+
+          <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+            <Text style={styles.text3}>
+              {'Mentalt'} {'                                    5 C °'}
+            </Text>
+          </View>
+          <View style={styles.row} >
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+            <Text style={styles.text3}>
+              {'            Göteborg'}
+            </Text>
+          </View>
+
+          <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+            <Text style={styles.text3}>
+              {'Energi'}
+            </Text>
+          </View>
+
+          <View style={styles.row} >
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+          </View>
+
+          <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+            <Text style={styles.text3}>
+              {'Sömn'}
+            </Text>
+          </View>
+          <View style={styles.row} >
+            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
+            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
+          </View>
+
         </ScrollView>
-      </View>
 
+        <View style={styles.menu} >
 
+          <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+            <Image
+              source={require('./1.png')}
+              style={{ width: normalize(80), height: normalize(80) }} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+            <Image
+              source={require('./2.png')}
+              style={{ width: normalize(80), height: normalize(80) }} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+            <Image
+              source={require('./3.png')}
+              style={{ width: normalize(80), height: normalize(80) }} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+            <Image
+              source={require('./4.png')}
+              style={{ width: normalize(80), height: normalize(80) }} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+            <Image
+              source={require('./5.png')}
+              style={{ width: normalize(80), height: normalize(80) }} />
+          </TouchableOpacity>
 
-      <View style={{ flex: 0.04, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />
+        </View>
 
-      <View style={{ flex: 0.37, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-        <Text style={styles.text}>
-          {'\nVecka 12'}
-          {'\n \nMån     Tis     Ons     Tor      Fre      Lö       Sö'}
-        </Text>
-      </View>
-
-      <View style={styles.row} >
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-
-      </View>
-      <View style={{ flex: 0.07, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} />
-      <View style={{ flex: 0.04, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />
-      <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-        <Text style={styles.text3}>
-          {'Muskeltrötthet'} {'                22 Mars 2021'}
-        </Text>
-      </View>
-      <View style={styles.row} >
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-      </View>
-
-      <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-        <Text style={styles.text3}>
-          {'Mentalt'} {'                                    5 C °'}
-        </Text>
-      </View>
-      <View style={styles.row} >
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-        <Text style={styles.text3}>
-          {'            Göteborg'}
-        </Text>
-      </View>
-
-      <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-        <Text style={styles.text3}>
-          {'Energi'}
-        </Text>
-      </View>
-
-      <View style={styles.row} >
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-      </View>
-
-      <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-        <Text style={styles.text3}>
-          {'Sömn'}
-        </Text>
-      </View>
-      <View style={styles.row} >
-        <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-        <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-        <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-      </View>
-
-      <View style={styles.menu} >
-
-        <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-          <Image
-            source={require('./1.png')}
-            style={{ width: normalize(80), height: normalize(80), left: normalize(10), top: normalize(0) }} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-          <Image
-            source={require('./2.png')}
-            style={{ width: normalize(80), height: normalize(80), left: normalize(10), top: normalize(0) }} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-          <Image
-            source={require('./3.png')}
-            style={{ width: normalize(80), height: normalize(80), left: normalize(10), top: normalize(0) }} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-          <Image
-            source={require('./4.png')}
-            style={{ width: normalize(80), height: normalize(80), left: normalize(13), top: normalize(0) }} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-          <Image
-            source={require('./5.png')}
-            style={{ width: normalize(80), height: normalize(80), left: normalize(10), top: normalize(3) }} />
-        </TouchableOpacity>
 
       </View>
+    </SafeAreaView >
 
-    </View>
   );
 }
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 0,
-    backgroundColor: 'hsla(272, 100%, 97%,1)',
+  light_transparent: {
+    backgroundColor: 'hsla(272, 100%, 97%,1)'
+  },
+  item: {
+    backgroundColor: "'hsla(268, 67%, 89%,1)'"
   },
   container2: {
     paddingVertical: normalize(20)
@@ -288,9 +290,12 @@ const styles = StyleSheet.create({
 
   menu: {
     flexDirection: "row",
-    flexWrap: "wrap",
-    flex: 0.30,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignSelf: 'flex-end',
     backgroundColor: 'hsla(0, 0%, 100%,1)',
+    //borderColor: 'yellow',
+    // borderWidth: 3
   },
   btn: {
     width: 50,
