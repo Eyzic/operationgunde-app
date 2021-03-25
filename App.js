@@ -31,9 +31,9 @@ export default function App() {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT /*borderWidth: 5, borderColor: 'green' */ }}>
-        <ScrollView vertical={true} style={{ flexGrow: 1, borderWidth: 3, borderColor: 'red' }, styles.light_transparent}>
+        <ScrollView vertical={true} style={{ padding: 10, flexGrow: 1, borderWidth: 3, borderColor: 'red' }, styles.light_transparent}>
 
-          <PageHeader>
+          <PageHeader style={[styles.item, styles.border]}>
           </PageHeader>
 
           <View style={{ flex: 0.35, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
@@ -46,9 +46,6 @@ export default function App() {
               </Text>
             </ScrollView>
           </View>
-
-          { /*<View style={{ flex: 0.04, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />*/}
-
 
           <View style={{ flex: 0.37, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
             <Text style={styles.text}>
@@ -231,13 +228,17 @@ export default function App() {
   );
 }
 
-
 const styles = StyleSheet.create({
   light_transparent: {
-    backgroundColor: 'hsla(272, 100%, 97%,1)'
+    backgroundColor: 'hsla(268, 67%, 89%,1)'
+  },
+  border: {
+    borderColor: 'red',
+    borderWidth: 3
   },
   item: {
-    backgroundColor: "'hsla(268, 67%, 89%,1)'"
+    backgroundColor: 'hsla(272, 100%, 97%,1)',
+    marginBottom: 10
   },
   container2: {
     paddingVertical: normalize(20)

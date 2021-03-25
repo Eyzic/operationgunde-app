@@ -17,17 +17,17 @@ function normalize(size) {
 }
 
 
-const PageHeader = () => {
+const PageHeader = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={{ flex: 0.7, left: normalize(25), top: normalize(45), backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+        <View style={props.style}>
             <Text style={styles.Rubrik} >
                 {'Din \ndagsform '}
             </Text>
             <Image source={require('../assets/springa.png')}
-                style={{ width: normalize(125), height: normalize(125), left: normalize(230), top: normalize(-95) }} />
-            <Text style={{ fontFamily: "MarkerFelt-Wide", fontSize: normalize(20), top: normalize(-115), left: normalize(10) }} >
+                style={{ width: normalize(125), height: normalize(125) }} />
+            <Text>
                 {'Taggad och redo'}
             </Text>
         </View>
