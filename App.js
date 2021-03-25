@@ -33,7 +33,7 @@ export default function App() {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT /*borderWidth: 5, borderColor: 'green' */ }}>
         <ScrollView vertical={true} style={{ padding: 10, flexGrow: 1, borderWidth: 3, borderColor: 'red' }, styles.light_transparent}>
 
-          <PageHeader style={[styles.item, styles.border]}>
+          <PageHeader style={[styles.item]}>
           </PageHeader>
 
           <View style={{ flex: 0.35, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
