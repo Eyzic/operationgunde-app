@@ -1,11 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View, Image, Button, SafeAreaView, Alert, Platform, Dimensions, PixelRatio } from 'react-native';
-import DefaultInput from './components/defaultInput';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View, Image, SafeAreaView, Alert, Platform, Dimensions, PixelRatio } from 'react-native';
 import { ScrollView } from 'react-native';
 import PageHeader from './components/pageHeader';
 import WeekOverview from './components/weekOverview';
-import EvalBar from './components/evalBar';
 import DayOverview from './components/dayOverview';
 
 
@@ -93,56 +91,6 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 15
   },
-  container2: {
-    paddingVertical: normalize(20)
-  },
-  text: {
-    fontFamily: "Roboto",
-    fontSize: normalize(20),
-    left: normalize(25),
-  },
-  text2: {
-    fontFamily: "Roboto",
-    fontSize: normalize(20),
-    left: normalize(15),
-  },
-  text3: {
-    fontFamily: "Roboto",
-    fontSize: normalize(20),
-    top: normalize(10),
-    left: normalize(25)
-  },
-  text4: {
-    fontFamily: "Roboto",
-    fontSize: normalize(60),
-    top: normalize(10),
-    left: normalize(70),
-  },
-
-  box: {
-    width: normalize(30),
-    height: normalize(30),
-  },
-
-  box2: {
-    width: normalize(26),
-    height: normalize(35),
-  },
-  boxis: {
-    width: normalize(10),
-    height: normalize(10),
-    marginLeft: 4
-  },
-
-  boxis2: {
-    width: normalize(6),
-    height: normalize(13),
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-  },
-
   menu: {
     flexDirection: "row",
     display: 'flex',
@@ -150,9 +98,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'hsla(0, 0%, 100%,1)',
     padding: 5,
     paddingHorizontal: 20
-  },
-  btn: {
-    width: 50,
-    height: 50,
-  },
+  }
 });

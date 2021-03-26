@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform } from 'react-native';
+import { Text, View, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
 import EvalBar from './evalBar';
 
 const {
@@ -40,7 +40,7 @@ const dayOverview = (props) => {
                 </Text>
                 <EvalBar style={styles.box} />
             </View>
-            <View style={[{ alignItems: 'flex-end', flexGrow: 1, padding: 0 }]}>
+            <View style={[{ alignItems: 'flex-end', flexGrow: 1 }]}>
                 <Text style={styles.h2}>
                     {'22 Mars 2021'}
                 </Text>
@@ -53,10 +53,6 @@ const dayOverview = (props) => {
 };
 
 const styles = StyleSheet.create({
-    row: {
-        flexDirection: "row",
-        margin: 5
-    },
     box: {
         width: normalize(10),
         height: normalize(10),

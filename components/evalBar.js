@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform } from 'react-native';
+import { View, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
 
 const {
     width: SCREEN_WIDTH,

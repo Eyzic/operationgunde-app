@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform } from 'react-native';
+import { Text, View, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
 
 const {
     width: SCREEN_WIDTH,
@@ -76,10 +76,6 @@ const weekOverview = (props) => {
 };
 
 const styles = StyleSheet.create({
-    text: {
-        fontFamily: "Roboto",
-        fontSize: normalize(20)
-    },
     box: {
         width: normalize(30),
         height: normalize(30),

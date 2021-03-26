@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform } from 'react-native';
+import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
 import ProgressView from './progressView';
 
 const {
@@ -29,7 +29,7 @@ const PageHeader = (props) => {
                         {'Din'}
                     </Text>
                     <Text style={styles.h1} >
-                        {'dagsform '}
+                        {'dagsform'}
                     </Text>
 
                     <Text style={[styles.h3, styles.top_border]}>
