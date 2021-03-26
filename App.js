@@ -4,6 +4,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback
 import DefaultInput from './components/defaultInput';
 import { ScrollView } from 'react-native';
 import PageHeader from './components/pageHeader';
+import WeekOverview from './components/weekOverview';
 
 
 const {
@@ -36,7 +37,7 @@ export default function App() {
           <PageHeader style={[styles.item]}>
           </PageHeader>
 
-          <View style={{ flex: 0.35, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+          <View style={[styles.item, { flex: 0.35, backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} >
             <ScrollView horizontal={true} >
               <Text style={styles.text2}>
                 {'Denna text går att skrolla i sidled, här kommer vi lägga in dom olika målen '}
@@ -47,35 +48,14 @@ export default function App() {
             </ScrollView>
           </View>
 
-          <View style={{ flex: 0.37, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-            <Text style={styles.text}>
-              {'\nVecka 12'}
-              {'\n \nMån     Tis     Ons     Tor      Fre      Lö       Sö'}
-            </Text>
-          </View>
+          <WeekOverview style={[styles.item]} />
 
-          <View style={styles.row} >
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-
-          </View>
-          <View style={{ flex: 0.07, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} />
-          <View style={{ flex: 0.04, backgroundColor: "'hsla(268, 67%, 89%,1)'" }} />
-          <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
+          <View style={{ backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
             <Text style={styles.text3}>
-              {'Muskeltrötthet'} {'                22 Mars 2021'}
+              {'Muskeltrötthet'}
+            </Text>
+            <Text>
+              {'22 Mars 2021'}
             </Text>
           </View>
           <View style={styles.row} >
@@ -238,7 +218,8 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: 'hsla(272, 100%, 97%,1)',
-    marginBottom: 10
+    marginBottom: 10,
+    padding: 20
   },
   container2: {
     paddingVertical: normalize(20)
