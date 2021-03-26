@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View, Image, SafeAreaView, Alert, Platform, Dimensions, PixelRatio } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Platform, Dimensions, PixelRatio } from 'react-native';
 import { ScrollView } from 'react-native';
 import PageHeader from './components/pageHeader';
 import WeekOverview from './components/weekOverview';
 import DayOverview from './components/dayOverview';
-
-
+import NavMenu from './components/navMenu';
 
 const {
   width: SCREEN_WIDTH,
@@ -30,7 +29,7 @@ export default function App() {
 
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT /*borderWidth: 5, borderColor: 'green' */ }}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader style={[styles.item]}>
@@ -41,35 +40,7 @@ export default function App() {
 
         </ScrollView>
 
-        <View style={styles.menu}>
-
-          <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-            <Image
-              source={require('./1.png')}
-              style={{ width: normalize(60), height: normalize(60) }} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-            <Image
-              source={require('./2.png')}
-              style={{ width: normalize(60), height: normalize(60) }} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-            <Image
-              source={require('./3.png')}
-              style={{ width: normalize(60), height: normalize(60) }} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-            <Image
-              source={require('./4.png')}
-              style={{ width: normalize(60), height: normalize(60) }} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-            <Image
-              source={require('./5.png')}
-              style={{ width: normalize(60), height: normalize(60) }} />
-          </TouchableOpacity>
-
-        </View>
+        <NavMenu style={styles.menu} />
 
       </View>
     </SafeAreaView >
