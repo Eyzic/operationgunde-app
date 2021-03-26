@@ -23,7 +23,7 @@ export default function App() {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader style={[styles.item]}>
+          <PageHeader style={[styles.item]} image={'./assets/springa.png'} hasImage={true}>
           </PageHeader>
 
           <WeekOverview style={[styles.item]} />

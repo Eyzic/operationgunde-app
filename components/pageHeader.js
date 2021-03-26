@@ -18,6 +18,10 @@ function normalize(size) {
 }
 
 
+//Props: style = css for the toplevel of the component.
+//       hasImage = true or false depending on whether you want to render a picture or not.
+//       image = the location of the image to be shown. Can be ignored if there is no image.
+
 const PageHeader = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
@@ -36,7 +40,9 @@ const PageHeader = (props) => {
                         {'Taggad och redo'}
                     </Text>
                 </View>
-                <Image source={require('../assets/springa.png')} style={styles.image} />
+                {props.hasImage &&
+                    <Image source={require('../assets/springa.png')} style={styles.image} />}
+
             </View>
             <ProgressView />
         </View>
