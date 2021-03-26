@@ -6,6 +6,7 @@ import PageHeader from './components/pageHeader';
 import WeekOverview from './components/weekOverview';
 import DayOverview from './components/dayOverview';
 import NavMenu from './components/navMenu';
+import DailyMeasure from './components/dailyMeasure';
 
 const {
   width: SCREEN_WIDTH,
@@ -28,6 +29,8 @@ export default function App() {
 
           <WeekOverview style={[styles.item]} />
           <DayOverview style={[styles.item]} />
+
+          <DailyMeasure style={styles.item} />
 
         </ScrollView>
 
