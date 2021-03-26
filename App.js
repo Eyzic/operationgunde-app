@@ -5,6 +5,7 @@ import DefaultInput from './components/defaultInput';
 import { ScrollView } from 'react-native';
 import PageHeader from './components/pageHeader';
 import WeekOverview from './components/weekOverview';
+import EvalBar from './components/evalBar';
 
 
 const {
@@ -58,59 +59,14 @@ export default function App() {
               {'22 Mars 2021'}
             </Text>
           </View>
-          <View style={styles.row} >
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-          </View>
+          <EvalBar style={styles.boxis} />
 
           <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
             <Text style={styles.text3}>
               {'Mentalt'} {'                                    5 C °'}
             </Text>
           </View>
-          <View style={styles.row} >
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-            <Text style={styles.text3}>
-              {'            Göteborg'}
-            </Text>
-          </View>
+          <EvalBar style={styles.boxis} />
 
           <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
             <Text style={styles.text3}>
@@ -118,56 +74,14 @@ export default function App() {
             </Text>
           </View>
 
-          <View style={styles.row} >
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-          </View>
+          <EvalBar style={styles.boxis} />
 
           <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
             <Text style={styles.text3}>
               {'Sömn'}
             </Text>
           </View>
-          <View style={styles.row} >
-            <View style={[styles.box2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "skyblue" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-            <View style={[styles.boxis2, { backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} />
-            <View style={[styles.boxis, { backgroundColor: "'hsla(0, 0%, 100%,1)'" }]} />
-          </View>
+          <EvalBar style={styles.boxis} />
 
         </ScrollView>
 
@@ -259,6 +173,7 @@ const styles = StyleSheet.create({
   boxis: {
     width: normalize(10),
     height: normalize(10),
+    marginLeft: 4
   },
 
   boxis2: {
