@@ -6,6 +6,8 @@ import { ScrollView } from 'react-native';
 import PageHeader from './components/pageHeader';
 import WeekOverview from './components/weekOverview';
 import EvalBar from './components/evalBar';
+import DayOverview from './components/dayOverview';
+
 
 
 const {
@@ -27,94 +29,49 @@ export default function App() {
 
   let info = 'Din dagsform';
   let space = ' ';
-  console.log("Application running!");
-
 
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT /*borderWidth: 5, borderColor: 'green' */ }}>
-        <ScrollView vertical={true} style={{ padding: 10, flexGrow: 1, borderWidth: 3, borderColor: 'red' }, styles.light_transparent}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader style={[styles.item]}>
           </PageHeader>
 
-          <View style={[styles.item, { flex: 0.35, backgroundColor: "'hsla(272, 100%, 97%,1)'" }]} >
-            <ScrollView horizontal={true} >
-              <Text style={styles.text2}>
-                {'Denna text går att skrolla i sidled, här kommer vi lägga in dom olika målen '}
-                {'personen har och hur långt man kommit med dom i procent tror jag, tex dagens steg, '}
-                {'hur långt man har kommit med antalet timmar man planerat att träna, antal km man tänkt springa'}
-                {'\nOBS: har inte orkat kolla ännu vad de typsnittet vi valt i figma motsvarar i react native'}
-              </Text>
-            </ScrollView>
-          </View>
-
           <WeekOverview style={[styles.item]} />
-
-          <View style={{ backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-            <Text style={styles.text3}>
-              {'Muskeltrötthet'}
-            </Text>
-            <Text>
-              {'22 Mars 2021'}
-            </Text>
-          </View>
-          <EvalBar style={styles.boxis} />
-
-          <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-            <Text style={styles.text3}>
-              {'Mentalt'} {'                                    5 C °'}
-            </Text>
-          </View>
-          <EvalBar style={styles.boxis} />
-
-          <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-            <Text style={styles.text3}>
-              {'Energi'}
-            </Text>
-          </View>
-
-          <EvalBar style={styles.boxis} />
-
-          <View style={{ flex: 0.17, backgroundColor: "'hsla(272, 100%, 97%,1)'" }} >
-            <Text style={styles.text3}>
-              {'Sömn'}
-            </Text>
-          </View>
-          <EvalBar style={styles.boxis} />
+          <DayOverview style={[styles.item]} />
 
         </ScrollView>
 
-        <View style={styles.menu} >
+        <View style={styles.menu}>
 
           <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
             <Image
               source={require('./1.png')}
-              style={{ width: normalize(80), height: normalize(80) }} />
+              style={{ width: normalize(60), height: normalize(60) }} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
             <Image
               source={require('./2.png')}
-              style={{ width: normalize(80), height: normalize(80) }} />
+              style={{ width: normalize(60), height: normalize(60) }} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
             <Image
               source={require('./3.png')}
-              style={{ width: normalize(80), height: normalize(80) }} />
+              style={{ width: normalize(60), height: normalize(60) }} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
             <Image
               source={require('./4.png')}
-              style={{ width: normalize(80), height: normalize(80) }} />
+              style={{ width: normalize(60), height: normalize(60) }} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
             <Image
               source={require('./5.png')}
-              style={{ width: normalize(80), height: normalize(80) }} />
+              style={{ width: normalize(60), height: normalize(60) }} />
           </TouchableOpacity>
 
         </View>
-
 
       </View>
     </SafeAreaView >
@@ -123,7 +80,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  light_transparent: {
+  background: {
     backgroundColor: 'hsla(268, 67%, 89%,1)'
   },
   border: {
@@ -133,7 +90,8 @@ const styles = StyleSheet.create({
   item: {
     backgroundColor: 'hsla(272, 100%, 97%,1)',
     marginBottom: 10,
-    padding: 20
+    padding: 20,
+    borderRadius: 15
   },
   container2: {
     paddingVertical: normalize(20)
@@ -189,10 +147,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     display: 'flex',
     justifyContent: 'space-between',
-    alignSelf: 'flex-end',
     backgroundColor: 'hsla(0, 0%, 100%,1)',
-    //borderColor: 'yellow',
-    // borderWidth: 3
+    padding: 5,
+    paddingHorizontal: 20
   },
   btn: {
     width: 50,

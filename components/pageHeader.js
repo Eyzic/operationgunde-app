@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform } from 'react-native';
+import ProgressView from './progressView';
 
 const {
     width: SCREEN_WIDTH,
@@ -21,21 +22,25 @@ const PageHeader = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={[props.style, styles.header]}>
-            <View>
-                <Text style={styles.h1} >
-                    {'Din'}
-                </Text>
-                <Text style={styles.h1} >
-                    {'dagsform '}
-                </Text>
+        <View style={props.style}>
+            <View style={[styles.header]}>
+                <View>
+                    <Text style={styles.h1} >
+                        {'Din'}
+                    </Text>
+                    <Text style={styles.h1} >
+                        {'dagsform '}
+                    </Text>
 
-                <Text style={[styles.h3, styles.top_border]}>
-                    {'Taggad och redo'}
-                </Text>
+                    <Text style={[styles.h3, styles.top_border]}>
+                        {'Taggad och redo'}
+                    </Text>
+                </View>
+                <Image source={require('../assets/springa.png')} style={styles.image} />
             </View>
-            <Image source={require('../assets/springa.png')} style={styles.image} />
+            <ProgressView />
         </View>
+
     );
 }
 
@@ -57,8 +62,9 @@ const styles = StyleSheet.create({
     header: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        padding: 40
+        justifyContent: 'space-between',
+        marginTop: 20,
+        marginBottom: 20
     },
     image: {
         width: normalize(135),

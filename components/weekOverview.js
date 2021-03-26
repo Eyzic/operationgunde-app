@@ -21,11 +21,16 @@ const weekOverview = (props) => {
 
     return (
         <View style={props.style}>
-            <View style={[{ backgroundColor: 'hsla(272, 100%, 97%,1)' }]} >
-                <Text style={styles.h2}>
-                    {'Vecka 12'}
-                </Text>
-                <View style={styles.row} >
+            <View>
+                <View style={[styles.row, { marginBottom: 10 }]}>
+                    <Text style={styles.h2}>
+                        {'Vecka 12'}
+                    </Text>
+                    <Text style={styles.h2}>
+                        {'Idag'}
+                    </Text>
+                </View>
+                <View style={[styles.row, { marginBottom: 5 }]} >
                     <Text>
                         {'Mån'}
                     </Text>
