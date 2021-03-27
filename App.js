@@ -57,7 +57,7 @@ function normalize(size) {
 <View
 style={{
 borderBottomColor: 'black',
-borderBottomWidth: normalize(2),
+borderBottomWidth: normalize(1.5),
 
 }}>
   
@@ -68,14 +68,14 @@ flexDirection: "row",
 justifyContent: "space-around"
 
 }}>
-        <Button
+        <Button 
           title="Feed"
           color='hsla(324, 53%, 50%,1)'
           
           //onPress={() => Alert.alert('Left button pressed')}
         />
   <Button
-  // onPress={this.addPicture}
+  onPress={() => Alert.alert('till översikt')}
    title="Översikt"
    color="black"
   />
@@ -83,7 +83,7 @@ justifyContent: "space-around"
 
 </View>
       </View>
-
+      <TouchableWithoutFeedback onPress={() => Alert.alert('till passets sida')}>
       <View style={ {
         
         backgroundColor: 'hsla(268, 100%, 96%,0.63)',
@@ -184,7 +184,7 @@ color: 'white',
          
       </View>
 
-
+      </TouchableWithoutFeedback>
       <View style={ {
         
         backgroundColor: 'hsla(268, 100%, 96%,0.63)',
@@ -265,8 +265,8 @@ color: 'white',
 
     <View style={ {
         
-        backgroundColor: 'hsla(0, 100%, 99%,1)',
-        height: normalize(45),
+        backgroundColor: 'hsla(0, 100%, 100%,1)',
+        height: normalize(50),
         width: '100%',
         //marginBottom:normalize(10),
         alignItems: 'center',
@@ -274,21 +274,37 @@ color: 'white',
         justifyContent: 'space-around'
 
       }}>
-         <Image source={require('./1.png')}
+        <TouchableWithoutFeedback onPress={() => Alert.alert('till gruppsida')}>
+         <Image source={require('./grupp2.png')}
+          style={{
+            width: normalize(40), 
+            height: normalize(40)
+          }}
+          />
+          </TouchableWithoutFeedback>
+
+          <TouchableWithoutFeedback onPress={() => Alert.alert('till profil')}>
+                  <Image source={require('./profil2.png')}
           style={{width: normalize(40), height: normalize(40)}}
           />
-                  <Image source={require('./2.png')}
-          style={{width: normalize(40), height: normalize(40)}}
+          </TouchableWithoutFeedback>
+
+          <TouchableWithoutFeedback onPress={() => Alert.alert('till dashboard')}>
+                  <Image source={require('./hus1.png')}
+          style={{width: normalize(41), height: normalize(38)}}
           />
-                  <Image source={require('./3.png')}
-          style={{width: normalize(40), height: normalize(40)}}
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => Alert.alert('till starta pass')}>
+                  <Image source={require('./timer1.png')}
+          style={{width: normalize(34), height: normalize(40)}}
           />
-                  <Image source={require('./4.png')}
-          style={{width: normalize(40), height: normalize(40)}}
+          </TouchableWithoutFeedback>
+
+          <TouchableWithoutFeedback onPress={() => Alert.alert('till historik')}>
+                  <Image source={require('./historik2.png')}
+          style={{width: normalize(30), height: normalize(40)}}
           />
-                  <Image source={require('./5.png')}
-          style={{width: normalize(40), height: normalize(40)}}
-          />
+          </TouchableWithoutFeedback>
         
       </View>
     
