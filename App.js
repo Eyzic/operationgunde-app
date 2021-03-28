@@ -67,7 +67,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FrontPage" screenOptions={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}>
+      <Stack.Navigator initialRouteName="FrontPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
         <Stack.Screen name="FrontPage" component={frontPage} />
         <Stack.Screen name="BackPage" component={backPage} />
       </Stack.Navigator>
