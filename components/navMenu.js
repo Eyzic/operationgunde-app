@@ -32,7 +32,7 @@ const navMenu = (props) => {
                     source={require('../assets/menu/2.png')}
                     style={{ width: normalize(60), height: normalize(60) }} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+            <TouchableOpacity onPress={() => props.nav.navigate("FrontPage")}>
                 <Image
                     source={require('../assets/menu/3.png')}
                     style={{ width: normalize(60), height: normalize(60) }} />
@@ -42,7 +42,7 @@ const navMenu = (props) => {
                     source={require('../assets/menu/4.png')}
                     style={{ width: normalize(60), height: normalize(60) }} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+            <TouchableOpacity onPress={() => props.nav.navigate("BackPage")}>
                 <Image
                     source={require('../assets/menu/5.png')}
                     style={{ width: normalize(60), height: normalize(60) }} />
