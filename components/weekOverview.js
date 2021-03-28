@@ -23,53 +23,28 @@ const weekOverview = (props) => {
         <View style={props.style}>
             <View>
                 <View style={[styles.row, { marginBottom: 10 }]}>
-                    <Text style={styles.h2}>
-                        {'Vecka 12'}
-                    </Text>
-                    <Text style={styles.h2}>
-                        {'Idag'}
-                    </Text>
+                    <Text style={styles.h2}>Vecka 12</Text>
+                    <Text style={styles.h2}>Idag</Text>
                 </View>
                 <View style={[styles.row, { marginBottom: 5 }]} >
-                    <Text>
-                        {'Mån'}
-                    </Text>
-
-                    <Text>
-                        {'Tis'}
-                    </Text>
-
-                    <Text>
-                        {'Ons'}
-                    </Text>
-
-                    <Text>
-                        {'Tor'}
-                    </Text>
-
-                    <Text>
-                        {'Fre'}
-                    </Text>
-
-                    <Text>
-                        {'Lör'}
-                    </Text>
-
-                    <Text>
-                        {'Sön'}
-                    </Text>
+                    <Text>Mån</Text>
+                    <Text>Tis</Text>
+                    <Text>Ons</Text>
+                    <Text>Tor</Text>
+                    <Text>Fre</Text>
+                    <Text>Lör</Text>
+                    <Text>Sön</Text>
                 </View>
             </View>
 
             <View style={styles.row} >
-                <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-                <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-                <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-                <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-                <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-                <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-                <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-
+                <View style={[styles.box]} />
+                <View style={[styles.box]} />
+                <View style={[styles.box]} />
+                <View style={[styles.box]} />
+                <View style={[styles.box]} />
+                <View style={[styles.box]} />
+                <View style={[styles.box]} />
             </View>
         </View>
     )
@@ -79,6 +54,7 @@ const styles = StyleSheet.create({
     box: {
         width: normalize(30),
         height: normalize(30),
+        backgroundColor: "skyblue"
     },
     row: {
         flexDirection: "row",

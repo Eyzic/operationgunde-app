@@ -22,7 +22,7 @@ const dailyMeasure = (props) => {
 
     return (
         <View style={[props.style, { backgroundColor: '#BB22AA', marginBottom: 30 }]} onStartShouldSetResponder={() => props.nav.navigate('DailyHRV')}  >
-            <Text style={[styles.h2, { textAlign: 'center' }]}>{'Daily measure!'}</Text>
+            <Text style={[styles.h2, { textAlign: 'center' }]}>Daily measure!</Text>
         </View>
     )
 };

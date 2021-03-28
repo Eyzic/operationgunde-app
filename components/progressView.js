@@ -22,9 +22,9 @@ const progressView = (props) => {
     return (
         <ScrollView horizontal={true} >
             <Text style={styles.h3}>
-                {'Denna text går att skrolla i sidled, här kommer vi lägga in dom olika målen '}
-                {'personen har och hur långt man kommit med dom i procent tror jag, tex dagens steg, '}
-                {'hur långt man har kommit med antalet timmar man planerat att träna, antal km man tänkt springa'}
+                Denna text går att skrolla i sidled, här kommer vi lägga in dom olika målen
+                personen har och hur långt man kommit med dom i procent tror jag, tex dagens steg
+                hur långt man har kommit med antalet timmar man planerat att träna, antal km man tänkt springa
             </Text>
         </ScrollView>
     )

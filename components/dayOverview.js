@@ -24,28 +24,33 @@ const dayOverview = (props) => {
         <View style={[props.style, { flexDirection: 'row' }]}>
             <View style={{ flexGrow: 1, padding: 0 }}>
                 <Text style={styles.h3}>
-                    {'Muskeltrötthet'}
+                    Muskeltrötthet
                 </Text>
                 <EvalBar style={styles.box} />
+
                 <Text style={styles.h3}>
-                    {'Mentalt'}
+                    Mentalt
                 </Text>
                 <EvalBar style={styles.box} />
+
                 <Text style={styles.h3}>
-                    {'Energi'}
+                    Energi
                 </Text>
                 <EvalBar style={styles.box} />
+
                 <Text style={styles.h3}>
-                    {'Sömn'}
+                    Sömn
                 </Text>
                 <EvalBar style={styles.box} />
+
             </View>
+
             <View style={[{ alignItems: 'flex-end', flexGrow: 1 }]}>
                 <Text style={styles.h2}>
-                    {'22 Mars 2021'}
+                    22 Mars 2021
                 </Text>
                 <Text style={styles.h1}>
-                    {'5 C °'}
+                    5 C °
                 </Text>
             </View>
         </View >
@@ -56,7 +61,8 @@ const styles = StyleSheet.create({
     box: {
         width: normalize(10),
         height: normalize(10),
-        marginRight: 4
+        marginRight: 4,
+        backgroundColor: "skyblue"
     },
     h1: {
         fontFamily: "Roboto",

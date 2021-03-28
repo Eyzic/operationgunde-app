@@ -6,16 +6,16 @@ const evalBar = (props) => {
 
     return (
         <View style={styles.row} >
-            <View style={[props.style, { backgroundColor: "skyblue" }]} />
-            <View style={[props.style, { backgroundColor: "skyblue" }]} />
-            <View style={[props.style, { backgroundColor: "skyblue" }]} />
-            <View style={[props.style, { backgroundColor: "skyblue" }]} />
-            <View style={[props.style, { backgroundColor: "skyblue" }]} />
-            <View style={[props.style, { backgroundColor: "skyblue" }]} />
-            <View style={[props.style, { backgroundColor: "skyblue" }]} />
-            <View style={[props.style, { backgroundColor: "skyblue" }]} />
-            <View style={[props.style, { backgroundColor: "skyblue" }]} />
-            <View style={[props.style, { backgroundColor: "skyblue" }]} />
+            <View style={[props.style]} />
+            <View style={[props.style]} />
+            <View style={[props.style]} />
+            <View style={[props.style]} />
+            <View style={[props.style]} />
+            <View style={[props.style]} />
+            <View style={[props.style]} />
+            <View style={[props.style]} />
+            <View style={[props.style]} />
+            <View style={[props.style]} />
         </View>
     )
 };

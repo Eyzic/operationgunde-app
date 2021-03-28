@@ -37,7 +37,7 @@ const PageHeader = (props) => {
                     </Text>
 
                     <Text style={[styles.h3, styles.top_border]}>
-                        {'Taggad och redo'}
+                        Taggad och redo
                     </Text>
                 </View>
                 {console.log(props.image)}
