@@ -277,32 +277,32 @@ color: 'white',
         <TouchableWithoutFeedback onPress={() => Alert.alert('till gruppsida')}>
          <Image source={require('./grupp2.png')}
           style={{
-            width: normalize(40), 
-            height: normalize(40)
+            width: SCREEN_WIDTH*0.12, 
+            height: SCREEN_WIDTH*0.115
           }}
           />
           </TouchableWithoutFeedback>
 
           <TouchableWithoutFeedback onPress={() => Alert.alert('till profil')}>
                   <Image source={require('./profil2.png')}
-          style={{width: normalize(40), height: normalize(40)}}
+          style={{width: SCREEN_WIDTH*0.12, height: SCREEN_WIDTH*0.12}}
           />
           </TouchableWithoutFeedback>
 
           <TouchableWithoutFeedback onPress={() => Alert.alert('till dashboard')}>
                   <Image source={require('./hus1.png')}
-          style={{width: normalize(41), height: normalize(38)}}
+          style={{width: SCREEN_WIDTH*0.13, height: SCREEN_WIDTH*0.12}}
           />
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback onPress={() => Alert.alert('till starta pass')}>
                   <Image source={require('./timer1.png')}
-          style={{width: normalize(34), height: normalize(40)}}
+          style={{width: SCREEN_WIDTH*0.12, height: SCREEN_WIDTH*0.142}}
           />
           </TouchableWithoutFeedback>
 
           <TouchableWithoutFeedback onPress={() => Alert.alert('till historik')}>
                   <Image source={require('./historik2.png')}
-          style={{width: normalize(30), height: normalize(40)}}
+          style={{width: SCREEN_WIDTH*0.10, height: SCREEN_WIDTH*0.13,}}
           />
           </TouchableWithoutFeedback>
         
