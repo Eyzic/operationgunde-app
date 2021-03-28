@@ -25,27 +25,27 @@ const navMenu = (props) => {
             <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
                 <Image
                     source={require('../assets/menu/1.png')}
-                    style={{ width: normalize(60), height: normalize(60) }} />
+                    style={styles.normalize} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
                 <Image
                     source={require('../assets/menu/2.png')}
-                    style={{ width: normalize(60), height: normalize(60) }} />
+                    style={styles.normalize} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => props.nav.navigate("FrontPage")}>
                 <Image
                     source={require('../assets/menu/3.png')}
-                    style={{ width: normalize(60), height: normalize(60) }} />
+                    style={styles.normalize} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
                 <Image
                     source={require('../assets/menu/4.png')}
-                    style={{ width: normalize(60), height: normalize(60) }} />
+                    style={styles.normalize} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => props.nav.navigate("BackPage")}>
                 <Image
                     source={require('../assets/menu/5.png')}
-                    style={{ width: normalize(60), height: normalize(60) }} />
+                    style={styles.normalize} />
             </TouchableOpacity>
 
         </View>
@@ -56,6 +56,10 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: "row",
         margin: 5
+    },
+    normalize: {
+        width: normalize(60),
+        height: normalize(60)
     }
 });
 

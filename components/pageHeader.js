@@ -30,16 +30,17 @@ const PageHeader = (props) => {
             <View style={[styles.header]}>
                 <View>
                     <Text style={styles.h1} >
-                        {'Din'}
+                        {props.text1}
                     </Text>
                     <Text style={styles.h1} >
-                        {'dagsform'}
+                        {props.text2}
                     </Text>
 
                     <Text style={[styles.h3, styles.top_border]}>
                         {'Taggad och redo'}
                     </Text>
                 </View>
+                {console.log(props.image)}
                 {props.hasImage &&
                     <Image source={require('../assets/springa.png')} style={styles.image} />}
 

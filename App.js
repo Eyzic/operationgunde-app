@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler'
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, Dimensions } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Dimensions, Text } from 'react-native';
 import { ScrollView } from 'react-native';
 import PageHeader from './components/pageHeader';
 import WeekOverview from './components/weekOverview';
@@ -10,6 +10,7 @@ import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
+import { TextInput } from 'react-native-gesture-handler';
 
 const {
   width: SCREEN_WIDTH,
@@ -23,7 +24,7 @@ function frontPage({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader style={[styles.item]} image={'./assets/springa.png'} hasImage={true}>
+          <PageHeader text1="Din" text2="Dagsform" style={[styles.item]} hasImage={true}>
           </PageHeader>
 
           <WeekOverview style={[styles.item]} />
@@ -46,8 +47,37 @@ function backPage({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader style={[styles.item]} hasImage={false}>
+          <PageHeader text1='Din' text2='Dagsform' style={[styles.item]} hasImage={false}>
           </PageHeader>
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+
+function dailyHRV({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader text1='Daglig' text2='HRV-mätning' style={[styles.item]} hasImage={false}>
+          </PageHeader>
+
+          <TextInput style={[styles.item]}>Namn:</TextInput>
+          <TextInput style={[styles.item]}>HRV:</TextInput>
+          <TextInput style={[styles.item]}>Sömn:</TextInput>
+          <TextInput style={[styles.item]}>Stressnivå:</TextInput>
+          <TextInput style={[styles.item]}>Humör:</TextInput>
+          <TextInput style={[styles.item]}>Muskeltrötthet:</TextInput>
+          <TextInput style={[styles.item]}>Skador:</TextInput>
+          <TextInput style={[styles.item]}>Energinivå:</TextInput>
+
+          <DailyMeasure style={styles.item} nav={navigation} />
 
         </ScrollView>
 
@@ -61,15 +91,12 @@ function backPage({ navigation }) {
 const Stack = createStackNavigator();
 
 export default function App() {
-
-  let info = 'Din dagsform';
-  let space = ' ';
-
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="FrontPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
         <Stack.Screen name="FrontPage" component={frontPage} />
         <Stack.Screen name="BackPage" component={backPage} />
+        <Stack.Screen name="DailyHRV" component={dailyHRV} />
       </Stack.Navigator>
     </NavigationContainer>
   );
