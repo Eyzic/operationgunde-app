@@ -47,7 +47,7 @@ const dayOverview = (props) => {
 
             <View style={[{ alignItems: 'flex-end', flexGrow: 1 }]}>
                 <Text style={styles.h2}>
-                    22 Mars 2021
+                    {today()}
                 </Text>
                 <Text style={styles.h1}>
                     5 C °
@@ -56,6 +56,41 @@ const dayOverview = (props) => {
         </View >
     )
 };
+
+function today() {
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+
+    if (month == 1)
+        month = "Januari"
+    else if (month == 2)
+        month = "Februari"
+    else if (month == 3)
+        month = "Mars"
+    else if (month == 4)
+        month = "April"
+    else if (month == 5)
+        month = "Maj"
+    else if (month == 6)
+        month = "Juni"
+    else if (month == 7)
+        month = "Juli"
+    else if (month == 8)
+        month = "Augusti"
+    else if (month == 9)
+        month = "September"
+    else if (month == 10)
+        month = "Oktober"
+    else if (month == 11)
+        month = "November"
+    else if (month == 12)
+        month = "December"
+
+    return today = day + ' ' + month + ' ' + year;
+
+}
 
 const styles = StyleSheet.create({
     box: {
