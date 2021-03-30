@@ -8,6 +8,7 @@ import WeekOverview from './components/weekOverview';
 import DayOverview from './components/dayOverview';
 import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
+import PageHeader2 from './components/pageHeader2';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
@@ -16,12 +17,14 @@ const {
   width: SCREEN_WIDTH,
   height: SCREEN_HEIGHT,
 } = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
+
+// i SCREEN_HEIGHT så är -55 tillagd för på Jessicas telefon hamnar menybaren för långt ner
 
 function frontPage({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT -55 }}> 
+      
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader text1="Din" text2="Dagsform" style={[styles.item]} hasImage={true}>
@@ -44,7 +47,7 @@ function frontPage({ navigation }) {
 function backPage({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT -55}}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader text1='Din' text2='Dagsform' style={[styles.item]} hasImage={false}>
@@ -62,7 +65,7 @@ function backPage({ navigation }) {
 function dailyHRV({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT -55}}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader text1='Daglig' text2='HRV-mätning' style={[styles.item]} hasImage={false}>
@@ -88,6 +91,26 @@ function dailyHRV({ navigation }) {
   );
 }
 
+function nyAktivitet({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT -55}}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader2 text1='Ny' text2='Aktivitet' style={[styles.item]} hasImage={false}>
+          </PageHeader2>
+
+          <TextInput style={[styles.item]}>Aktivitetsnamn:</TextInput>
+
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -97,6 +120,7 @@ export default function App() {
         <Stack.Screen name="FrontPage" component={frontPage} />
         <Stack.Screen name="BackPage" component={backPage} />
         <Stack.Screen name="DailyHRV" component={dailyHRV} />
+        <Stack.Screen name="NyAktivitet" component={nyAktivitet} />
       </Stack.Navigator>
     </NavigationContainer>
   );

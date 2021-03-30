@@ -37,7 +37,7 @@ const navMenu = (props) => {
                     source={require('../assets/menu/3.png')}
                     style={styles.normalize} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+            <TouchableOpacity onPress={() => props.nav.navigate("NyAktivitet")}>
                 <Image
                     source={require('../assets/menu/4.png')}
                     style={styles.normalize} />
