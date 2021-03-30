@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, Alert ,View, TouchableOpacity } from 'react-native';
+import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, Alert, View, TouchableOpacity } from 'react-native';
 
 const {
     width: SCREEN_WIDTH,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     h3: {
         fontFamily: "Helvetica",
         fontSize: normalize(20),
-        textAlign:'center',
+        textAlign: 'center',
     },
     h4: {
         fontFamily: "Helvetica",
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     button: {
         width: normalize(100),
         height: normalize(100),
-        marginTop:20,
+        marginTop: 20,
         marginRight: 4,
         backgroundColor: "skyblue",
         borderRadius: 15,

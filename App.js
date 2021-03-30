@@ -24,8 +24,8 @@ const {
 function frontPage({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT -55 }}> 
-      
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
+
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader text1="Din" text2="Dagsform" style={[styles.item]} hasImage={true}>
@@ -48,7 +48,7 @@ function frontPage({ navigation }) {
 function backPage({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT -55}}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader text1='Din' text2='Dagsform' style={[styles.item]} hasImage={false}>
@@ -66,7 +66,7 @@ function backPage({ navigation }) {
 function dailyHRV({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT -55}}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader text1='Daglig' text2='HRV-mätning' style={[styles.item]} hasImage={false}>
@@ -95,7 +95,7 @@ function dailyHRV({ navigation }) {
 function nyAktivitet({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT -55}}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader2 text1='Ny' text2='Aktivitet' style={[styles.item]} hasImage={false}>
