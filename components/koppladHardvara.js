@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, Alert, View, TouchableOpacity } from 'react-native';
+import HardwareButton from './hardwareButton';
 
 const {
     width: SCREEN_WIDTH,
@@ -19,6 +20,7 @@ function normalize(size) {
 const koppladHardvara = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
+
     return (
         <View style={props.style}>
             <Text style={styles.h4}>
@@ -26,62 +28,23 @@ const koppladHardvara = (props) => {
             </Text>
             <ScrollView horizontal={true} >
 
-                <TouchableOpacity onPress={() => Alert.alert('Hårdvara vald')}>
-                    <View style={styles.button}>
-                        <Text style={styles.h3}>
-                            Polar pulsband
-                        </Text>
-                    </View>
-                </TouchableOpacity>
+                <HardwareButton text={'Polar pulsband'} />
 
-                <TouchableOpacity onPress={() => Alert.alert('Hårdvara vald')}>
-                    <View style={styles.button}>
-                        <Text style={styles.h3}>
-                            Klocka
-                        </Text>
-                    </View>
-                </TouchableOpacity>
+                <HardwareButton text={'Klocka'} />
 
-                <TouchableOpacity onPress={() => Alert.alert('Hårdvara vald')}>
-                    <View style={styles.button}>
-                        <Text style={styles.h3}>
-                            Filips kondis
-                        </Text>
-                    </View>
-                </TouchableOpacity>
+                <HardwareButton text={'Filips kondis'} />
 
-                <TouchableOpacity onPress={() => Alert.alert('Hårdvara vald')}>
-                    <View style={styles.button}>
-                        <Text style={styles.h3}>
-                            Runkeeper rösten
-                        </Text>
-                    </View>
-                </TouchableOpacity>
+                <HardwareButton text={'Einars snabba fötter'} />
 
             </ScrollView>
-        </View>
+        </View >
     )
 };
 
 const styles = StyleSheet.create({
-    h3: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(20),
-        textAlign: 'center',
-    },
     h4: {
         fontFamily: "Helvetica",
         fontSize: normalize(20),
-    },
-    button: {
-        width: normalize(100),
-        height: normalize(100),
-        marginTop: 20,
-        marginRight: 4,
-        backgroundColor: "skyblue",
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
 });
 
