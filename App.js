@@ -8,6 +8,7 @@ import WeekOverview from './components/weekOverview';
 import DayOverview from './components/dayOverview';
 import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
+import HistoryItem from './components/historyItem';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
@@ -41,14 +42,16 @@ function frontPage({ navigation }) {
   );
 }
 
-function backPage({ navigation }) {
+function history({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader text1='Din' text2='Dagsform' style={[styles.item]} hasImage={false}>
+          <PageHeader text1='Din' text2='Historik' style={[styles.item]} hasImage={false}>
           </PageHeader>
+
+          <HistoryItem style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
 
         </ScrollView>
 
@@ -95,7 +98,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="FrontPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
         <Stack.Screen name="FrontPage" component={frontPage} />
-        <Stack.Screen name="BackPage" component={backPage} />
+        <Stack.Screen name="History" component={history} />
         <Stack.Screen name="DailyHRV" component={dailyHRV} />
       </Stack.Navigator>
     </NavigationContainer>

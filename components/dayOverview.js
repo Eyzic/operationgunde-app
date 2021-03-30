@@ -88,7 +88,7 @@ function today() {
     else if (month == 12)
         month = "December"
 
-    return today = day + ' ' + month + ' ' + year;
+    return day + ' ' + month + ' ' + year;
 
 }
 
