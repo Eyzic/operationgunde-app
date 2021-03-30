@@ -18,7 +18,12 @@ function normalize(size) {
 }
 
 const dayOverview = (props) => {
-    const [value, onChangeText] = React.useState('Default Placeholder');
+    const [location, setLocation] = React.useState(['0', '0']);
+    const [temp, setTemp] = React.useState(['0']);
+    findCoords(setLocation);
+
+    getTemperature(location, setTemp);
+
 
     return (
         <View style={[props.style, { flexDirection: 'row' }]}>
@@ -50,12 +55,39 @@ const dayOverview = (props) => {
                     {today()}
                 </Text>
                 <Text style={styles.h1}>
-                    5 C °
+                    {temp} C °
                 </Text>
             </View>
         </View >
     )
 };
+
+function getTemperature(location, setTemp) {
+
+    try {
+        var url = 'https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/'
+            + location[0] + '/lat/' + location[1] + '/data.json';
+        //console.log(url)
+        fetch(url)
+            .then(response => response.json())
+            //  .then(data => console.log("Data: " + data.timeSeries[0].parameters[10].values[0]))
+            .then(data => setTemp(data.timeSeries[0].parameters[10].values[0]));
+    } catch (error) {
+        console.log("Couldn not fetch data: " + error);
+    }
+}
+
+async function findCoords(setLocation) {
+    navigator.geolocation.getCurrentPosition(
+        position => {
+            var coords = position.coords;
+            var altitude = JSON.stringify(coords.altitude);
+            var longitude = JSON.stringify(coords.longitude);
+            setLocation([parseFloat(longitude).toFixed(6), parseFloat(altitude).toFixed(6)]);
+        },
+        error => { console.log("Could not get location!"); }
+    );
+}
 
 function today() {
     var date = new Date();

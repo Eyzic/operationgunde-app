@@ -40,14 +40,12 @@ const PageHeader = (props) => {
                         Taggad och redo
                     </Text>
                 </View>
-                {console.log(props.image)}
                 {props.hasImage &&
                     <Image source={require('../assets/springa.png')} style={styles.image} />}
 
             </View>
             <ProgressView />
         </View>
-
     );
 }
 
