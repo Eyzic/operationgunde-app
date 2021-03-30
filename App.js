@@ -13,6 +13,7 @@ import KoppladHardvara from './components/koppladHardvara';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
+import StartActivity from './components/startActivity';
 
 const {
   width: SCREEN_WIDTH,
@@ -105,6 +106,27 @@ function nyAktivitet({ navigation }) {
 
           <KoppladHardvara style={styles.item} nav={navigation} />
 
+          <StartActivity style={styles.item} nav={navigation} />
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+      </View>
+    </SafeAreaView >
+  );
+}
+
+function aktivitet({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader2 text1='Aktiv' text2='aktivitet' style={[styles.item]} hasImage={false}>
+          </PageHeader2>
+
+
+
         </ScrollView>
 
         <NavMenu style={styles.menu} nav={navigation} />
@@ -113,6 +135,7 @@ function nyAktivitet({ navigation }) {
     </SafeAreaView >
   );
 }
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -123,6 +146,7 @@ export default function App() {
         <Stack.Screen name="BackPage" component={backPage} />
         <Stack.Screen name="DailyHRV" component={dailyHRV} />
         <Stack.Screen name="NyAktivitet" component={nyAktivitet} />
+        <Stack.Screen name="Aktivitet" component={aktivitet} />
       </Stack.Navigator>
     </NavigationContainer>
   );
