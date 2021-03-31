@@ -31,7 +31,7 @@ function frontPage({ navigation }) {
           <WeekOverview style={[styles.item]} />
           <DayOverview style={[styles.item]} />
 
-          <DailyMeasure style={styles.item} nav={navigation} />
+          <DailyMeasure path={'DailyHRV'} text={"Daily measure!"} style={styles.item} nav={navigation} />
 
         </ScrollView>
 
@@ -80,11 +80,28 @@ function dailyHRV({ navigation }) {
           <TextInput style={[styles.item]}>Skador:</TextInput>
           <TextInput style={[styles.item]}>Energinivå:</TextInput>
 
-          <DailyMeasure style={styles.item} nav={navigation} />
+          <DailyMeasure path={'DailyHRV'} text={"Daily measure!"} style={styles.item} nav={navigation} />
 
         </ScrollView>
 
         <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+
+function loginPage({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1, paddingTop: 250 }, styles.background]}>
+
+          <TextInput style={[styles.item]}>Användarnamn:</TextInput>
+
+          <DailyMeasure path={'FrontPage'} text={"Logga in!"} style={styles.item} nav={navigation} />
+
+        </ScrollView>
 
       </View>
     </SafeAreaView >
@@ -96,7 +113,8 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FrontPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
+      <Stack.Navigator initialRouteName="loginPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
+        <Stack.Screen name="LoginPage" component={loginPage} />
         <Stack.Screen name="FrontPage" component={frontPage} />
         <Stack.Screen name="History" component={history} />
         <Stack.Screen name="DailyHRV" component={dailyHRV} />

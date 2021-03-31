@@ -21,8 +21,8 @@ const dailyMeasure = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={[props.style, { backgroundColor: '#BB22AA', marginBottom: 30 }]} onStartShouldSetResponder={() => props.nav.navigate('DailyHRV')}  >
-            <Text style={[styles.h2, { textAlign: 'center' }]}>Daily measure!</Text>
+        <View style={[props.style, { backgroundColor: '#BB22AA', marginBottom: 30 }]} onStartShouldSetResponder={() => props.nav.navigate(props.path)}  >
+            <Text style={[styles.h2, { textAlign: 'center' }]}>{props.text}</Text>
         </View>
     )
 };
