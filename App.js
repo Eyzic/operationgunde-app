@@ -14,6 +14,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
 import StartActivity from './components/startActivity';
+import OnOff from './components/onOff';
 
 const {
   width: SCREEN_WIDTH,
@@ -126,6 +127,7 @@ function aktivitet({ navigation }) {
           </PageHeader2>
 
 
+          <OnOff style={[styles.item]} />
 
         </ScrollView>
 
