@@ -100,12 +100,12 @@ function nyAktivitet({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader2 text1='Ny' text2='Aktivitet' style={[styles.item]} hasImage={false}>
+          <PageHeader2 text1='Ny' text2='Aktivitet' style={[styles.item]}>
           </PageHeader2>
 
           <TextInput style={[styles.item]}>Aktivitetsnamn:</TextInput>
 
-          <KoppladHardvara style={styles.item} nav={navigation} />
+          <KoppladHardvara style={styles.item} />
 
           <StartActivity style={styles.item} nav={navigation} />
 
@@ -123,7 +123,7 @@ function aktivitet({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader2 text1='Aktiv' text2='aktivitet' style={[styles.item]} hasImage={false}>
+          <PageHeader2 text1='Aktiv' text2='aktivitet' style={[styles.item]} >
           </PageHeader2>
 
 
@@ -137,6 +137,7 @@ function aktivitet({ navigation }) {
     </SafeAreaView >
   );
 }
+
 
 const Stack = createStackNavigator();
 
