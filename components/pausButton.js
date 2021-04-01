@@ -26,10 +26,10 @@ const pausButton = (props) => {
 
     const chooseImage = () => {
         if (Math.floor(count % 2) == 0) {
-            return (require('../assets/springa.png'));
+            return (require('../assets/paus.png'));
         }
         else {
-            return (require('../assets/167086572.png'));
+            return (require('../assets/play.png'));
         }
     }
     return (
