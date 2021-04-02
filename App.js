@@ -102,10 +102,10 @@ function minaGrupper({ navigation }) {
           <PageHeader3 text1='Mina' text2='Grupper' style={[styles.item]} hasImage={true}>
           </PageHeader3>
 
-          <Group text1='Hasses' text2='Kompisar' antal='5' Image={require('./assets/HassesKompisar.png')} style={[styles.item]}>
+          <Group text1='Hasses' text2='Kompisar' antal='5' OrgGrupp='Grupp' Image={require('./assets/HassesKompisar.png')} style={[styles.item]}>
           </Group>
 
-          <Group text1='IFK' text2='Göteborg' antal='16' Image={require('./assets/IFK.png')} style={[styles.item]}>
+          <Group text1='IFK' text2='Göteborg' antal='16' OrgGrupp='Organisation' Image={require('./assets/IFK.png')} style={[styles.item]}>
           </Group>
         </ScrollView>
 

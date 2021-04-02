@@ -41,6 +41,9 @@ const group = (props) => {
                 </View>
 
             </View>
+            <Text style={styles.h2}>
+                {props.OrgGrupp}
+            </Text>
             <Text style={styles.h3}>
                 {props.antal}
                 {' '}
@@ -58,6 +61,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 9,
+    },
+    h2: {
+        fontFamily: "Helvetica",
+        fontSize: normalize(20),
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignSelf: 'flex-start',
+        marginBottom: -25,
+
     },
     h3: {
         fontFamily: "Helvetica",
