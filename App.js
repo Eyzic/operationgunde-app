@@ -9,6 +9,8 @@ import DayOverview from './components/dayOverview';
 import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
 import HistoryItem from './components/historyItem';
+import PageHeader3 from './components/pageHeader3';
+import Group from './components/group';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
@@ -45,7 +47,7 @@ function frontPage({ navigation }) {
 function history({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader text1='Din' text2='Historik' style={[styles.item]} hasImage={false}>
@@ -65,7 +67,7 @@ function history({ navigation }) {
 function dailyHRV({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader text1='Daglig' text2='HRV-mätning' style={[styles.item]} hasImage={false}>
@@ -94,12 +96,17 @@ function dailyHRV({ navigation }) {
 function minaGrupper({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader text1='Mina' text2='Grupper' style={[styles.item]} hasImage={false}>
-          </PageHeader>
+          <PageHeader3 text1='Mina' text2='Grupper' style={[styles.item]} hasImage={true}>
+          </PageHeader3>
 
+          <Group text1='Hasses' text2='Kompisar' antal='5' Image={require('./assets/HassesKompisar.png')} style={[styles.item]}>
+          </Group>
+
+          <Group text1='IFK' text2='Göteborg' antal='16' Image={require('./assets/IFK.png')} style={[styles.item]}>
+          </Group>
         </ScrollView>
 
         <NavMenu style={styles.menu} nav={navigation} />
