@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
 import EvalBar from './evalBar';
 
@@ -18,36 +18,28 @@ function normalize(size) {
 }
 
 const dayOverview = (props) => {
-    const [location, setLocation] = React.useState(['0', '0']);
-    const [temp, setTemp] = React.useState(['0']);
-    findCoords(setLocation);
+    const [temperature, setTemp] = useState('0');
 
-    getTemperature(location, setTemp);
-
+    useEffect(() => {
+        getPosition(6)
+            .then((position) => getTemperature(position))
+            .then((temp) => setTemp(temp))
+    }, []);
 
     return (
         <View style={[props.style, { flexDirection: 'row' }]}>
             <View style={{ flexGrow: 1, padding: 0 }}>
-                <Text style={styles.h3}>
-                    Muskeltrötthet
-                </Text>
+                <Text style={styles.h3}>Muskeltrötthet</Text>
                 <EvalBar style={styles.box} />
 
-                <Text style={styles.h3}>
-                    Mentalt
-                </Text>
+                <Text style={styles.h3}>Mentalt</Text>
                 <EvalBar style={styles.box} />
 
-                <Text style={styles.h3}>
-                    Energi
-                </Text>
+                <Text style={styles.h3}>Energi</Text>
                 <EvalBar style={styles.box} />
 
-                <Text style={styles.h3}>
-                    Sömn
-                </Text>
+                <Text style={styles.h3}>Sömn</Text>
                 <EvalBar style={styles.box} />
-
             </View>
 
             <View style={[{ alignItems: 'flex-end', flexGrow: 1 }]}>
@@ -55,38 +47,47 @@ const dayOverview = (props) => {
                     {today()}
                 </Text>
                 <Text style={styles.h1}>
-                    {temp} C °
+                    {temperature} C °
                 </Text>
             </View>
         </View >
     )
 };
 
-function getTemperature(location, setTemp) {
-
-    try {
-        var url = 'https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/'
-            + location[0] + '/lat/' + location[1] + '/data.json';
-        //console.log(url)
-        fetch(url)
-            .then(response => response.json())
-            //  .then(data => console.log("Data: " + data.timeSeries[0].parameters[10].values[0]))
-            .then(data => setTemp(data.timeSeries[0].parameters[10].values[0]));
-    } catch (error) {
-        console.log("Couldn not fetch data: " + error);
-    }
+async function getTemperature(location) {
+    var url = 'https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/'
+        + location[0] + '/lat/' + location[1] + '/data.json';
+    return fetch(url)
+        .then(response => {
+            if (response.status !== 200) {
+                throw new Error("Status code not 200");
+            }
+            return response.json();
+        })
+        .then(data => {
+            if ((!data || !data.timeSeries || !data.timeSeries[0].parameters || !data.timeSeries[0].parameters.values[0])) {
+                return data.timeSeries[0].parameters.filter(p => p.name === "t")[0].values[0];
+            } else { return null }
+        })
+        .catch(error => console.log("Could not fetch data: " + error));
 }
 
-async function findCoords(setLocation) {
-    navigator.geolocation.getCurrentPosition(
-        position => {
-            var coords = position.coords;
-            var altitude = JSON.stringify(coords.altitude);
-            var longitude = JSON.stringify(coords.longitude);
-            setLocation([parseFloat(longitude).toFixed(6), parseFloat(altitude).toFixed(6)]);
-        },
-        error => { console.log("Could not get location!"); }
-    );
+function getPosition(precision) {
+    return new Promise((resolve) => {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                var altitude = JSON.stringify(position.coords.latitude);
+                altitude = parseFloat(altitude).toFixed(precision);
+
+                var longitude = JSON.stringify(position.coords.longitude);
+                longitude = parseFloat(longitude).toFixed(precision);
+
+                resolve([longitude, altitude]);
+            }),
+            (error) => {
+                console.log("Could not get location! Error: " + error);
+            };
+    });
 }
 
 function today() {

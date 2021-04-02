@@ -97,7 +97,7 @@ function loginPage({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1, paddingTop: 250 }, styles.background]}>
 
-          <TextInput style={[styles.item]}>Användarnamn:</TextInput>
+          <TextInput title={"Användarnamn:"} style={[styles.item]}></TextInput>
 
           <DailyMeasure path={'FrontPage'} text={"Logga in!"} style={styles.item} nav={navigation} />
 
