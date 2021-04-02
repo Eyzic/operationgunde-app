@@ -22,7 +22,7 @@ const navMenu = (props) => {
     return (
         <View style={props.style}>
 
-            <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
+            <TouchableOpacity onPress={() => props.nav.navigate("MinaGrupper")}>
                 <Image
                     source={require('../assets/menu/grupp2.png')}
                     style={styles.normalize} />

@@ -22,7 +22,7 @@ const scale = SCREEN_WIDTH / 420;
 function frontPage({ navigation }) {
   return (
     <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader text1="Din" text2="Dagsform" style={[styles.item]} hasImage={true}>
@@ -91,6 +91,24 @@ function dailyHRV({ navigation }) {
   );
 }
 
+function minaGrupper({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader text1='Mina' text2='Grupper' style={[styles.item]} hasImage={false}>
+          </PageHeader>
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -100,6 +118,7 @@ export default function App() {
         <Stack.Screen name="FrontPage" component={frontPage} />
         <Stack.Screen name="History" component={history} />
         <Stack.Screen name="DailyHRV" component={dailyHRV} />
+        <Stack.Screen name="MinaGrupper" component={minaGrupper} />
       </Stack.Navigator>
     </NavigationContainer>
   );
