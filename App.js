@@ -10,6 +10,7 @@ import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
 import HistoryItem from './components/historyItem';
 import PageHeader3 from './components/pageHeader3';
+import Pluss from './components/pluss';
 import Group from './components/group';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
@@ -107,6 +108,28 @@ function minaGrupper({ navigation }) {
 
           <Group text1='IFK' text2='Göteborg' antal='16' OrgGrupp='Organisation' Image={require('./assets/IFK.png')} style={[styles.item]}>
           </Group>
+
+          <Pluss style={styles.item} nav={navigation} />
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+
+function nyGrupp({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader3 text1='Ny' text2='Grupp' style={[styles.item]} hasImage={true}>
+          </PageHeader3>
+
+
         </ScrollView>
 
         <NavMenu style={styles.menu} nav={navigation} />
@@ -126,6 +149,7 @@ export default function App() {
         <Stack.Screen name="History" component={history} />
         <Stack.Screen name="DailyHRV" component={dailyHRV} />
         <Stack.Screen name="MinaGrupper" component={minaGrupper} />
+        <Stack.Screen name="NyGrupp" component={nyGrupp} />
       </Stack.Navigator>
     </NavigationContainer>
   );
