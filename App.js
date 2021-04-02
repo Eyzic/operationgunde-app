@@ -71,14 +71,30 @@ function dailyHRV({ navigation }) {
           <PageHeader text1='Daglig' text2='HRV-mätning' style={[styles.item]} hasImage={false}>
           </PageHeader>
 
-          <TextInput style={[styles.item]}>Namn:</TextInput>
-          <TextInput style={[styles.item]}>HRV:</TextInput>
-          <TextInput style={[styles.item]}>Sömn:</TextInput>
-          <TextInput style={[styles.item]}>Stressnivå:</TextInput>
-          <TextInput style={[styles.item]}>Humör:</TextInput>
-          <TextInput style={[styles.item]}>Muskeltrötthet:</TextInput>
-          <TextInput style={[styles.item]}>Skador:</TextInput>
-          <TextInput style={[styles.item]}>Energinivå:</TextInput>
+          <Text>Namn:</Text>
+          <TextInput style={[styles.item]}></TextInput>
+
+          <Text>HRV:</Text>
+          <TextInput style={[styles.item]}></TextInput>
+
+          <Text>Sömn:</Text>
+          <TextInput style={[styles.item]}></TextInput>
+
+          <Text>Stressnivå:</Text>
+          <TextInput style={[styles.item]}></TextInput>
+
+          <Text>Humör:</Text>
+          <TextInput style={[styles.item]}></TextInput>
+
+          <Text>Muskeltrötthet:</Text>
+          <TextInput style={[styles.item]}></TextInput>
+
+          <Text>Skador:</Text>
+          <TextInput style={[styles.item]}></TextInput>
+
+          <Text>Energinivå:</Text>
+          <TextInput style={[styles.item]}></TextInput>
+
 
           <DailyMeasure path={'DailyHRV'} text={"Daily measure!"} style={styles.item} nav={navigation} />
 
