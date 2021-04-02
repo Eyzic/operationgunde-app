@@ -53,12 +53,12 @@ const PageHeader = (props) => {
 
 const styles = StyleSheet.create({
     h1: {
-        fontFamily: "Roboto",
+        fontFamily: "Helvetica",
         fontSize: normalize(40),
         lineHeight: 40
     },
     h3: {
-        fontFamily: "Roboto",
+        fontFamily: "Helvetica",
         fontSize: normalize(20),
     },
     top_border: {

@@ -2,7 +2,8 @@ import 'react-native-gesture-handler'
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, SafeAreaView, Dimensions, Text } from 'react-native';
-import { ScrollView } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native';
+import { Image, PixelRatio, Platform } from 'react-native';
 import PageHeader from './components/pageHeader';
 import WeekOverview from './components/weekOverview';
 import DayOverview from './components/dayOverview';
@@ -100,13 +101,14 @@ function minaGrupper({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader3 text1='Mina' text2='Grupper' style={[styles.item]} hasImage={true}>
+          <PageHeader3 text1='Mina' text2='Grupper' style={[styles.item]} Image={require('./assets/Hasse.png')}>
           </PageHeader3>
 
-          <Group text1='Hasses' text2='Kompisar' antal='5' OrgGrupp='Grupp' Image={require('./assets/HassesKompisar.png')} style={[styles.item]}>
+
+          <Group text1='Hasses' text2='Kompisar' antal='5' OrgGrupp='Grupp' knapp='HassesKompisar' Image={require('./assets/HassesKompisar.png')} style={[styles.item]} nav={navigation}>
           </Group>
 
-          <Group text1='IFK' text2='Göteborg' antal='16' OrgGrupp='Organisation' Image={require('./assets/IFK.png')} style={[styles.item]}>
+          <Group text1='IFK' text2='Göteborg' antal='16' OrgGrupp='Organisation' knapp='IFKGBG' Image={require('./assets/IFK.png')} style={[styles.item]} nav={navigation}>
           </Group>
 
           <Pluss style={styles.item} nav={navigation} />
@@ -139,6 +141,44 @@ function nyGrupp({ navigation }) {
   );
 }
 
+function hassesKompisar({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader3 text1='Hasses' text2='Kompisar' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} >
+          </PageHeader3>
+
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+function IFKgbg({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader3 text1='IFK' text2='Göteborg' Image={require('./assets/IFK.png')} style={[styles.item]} >
+          </PageHeader3>
+
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -150,6 +190,8 @@ export default function App() {
         <Stack.Screen name="DailyHRV" component={dailyHRV} />
         <Stack.Screen name="MinaGrupper" component={minaGrupper} />
         <Stack.Screen name="NyGrupp" component={nyGrupp} />
+        <Stack.Screen name="HassesKompisar" component={hassesKompisar} />
+        <Stack.Screen name="IFKGBG" component={IFKgbg} />
       </Stack.Navigator>
     </NavigationContainer>
   );

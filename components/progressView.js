@@ -32,7 +32,7 @@ const progressView = (props) => {
 
 const styles = StyleSheet.create({
     h3: {
-        fontFamily: "Roboto",
+        fontFamily: "Helvetica",
         fontSize: normalize(20),
     }
 });

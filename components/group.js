@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
+import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, Platform, TouchableOpacity } from 'react-native';
+
 
 //Detta är en pageheader utan progressview och utan taggad och redo 
 
@@ -27,9 +28,9 @@ const group = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={props.style}>
+        <View style={props.style} onStartShouldSetResponder={() => props.nav.navigate(props.knapp)}>
 
-            <View style={[styles.header]}>
+            <View style={[styles.header]} >
                 <Image source={props.Image} style={styles.image} />
                 <View>
                     <Text style={styles.h1} >
@@ -50,7 +51,6 @@ const group = (props) => {
                 <Image source={require('../assets/menu/grupp2.png')} style={styles.image2} />
             </Text>
         </View>
-
     );
 }
 

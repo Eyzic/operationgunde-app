@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, TouchableWithoutFeedback, Button, Platform, Dimensions, PixelRatio, StyleSheet } from 'react-native'
+import { Text, View, TouchableWithoutFeedback, Button, Platform, Dimensions, PixelRatio, StyleSheet, Alert } from 'react-native'
 import StatsDisplay from './statsDisplay';
 
 const {

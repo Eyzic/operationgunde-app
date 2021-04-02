@@ -38,9 +38,7 @@ const pageHeader3 = (props) => {
                     </Text>
 
                 </View>
-                {console.log(props.image)}
-                {props.hasImage &&
-                    <Image source={require('../assets/Hasse.png')} style={styles.image} />}
+                <Image source={props.Image} style={styles.image} />
 
             </View>
         </View>
