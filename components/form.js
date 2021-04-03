@@ -15,7 +15,7 @@ const form = (props) => {
 
     let data =
         JSON.stringify({
-            user: 2,
+            user: name,
             date: new Date().toISOString().substr(0, 10),
             hrv: hrv,
             sleeping_hours: sleep,
@@ -36,36 +36,36 @@ const form = (props) => {
             body: data
         })
             .then(response => response.json())
-            .then(res => console.log(res))
+            .then(res => alert(JSON.stringify(res)))
             .catch(error => console.log(error));
     }
 
     return (
         <View style={props.item} >
-            <Text>Namn:</Text>
-            <TextInput style={[styles.item]} onChangeText={(text) => onChangeName(text)} value={name}></TextInput>
+            <Text>Namn: (UserID just nu)</Text>
+            <TextInput style={[props.style]} onChangeText={onChangeName} value={name}></TextInput>
 
             <Text>HRV:</Text>
-            <TextInput style={[styles.item]} onChangeText={onChangeHrv} value={hrv}></TextInput>
+            <TextInput style={[props.style]} onChangeText={onChangeHrv} value={hrv}></TextInput>
 
             <Text>Sömn:</Text>
-            <TextInput style={[styles.item]} onChangeText={onChangeSleep} value={sleep}></TextInput>
+            <TextInput style={[props.style]} onChangeText={onChangeSleep} value={sleep}></TextInput>
 
             <Text>Stressnivå:</Text>
-            <TextInput style={[styles.item]} onChangeText={onChangeStress} value={stress}></TextInput>
+            <TextInput style={[props.style]} onChangeText={onChangeStress} value={stress}></TextInput>
 
             <Text>Humör:</Text>
-            <TextInput style={[styles.item]} onChangeText={onChangeMood} value={mood}></TextInput>
+            <TextInput style={[props.style]} onChangeText={onChangeMood} value={mood}></TextInput>
 
             <Text>Muskeltrötthet:</Text>
-            <TextInput style={[styles.item]} onChangeText={onChangeSoreness} value={soreness}></TextInput>
+            <TextInput style={[props.style]} onChangeText={onChangeSoreness} value={soreness}></TextInput>
 
             <Text>Skador:</Text>
-            <TextInput style={[styles.item]} onChangeText={onChangeInjuries} value={injuries}></TextInput>
+            <TextInput style={[props.style]} onChangeText={onChangeInjuries} value={injuries}></TextInput>
 
             <Text>Energinivå:</Text>
-            <TextInput style={[styles.item]} onChangeText={onChangeEnergy} value={energy}></TextInput>
-            <Button onPress={() => saveMeasure()}></Button>
+            <TextInput style={[props.style]} onChangeText={onChangeEnergy} value={energy}></TextInput>
+            <Button style={props.style} color="#BB22AA" title="Daily Measure!" onPress={() => saveMeasure()} />
         </View>
     )
 };

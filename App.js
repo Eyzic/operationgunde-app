@@ -74,10 +74,6 @@ function dailyHRV({ navigation }) {
 
           <Form style={styles.item} />
 
-
-
-          <DailyMeasure path={'DailyHRV'} text={"Daily measure!"} style={styles.item} nav={navigation} />
-
         </ScrollView>
 
         <NavMenu style={styles.menu} nav={navigation} />
