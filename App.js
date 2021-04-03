@@ -9,6 +9,7 @@ import DayOverview from './components/dayOverview';
 import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
 import HistoryItem from './components/historyItem';
+import Form from './components/form';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
@@ -71,29 +72,8 @@ function dailyHRV({ navigation }) {
           <PageHeader text1='Daglig' text2='HRV-mätning' style={[styles.item]} hasImage={false}>
           </PageHeader>
 
-          <Text>Namn:</Text>
-          <TextInput style={[styles.item]}></TextInput>
+          <Form style={styles.item} />
 
-          <Text>HRV:</Text>
-          <TextInput style={[styles.item]}></TextInput>
-
-          <Text>Sömn:</Text>
-          <TextInput style={[styles.item]}></TextInput>
-
-          <Text>Stressnivå:</Text>
-          <TextInput style={[styles.item]}></TextInput>
-
-          <Text>Humör:</Text>
-          <TextInput style={[styles.item]}></TextInput>
-
-          <Text>Muskeltrötthet:</Text>
-          <TextInput style={[styles.item]}></TextInput>
-
-          <Text>Skador:</Text>
-          <TextInput style={[styles.item]}></TextInput>
-
-          <Text>Energinivå:</Text>
-          <TextInput style={[styles.item]}></TextInput>
 
 
           <DailyMeasure path={'DailyHRV'} text={"Daily measure!"} style={styles.item} nav={navigation} />
