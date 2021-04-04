@@ -23,6 +23,15 @@ const {
 } = Dimensions.get('window');
 const scale = SCREEN_WIDTH / 420;
 
+function normalize(size) {
+  const newSize = size * scale
+  if (Platform.OS === 'ios') {
+    return Math.round(PixelRatio.roundToNearestPixel(newSize))
+  } else {
+    return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
+  }
+}
+
 function frontPage({ navigation }) {
   return (
     <SafeAreaView>
@@ -131,6 +140,11 @@ function nyGrupp({ navigation }) {
           <PageHeader3 text1='Ny' text2='Grupp' style={[styles.item]} hasImage={true}>
           </PageHeader3>
 
+          <Text style={styles.h2}>Gruppnamn:</Text>
+          <TextInput style={styles.item2} />
+
+          <Text style={styles.h2}>Typ av organisation:</Text>
+
 
         </ScrollView>
 
@@ -211,6 +225,18 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 15
   },
+  item2: {
+    backgroundColor: 'hsla(316, 47%, 73%,1)',
+    marginBottom: 10,
+    padding: 20,
+    borderRadius: 15
+  },
+  item3: {
+    backgroundColor: 'hsla(316, 47%, 73%,1)',
+    marginBottom: 10,
+    padding: 20,
+    borderRadius: 15
+  },
   menu: {
     flexDirection: "row",
     display: 'flex',
@@ -218,5 +244,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'hsla(0, 0%, 100%,1)',
     padding: 5,
     paddingHorizontal: 20
-  }
+  },
+  h2: {
+    fontFamily: "Helvetica",
+    fontSize: normalize(20),
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignSelf: 'flex-start',
+    padding: 5,
+  },
 });
