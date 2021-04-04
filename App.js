@@ -13,6 +13,7 @@ import HistoryItem from './components/historyItem';
 import PageHeader3 from './components/pageHeader3';
 import Pluss from './components/pluss';
 import Group from './components/group';
+import ThisOrThat from './components/thisOrThat';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
@@ -144,6 +145,7 @@ function nyGrupp({ navigation }) {
           <TextInput style={styles.item2} />
 
           <Text style={styles.h2}>Typ av organisation:</Text>
+          <ThisOrThat />
 
 
         </ScrollView>
