@@ -23,53 +23,24 @@ const thisOrThat = (props) => {
     const onPress = () => {
         setColor(count + 1);
     };
-    const [count2, setColor2] = useState(0);
-    const onPress2 = () => {
-        setColor2(count2 + 1);
-    };
+    
 
-
-    const chooseColor = () => {
-        if (Math.floor(count % 2) == 0) {
-            return (styles.button);
-        }
-        if (Math.floor(count % 2) == 1) {
-            return (styles.button2);
-        }
-
-    }
-
-    const chooseColor2 = () => {
-        if (Math.floor(count2 % 2) == 0) {
-            return (styles.button);
-        }
-        if (Math.floor(count2 % 2) == 1) {
-            return (styles.button2);
-        }
-    }
     const ifSame = () => {
-        if (Math.floor(count % 2) == 1 && Math.floor(count2 % 2) == 0) {
+        if (Math.floor(count % 2) == 1 ){
             return (styles.button2);
-        } if (Math.floor(count % 2) == 0 && Math.floor(count2 % 2) == 0) {
+        } if (Math.floor(count % 2) == 0 ) {
             return (styles.button);
-        } if (Math.floor(count % 2) == 0 && Math.floor(count2 % 2) == 1) {
-            return (styles.button);
-        } if (Math.floor(count % 2) == 1 && Math.floor(count2 % 2) == 1) {
-            return (styles.button2, onPress2());
         }
-    }
+    };
     const ifSame2 = () => {
-        if (Math.floor(count % 2) == 0 && Math.floor(count2 % 2) == 1) {
+        if (count  == 0 ) {
+            return (styles.button);
+        } if (Math.floor(count % 2) == 0) {
             return (styles.button2);
-        } if (Math.floor(count % 2) == 0 && Math.floor(count2 % 2) == 0) {
+        } if (Math.floor(count % 2) == 1 ) {
             return (styles.button);
-        } if (Math.floor(count % 2) == 1 && Math.floor(count2 % 2) == 0) {
-            return (styles.button);
-        } if (Math.floor(count % 2) == 1 && Math.floor(count2 % 2) == 1) {
-            return (styles.button2, onPress());
         }
-    }
-
+    };
 
 
     return (
@@ -81,7 +52,7 @@ const thisOrThat = (props) => {
             </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={onPress2} >
+            <TouchableOpacity onPress={onPress} >
                 <View style={ifSame2()} />
                 <Text style={styles.h3}>
                     Kompisgrupp

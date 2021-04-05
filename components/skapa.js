@@ -17,7 +17,7 @@ function normalize(size) {
     }
 }
 
-const pluss = (props) => {
+const skapa = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
 
 
 
-export default pluss;
+export default skapa;
