@@ -11,13 +11,17 @@ import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
 import HistoryItem from './components/historyItem';
 import PageHeader3 from './components/pageHeader3';
+import PageHeader4 from './components/pageHeader4';
 import Pluss from './components/pluss';
 import Group from './components/group';
 import ThisOrThat from './components/thisOrThat';
 import Skapa from './components/skapa'
+import ProgressView from './components/progressView';
+import GruppMedlemmar from './components/gruppMedlemmar';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
+import gruppMedlemmar from './components/gruppMedlemmar';
 
 const {
   width: SCREEN_WIDTH,
@@ -184,9 +188,15 @@ function hassesKompisar({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader3 text1='Hasses' text2='Kompisar' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} >
-          </PageHeader3>
+          <PageHeader4 text1='Hasses' text2='Kompisar' meny1='Översikt    ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} >
+          </PageHeader4>
 
+          <GruppMedlemmar image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
+            image3={require('./assets/Hasse.png')} image4={require('./assets/HassesKompisar.png')}
+            image5={require('./assets/Hasse.png')} image6={require('./assets/HassesKompisar.png')} />
+
+
+          <ProgressView />
 
         </ScrollView>
 

@@ -1,6 +1,7 @@
+import { useLinkProps } from '@react-navigation/native';
 import React from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, View } from 'react-native';
-
+import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, View, TouchableOpacity, Image } from 'react-native';
+import Kompis from './kompis';
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -16,18 +17,19 @@ function normalize(size) {
     }
 }
 
-const progressView = (props) => {
+const gruppMedlemmar = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
         <View style={props.style}>
             <View style={styles.row}>
                 <ScrollView horizontal={true} >
-                    <Text style={styles.h3}>
-                        Denna text går att skrolla i sidled, här kommer vi lägga in dom olika målen
-                        personen har och hur långt man kommit med dom i procent tror jag, tex dagens steg
-                        hur långt man har kommit med antalet timmar man planerat att träna, antal km man tänkt springa
-            </Text>
+                    <Kompis Image={props.image1} />
+                    <Kompis Image={props.image2} />
+                    <Kompis Image={props.image3} />
+                    <Kompis Image={props.image4} />
+                    <Kompis Image={props.image5} />
+                    <Kompis Image={props.image6} />
                 </ScrollView>
             </View>
         </View>
@@ -47,6 +49,11 @@ const styles = StyleSheet.create({
         padding: 20,
         marginBottom: 10,
     },
+    kompis: {
+        width: normalize(70),
+        height: normalize(70),
+        borderRadius: 35,
+    }
 });
 
-export default progressView;
+export default gruppMedlemmar;

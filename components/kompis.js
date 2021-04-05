@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, View } from 'react-native';
+import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, View, TouchableOpacity, Image, Alert } from 'react-native';
 
 const {
     width: SCREEN_WIDTH,
@@ -16,20 +16,19 @@ function normalize(size) {
     }
 }
 
-const progressView = (props) => {
+const kompis = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
         <View style={props.style}>
-            <View style={styles.row}>
-                <ScrollView horizontal={true} >
-                    <Text style={styles.h3}>
-                        Denna text går att skrolla i sidled, här kommer vi lägga in dom olika målen
-                        personen har och hur långt man kommit med dom i procent tror jag, tex dagens steg
-                        hur långt man har kommit med antalet timmar man planerat att träna, antal km man tänkt springa
-            </Text>
-                </ScrollView>
-            </View>
+
+
+            <TouchableOpacity onPress={() => Alert.alert('Din kompis')}>
+                <Image
+                    source={props.Image}
+                    style={styles.kompis} />
+            </TouchableOpacity>
+
         </View>
     )
 };
@@ -47,6 +46,12 @@ const styles = StyleSheet.create({
         padding: 20,
         marginBottom: 10,
     },
+    kompis: {
+        width: normalize(70),
+        height: normalize(70),
+        borderRadius: 35,
+        marginLeft: 10,
+    }
 });
 
-export default progressView;
+export default kompis;
