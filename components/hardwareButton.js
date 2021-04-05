@@ -16,8 +16,6 @@ function normalize(size) {
     }
 }
 
-
-
 const hardwareButton = (props) => {
     const [selected, setSelected] = useState(false);
     const onPress = () => {
@@ -42,7 +40,6 @@ const hardwareButton = (props) => {
         </TouchableOpacity>
     );
 }
-
 
 const styles = StyleSheet.create({
     h3: {

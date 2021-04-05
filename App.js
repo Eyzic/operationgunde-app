@@ -10,11 +10,12 @@ import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
 import PageHeader2 from './components/pageHeader2';
 import ConnectedHardware from './components/connectedHardware';
+import StartActivity from './components/startActivity';
+import ActivityStateButton from './components/activityStateButton';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
-import StartActivity from './components/startActivity';
-import OnOff from './components/onOff';
+
 
 const {
   width: SCREEN_WIDTH,
@@ -22,6 +23,8 @@ const {
 } = Dimensions.get('window');
 
 // i SCREEN_HEIGHT så är -55 tillagd för på Jessicas telefon hamnar menybaren för långt ner
+
+let activity = false;
 
 function frontPage({ navigation }) {
   return (
@@ -94,7 +97,7 @@ function dailyHRV({ navigation }) {
   );
 }
 
-function nyAktivitet({ navigation }) {
+function newActivity({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
@@ -117,7 +120,7 @@ function nyAktivitet({ navigation }) {
   );
 }
 
-function aktivitet({ navigation }) {
+function currentActivity({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
@@ -126,8 +129,9 @@ function aktivitet({ navigation }) {
           <PageHeader2 text1='Aktiv' text2='aktivitet' style={[styles.item]} >
           </PageHeader2>
 
-
-          <OnOff style={[styles.item]} />
+          <View style={[styles.item, { alignItems: 'center' }]}>
+            <ActivityStateButton style={[styles.item]} />
+          </View>
 
         </ScrollView>
 
@@ -148,8 +152,8 @@ export default function App() {
         <Stack.Screen name="FrontPage" component={frontPage} />
         <Stack.Screen name="BackPage" component={backPage} />
         <Stack.Screen name="DailyHRV" component={dailyHRV} />
-        <Stack.Screen name="NyAktivitet" component={nyAktivitet} />
-        <Stack.Screen name="Aktivitet" component={aktivitet} />
+        <Stack.Screen name="NewActivity" component={newActivity} />
+        <Stack.Screen name="CurrentActivity" component={currentActivity} />
       </Stack.Navigator>
     </NavigationContainer>
   );

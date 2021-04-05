@@ -21,17 +21,13 @@ const startActivity = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={[props.style, { backgroundColor: '#BB22AA', marginBottom: 30 }]} onStartShouldSetResponder={() => props.nav.navigate('Aktivitet')}  >
+        <View style={[props.style, { backgroundColor: '#BB22AA', marginBottom: 30 }]} onStartShouldSetResponder={() => props.nav.navigate('CurrentActivity')}  >
             <Text style={[styles.h2, { textAlign: 'center' }]}>Starta aktivitet</Text>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
-    row: {
-        flexDirection: "row",
-        margin: 5
-    },
     h2: {
         fontFamily: "Helvetica",
         fontSize: normalize(30),

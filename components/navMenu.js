@@ -16,51 +16,28 @@ function normalize(size) {
     }
 }
 
+function createMenuButton(source, action) {
+    return (
+        <TouchableOpacity onPress={action}>
+            <Image
+                source={source}
+                style={{ width: normalize(60), height: normalize(60) }} />
+        </TouchableOpacity>
+    );
+}
+
 const navMenu = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
         <View style={props.style}>
-
-            <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-                <Image
-                    source={require('../assets/menu/1.png')}
-                    style={styles.normalize} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-                <Image
-                    source={require('../assets/menu/2.png')}
-                    style={styles.normalize} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => props.nav.navigate("FrontPage")}>
-                <Image
-                    source={require('../assets/menu/3.png')}
-                    style={styles.normalize} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => props.nav.navigate("NyAktivitet")}>
-                <Image
-                    source={require('../assets/menu/4.png')}
-                    style={styles.normalize} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => props.nav.navigate("BackPage")}>
-                <Image
-                    source={require('../assets/menu/5.png')}
-                    style={styles.normalize} />
-            </TouchableOpacity>
-
+            {createMenuButton(require('../assets/menu/1.png'), () => Alert.alert('image clicked'))}
+            {createMenuButton(require('../assets/menu/2.png'), () => Alert.alert('image clicked'))}
+            {createMenuButton(require('../assets/menu/3.png'), () => props.nav.navigate("FrontPage"))}
+            {createMenuButton(require('../assets/menu/4.png'), () => props.nav.navigate("NewActivity"))}
+            {createMenuButton(require('../assets/menu/5.png'), () => props.nav.navigate("BackPage"))}
         </View>
     )
 };
-
-const styles = StyleSheet.create({
-    row: {
-        flexDirection: "row",
-        margin: 5
-    },
-    normalize: {
-        width: normalize(60),
-        height: normalize(60)
-    }
-});
 
 export default navMenu;
