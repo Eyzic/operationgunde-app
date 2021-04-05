@@ -9,7 +9,7 @@ import DayOverview from './components/dayOverview';
 import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
 import PageHeader2 from './components/pageHeader2';
-import KoppladHardvara from './components/koppladHardvara';
+import ConnectedHardware from './components/connectedHardware';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
@@ -103,9 +103,9 @@ function nyAktivitet({ navigation }) {
           <PageHeader2 text1='Ny' text2='Aktivitet' style={[styles.item]}>
           </PageHeader2>
 
-          <TextInput style={[styles.item]}>Aktivitetsnamn:</TextInput>
+          <TextInput title="Aktivitetsnamn:" style={[styles.item]}></TextInput>
 
-          <KoppladHardvara style={styles.item} />
+          <ConnectedHardware style={styles.item} />
 
           <StartActivity style={styles.item} nav={navigation} />
 

@@ -19,10 +19,10 @@ function normalize(size) {
 
 
 const hardwareButton = (props) => {
-    const [count, setColor] = useState(0);
+    const [selected, setSelected] = useState(false);
     const onPress = () => {
-        setColor(count + 1);
-        if (Math.floor(count % 2) == 0) {
+        setSelected(!selected);
+        if (selected) {
             return (Alert.alert('Hårdvara vald'));
         }
         else {
@@ -30,17 +30,11 @@ const hardwareButton = (props) => {
         }
     };
 
-    const chooseColor = () => {
-        if (Math.floor(count % 2) == 0) {
-            return (styles.button);
-        }
-        else {
-            return (styles.button2);
-        }
-    }
+    const setSelectedColor = () => selected ? { backgroundColor: 'red' } : null;
+
     return (
         <TouchableOpacity onPress={onPress} >
-            <View style={chooseColor()}>
+            <View style={[styles.button, setSelectedColor()]}>
                 <Text style={styles.h3}>
                     {props.text}
                 </Text>
@@ -65,17 +59,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    button2: {
-        width: normalize(100),
-        height: normalize(100),
-        marginTop: 20,
-        marginRight: 4,
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: "red",
-    },
+    }
 });
 
 export default hardwareButton;
