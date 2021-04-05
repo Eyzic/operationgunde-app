@@ -14,6 +14,7 @@ import PageHeader3 from './components/pageHeader3';
 import Pluss from './components/pluss';
 import Group from './components/group';
 import ThisOrThat from './components/thisOrThat';
+import Skapa from './components/skapa'
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
@@ -138,14 +139,34 @@ function nyGrupp({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader3 text1='Ny' text2='Grupp' style={[styles.item]} hasImage={true}>
+          <PageHeader3 text1='Ny' text2='Grupp' style={[styles.item]} >
           </PageHeader3>
 
           <Text style={styles.h2}>Gruppnamn:</Text>
           <TextInput style={styles.item2} />
 
-          <Text style={styles.h2}>Typ av organisation:</Text>
+          <Text style={styles.h2}>Typ av grupp:</Text>
+
           <ThisOrThat />
+
+          <Skapa style={styles.item} nav={navigation} />
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+function skapadGrupp({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader3 text1='"Grupp' text2='namn"' style={[styles.item]}>
+          </PageHeader3>
 
 
         </ScrollView>
@@ -208,6 +229,7 @@ export default function App() {
         <Stack.Screen name="NyGrupp" component={nyGrupp} />
         <Stack.Screen name="HassesKompisar" component={hassesKompisar} />
         <Stack.Screen name="IFKGBG" component={IFKgbg} />
+        <Stack.Screen name="SkapadGrupp" component={skapadGrupp} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -21,8 +21,8 @@ const pluss = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={styles.knapp} onStartShouldSetResponder={() => props.nav.navigate('NyGrupp')}  >
-            <Text style={styles.h2}> + </Text>
+        <View style={styles.knapp} onStartShouldSetResponder={() => props.nav.navigate('SkapadGrupp')}  >
+            <Text style={styles.h2}> Skapa </Text>
         </View>
     )
 };
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         width: normalize(130),
         height: normalize(50),
         alignSelf: 'center',
-        marginTop: 20,
+        marginTop: 200,
         justifyContent: 'center',
     },
     row: {
