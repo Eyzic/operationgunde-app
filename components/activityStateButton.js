@@ -16,6 +16,24 @@ function normalize(size) {
     }
 }
 
+function formatTime(time) {
+    let hours = Math.floor((time / (60 * 60 * 1000) % 60));
+    hours = leftPad(hours, 2);
+
+    let minutes = Math.floor((time / (60 * 1000)) % 60);
+    minutes = leftPad(minutes, 2);
+
+    let seconds = Math.floor((time / 1000) % 60);
+    seconds = leftPad(seconds, 2);
+
+    console.log("SEC: " + seconds);
+
+    let displayTime = hours + ":" + minutes + ":" + seconds;
+    return displayTime;
+}
+
+const leftPad = (value, length) => value.toString().length < length ? leftPad("0" + value, length) : value;
+
 const activityStateButton = (props) => {
     const [activityOn, setActivityOn] = useState(props.activity);
 
@@ -35,7 +53,8 @@ const activityStateButton = (props) => {
     }, [activityOn]);
 
     useEffect(() => {
-        let i = setInterval(() => setTime(timer.getTime()), 100);
+        let formatedTime = () => formatTime(timer.getTime());
+        let i = setInterval(() => setTime(formatedTime), 100);
         //return clearInterval(i);
 
     }, []);
