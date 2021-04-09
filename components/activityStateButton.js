@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, Alert, View, TouchableOpacity, Image } from 'react-native';
-import StopWatch from './stopWatch';
+import React, { useEffect, useState, useContext } from 'react';
+import { Text, Dimensions, PixelRatio, StyleSheet, Platform, TouchableOpacity, Image } from 'react-native';
+import ActivityContext from './activityContext';
 
 const {
     width: SCREEN_WIDTH,
@@ -18,13 +18,13 @@ function normalize(size) {
 }
 
 const activityStateButton = (props) => {
-    const [activityOn, setActivityOn] = useState(props.activity);
-
+    const context = useContext(ActivityContext);
+    const [timer, setTimer] = useState(context.timer);
     const [time, setTime] = useState();
-    const [timer, setTimer] = useState(new StopWatch());
 
-    const [startTime, setStartTime] = useState();
-    const [interval, refInterval] = useState();
+    console.log(timer.isPaused());
+
+    const [activityOn, setActivityOn] = useState(!timer.isPaused());
 
     useEffect(() => {
         if (activityOn) {
@@ -38,8 +38,7 @@ const activityStateButton = (props) => {
     useEffect(() => {
         let formatedTime = () => timer.getTime();
         let i = setInterval(() => setTime(formatedTime), 100);
-        //return clearInterval(i);
-
+        return () => clearInterval(i);
     }, []);
 
     const chooseImage = () => activityOn ? (require('../assets/paus.png')) : (require('../assets/play.png'));

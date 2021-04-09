@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler'
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, View, SafeAreaView, Dimensions, Text } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, SafeAreaView, Dimensions, Text, ActivityIndicator } from 'react-native';
 import { ScrollView } from 'react-native';
 import PageHeader from './components/pageHeader';
 import WeekOverview from './components/weekOverview';
@@ -12,9 +12,11 @@ import PageHeader2 from './components/pageHeader2';
 import ConnectedHardware from './components/connectedHardware';
 import StartActivity from './components/startActivity';
 import ActivityStateButton from './components/activityStateButton';
+import ActivityContext from './components/activityContext';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
+import StopWatch from './components/stopWatch';
 
 
 const {
@@ -23,8 +25,6 @@ const {
 } = Dimensions.get('window');
 
 // i SCREEN_HEIGHT så är -55 tillagd för på Jessicas telefon hamnar menybaren för långt ner
-
-let activity = false;
 
 function frontPage({ navigation }) {
   return (
@@ -141,20 +141,59 @@ function currentActivity({ navigation }) {
     </SafeAreaView >
   );
 }
+/*const useGlobalState = () => [
+  React.useContext(activityContext),
+  React.useContext(dispatchContext)
+]; */
 
+function activity({ navigation }) {
+  const context = React.useContext(ActivityContext);
+  console.log(context);
+  if (context.activityRunning) {
+    return currentActivity({ navigation }, context.timer);
+  } else {
+    context.timer = new StopWatch();
+    return newActivity({ navigation }, () => context.ActivityRunning = true);
+  }
+}
+
+/*const dispatchContext = React.createContext(undefined);
+
+const ActivityProvider = ({ children }) => {
+  const [state, dispatch] = React.useReducer(
+    (state, newValue) => ({ ...state, ...newValue }),
+    activityState
+  );
+
+  return (
+    <activityContext.Provider value={state}>
+      <dispatchContext.Provider value={dispatch}>
+        {children}
+      </dispatchContext.Provider>
+    </activityContext.Provider>
+  );
+} */
+
+const activityState = {
+  activityRunning: false,
+  timer: new StopWatch()
+};
 
 const Stack = createStackNavigator();
 
 export default function App() {
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FrontPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
-        <Stack.Screen name="FrontPage" component={frontPage} />
-        <Stack.Screen name="BackPage" component={backPage} />
-        <Stack.Screen name="DailyHRV" component={dailyHRV} />
-        <Stack.Screen name="NewActivity" component={newActivity} />
-        <Stack.Screen name="CurrentActivity" component={currentActivity} />
-      </Stack.Navigator>
+      <ActivityContext.Provider value={activityState}>
+        <Stack.Navigator initialRouteName="FrontPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
+          <Stack.Screen name="FrontPage" component={frontPage} />
+          <Stack.Screen name="BackPage" component={backPage} />
+          <Stack.Screen name="DailyHRV" component={dailyHRV} />
+          <Stack.Screen name="NewActivity" component={newActivity} />
+          <Stack.Screen name="CurrentActivity" component={currentActivity} />
+        </Stack.Navigator>
+      </ActivityContext.Provider>
     </NavigationContainer>
   );
 }

@@ -4,13 +4,14 @@ class StopWatch {
         this.stopped = true;
         this.interval = null;
         this.currentTime = 0;
-        this.paused = false;
+        this.paused = true;
     }
 
     start() {
         if (this.stopped) {
             this.startTime = Date.now();
             this.stopped = false;
+            this.paused = false;
             this.interval = setInterval(this._time.bind(this), 100);
         } else if (this.paused) {
             this.startTime = Date.now() - this.currentTime;
@@ -19,20 +20,22 @@ class StopWatch {
         }
     };
 
-    _time() {
-        this.currentTime = Date.now() - this.startTime;
-    }
+    _time() { this.currentTime = Date.now() - this.startTime; }
 
     getTime() { return formatTime(this.currentTime) }
 
     stop() {
         clearInterval(this.interval);
-        this.stopped = false;
+        this.stopped = true;
     }
 
     pause() {
         clearInterval(this.interval);
         this.paused = true;
+    }
+
+    isPaused() {
+        return this.paused;
     }
 }
 

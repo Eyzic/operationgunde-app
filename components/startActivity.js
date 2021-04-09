@@ -1,5 +1,6 @@
-import React from 'react';
-import { View, StyleSheet, Text, Dimensions, PixelRatio, Platform } from 'react-native';
+import React, { useContext } from 'react';
+import { View, StyleSheet, Text, Dimensions, PixelRatio, Platform, TouchableOpacity } from 'react-native';
+import ActivityContext from './activityContext';
 
 
 const {
@@ -18,14 +19,19 @@ function normalize(size) {
 }
 
 const startActivity = (props) => {
-    const [value, onChangeText] = React.useState('Default Placeholder');
+    const context = useContext(ActivityContext);
 
     return (
-        <View style={[props.style, { backgroundColor: '#BB22AA', marginBottom: 30 }]} onStartShouldSetResponder={() => props.nav.navigate('CurrentActivity')}  >
+        <TouchableOpacity style={[props.style, { backgroundColor: '#BB22AA', marginBottom: 30 }]} onPress={() => goToNext(props.nav, context)}  >
             <Text style={[styles.h2, { textAlign: 'center' }]}>Starta aktivitet</Text>
-        </View>
+        </TouchableOpacity>
     )
 };
+
+function goToNext(nav, context) {
+    context.activityRunning = true;
+    nav.navigate("CurrentActivity");
+}
 
 const styles = StyleSheet.create({
     h2: {
@@ -33,7 +39,5 @@ const styles = StyleSheet.create({
         fontSize: normalize(30),
     }
 });
-
-
 
 export default startActivity;
