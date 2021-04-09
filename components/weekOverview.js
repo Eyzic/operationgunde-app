@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'hsla(272, 100%, 97%,1)'
     },
     h2: {
-        fontFamily: "Roboto",
+        fontFamily: "Helvetica",
         fontSize: normalize(30),
     },
 });

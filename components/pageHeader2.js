@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
-import ProgressView from './progressView';
+
+//Detta är en pageheader utan progressview och utan taggad och redo 
 
 const {
     width: SCREEN_WIDTH,
@@ -22,7 +23,7 @@ function normalize(size) {
 //       hasImage = true or false depending on whether you want to render a picture or not.
 //       image = the location of the image to be shown. Can be ignored if there is no image.
 
-const PageHeader = (props) => {
+const PageHeader2 = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
@@ -36,16 +37,14 @@ const PageHeader = (props) => {
                         {props.text2}
                     </Text>
 
-                    <Text style={[styles.h3, styles.top_border]}>
-                        Taggad och redo
-                    </Text>
                 </View>
+                {console.log(props.image)}
                 {props.hasImage &&
                     <Image source={require('../assets/springa.png')} style={styles.image} />}
 
             </View>
-            <ProgressView />
         </View>
+
     );
 }
 
@@ -77,4 +76,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default PageHeader;
+export default PageHeader2;

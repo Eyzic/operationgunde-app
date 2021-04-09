@@ -133,16 +133,16 @@ const styles = StyleSheet.create({
         backgroundColor: "skyblue"
     },
     h1: {
-        fontFamily: "Roboto",
+        fontFamily: "Helvetica",
         fontSize: normalize(40),
     },
     h2: {
-        fontFamily: "Roboto",
+        fontFamily: "Helvetica",
         fontSize: normalize(30),
         lineHeight: 28
     },
     h3: {
-        fontFamily: "Roboto",
+        fontFamily: "Helvetica",
         fontSize: normalize(20)
     }
 });

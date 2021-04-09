@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Dimensions, PixelRatio, StyleSheet, Platform, TouchableOpacity, Alert, Image } from 'react-native';
+import ActivityContext from './activityContext';
 
 const {
     width: SCREEN_WIDTH,
@@ -16,38 +17,26 @@ function normalize(size) {
     }
 }
 
+function createMenuButton(source, action) {
+    return (
+        <TouchableOpacity onPress={action}>
+            <Image
+                source={source}
+                style={{ width: normalize(60), height: normalize(60) }} />
+        </TouchableOpacity>
+    );
+}
+
 const navMenu = (props) => {
-    const [value, onChangeText] = React.useState('Default Placeholder');
+    const context = useContext(ActivityContext);
 
     return (
         <View style={props.style}>
-
-            <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-                <Image
-                    source={require('../assets/menu/grupp2.png')}
-                    style={styles.normalize} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-                <Image
-                    source={require('../assets/menu/profil2.png')}
-                    style={styles.normalize} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => props.nav.navigate("FrontPage")}>
-                <Image
-                    source={require('../assets/menu/hus1.png')}
-                    style={styles.normalize} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
-                <Image
-                    source={require('../assets/menu/timer1.png')}
-                    style={styles.normalize} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => props.nav.navigate("History")}>
-                <Image
-                    source={require('../assets/menu/historik2.png')}
-                    style={styles.normalize} />
-            </TouchableOpacity>
-
+            {createMenuButton(require('../assets/menu/1.png'), () => Alert.alert('image clicked'))}
+            {createMenuButton(require('../assets/menu/2.png'), () => Alert.alert('image clicked'))}
+            {createMenuButton(require('../assets/menu/3.png'), () => props.nav.navigate("FrontPage"))}
+            {createMenuButton(require('../assets/menu/4.png'), () => goToActivity(props.nav, context))}
+            {createMenuButton(require('../assets/menu/5.png'), () => props.nav.navigate("History"))}
         </View>
     )
 };
@@ -62,5 +51,9 @@ const styles = StyleSheet.create({
         height: normalize(40)
     }
 });
+function goToActivity(nav, context) {
+    let route = context.activityRunning ? "CurrentActivity" : "NewActivity";
+    nav.navigate(route);
+}
 
 export default navMenu;
