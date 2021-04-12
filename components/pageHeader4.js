@@ -27,25 +27,14 @@ const pageHeader4 = (props) => {
     const [count, setColor] = useState(0);
     const onPress = () => {
         setColor(count + 1);
+        props.nav.navigate("HassesKompisar")
     };
 
+    const onPress2 = () => {
+        setColor(count + 1);
+        props.nav.navigate("HassesKompisarInst")
+    };
 
-    const ifSame = () => {
-        if (Math.floor(count % 2) == 1) {
-            return (styles.Oversikt2);
-        } if (Math.floor(count % 2) == 0) {
-            return (styles.Oversikt1);
-        }
-    };
-    const ifSame2 = () => {
-        if (count == 0) {
-            return (styles.Inställning1);
-        } if (Math.floor(count % 2) == 0) {
-            return (styles.Inställning2);
-        } if (Math.floor(count % 2) == 1) {
-            return (styles.Inställning1);
-        }
-    };
 
     return (
         <View style={props.style}>
@@ -64,19 +53,23 @@ const pageHeader4 = (props) => {
             </View>
             <View >
                 <TouchableOpacity onPress={onPress} >
-
-                    <Text style={ifSame()} >
+                    <Text style={[styles.Oversikt1, { color: props.color1 }]} >
                         {props.meny1}
                     </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={onPress} >
-                    <Text style={ifSame2()} >
+                <TouchableOpacity onPress={onPress2} >
+                    <Text style={[styles.Inställning1, { color: props.color2 }]} >
                         {props.meny2}
                     </Text>
                 </TouchableOpacity>
             </View>
-        </View>
+            <Text style={styles.h3}>
+                {props.antal}
+                {' '}
+                <Image source={require('../assets/menu/grupp2.png')} style={styles.image2} />
+            </Text>
+        </View >
 
     );
 
@@ -130,7 +123,22 @@ const styles = StyleSheet.create({
         width: normalize(135),
         height: normalize(135),
         borderRadius: 70
+    },
+    h3: {
+        fontFamily: "Helvetica",
+        fontSize: normalize(20),
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignSelf: 'flex-end',
+        marginTop: -31,
+    },
+    image2: {
+        width: normalize(20),
+        height: normalize(20),
+        borderRadius: 0,
+        alignSelf: 'flex-end',
     }
+
 });
 
 export default pageHeader4;

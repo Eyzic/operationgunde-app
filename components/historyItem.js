@@ -30,7 +30,7 @@ const historyItem = (props) => {
             <View style={[styles.container, props.style]}>
                 <View style={{ flexGrow: 4 }}>
                     <View style={styles.title}>
-                        <Text style={styles.h4}>Måndag löpning</Text>
+                        <Text style={styles.h4}>{props.text}</Text>
                         <Text style={styles.h4}>23 feb 2020</Text>
                     </View>
                     <View style={styles.statsRow}>
@@ -53,7 +53,9 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'hsla(268, 100%, 96%,0.63)',
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginBottom: 12,
+
     },
     title: {
         flexDirection: "row",
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'hsla(324, 53%, 66%,0.65)',
         flexDirection: "row",
         borderTopRightRadius: normalize(15),
-        borderBottomLeftRadius: 15,
+        borderBottomLeftRadius: normalize(15),
         padding: 1,
     },
     time: {
@@ -75,14 +77,14 @@ const styles = StyleSheet.create({
         padding: 10
     },
     h2: {
-        fontSize: normalize(20)
+        fontSize: normalize(15)
     },
     h3: {
         color: 'white',
         fontSize: normalize(15)
     },
     h4: {
-        fontSize: normalize(18)
+        fontSize: normalize(16)
     }
 });
 
