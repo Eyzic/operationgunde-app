@@ -24,14 +24,12 @@ function normalize(size) {
 //       image = the location of the image to be shown. Can be ignored if there is no image.
 
 const pageHeader4 = (props) => {
-    const [count, setColor] = useState(0);
     const onPress = () => {
-        setColor(count + 1);
+
         props.nav.navigate(props.over)
     };
 
     const onPress2 = () => {
-        setColor(count + 1);
         props.nav.navigate(props.inst)
     };
 
@@ -49,7 +47,6 @@ const pageHeader4 = (props) => {
 
                 </View>
                 <Image source={props.Image} style={styles.image} />
-
             </View>
             <View>
 
@@ -58,6 +55,7 @@ const pageHeader4 = (props) => {
                         {props.meny3}
                     </Text>
                 </TouchableOpacity>
+
             </View>
             <View >
                 <TouchableOpacity onPress={onPress} >
@@ -75,7 +73,7 @@ const pageHeader4 = (props) => {
             <Text style={styles.h3}>
                 {props.antal}
                 {' '}
-                <Image source={require('../assets/menu/grupp2.png')} style={styles.image2} />
+                <Image source={props.amountImage} style={styles.image2} />
             </Text>
 
         </View >
