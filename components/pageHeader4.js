@@ -27,12 +27,12 @@ const pageHeader4 = (props) => {
     const [count, setColor] = useState(0);
     const onPress = () => {
         setColor(count + 1);
-        props.nav.navigate("HassesKompisar")
+        props.nav.navigate(props.over)
     };
 
     const onPress2 = () => {
         setColor(count + 1);
-        props.nav.navigate("HassesKompisarInst")
+        props.nav.navigate(props.inst)
     };
 
 

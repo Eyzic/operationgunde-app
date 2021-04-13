@@ -31,17 +31,17 @@ const settings = (props) => {
                 </View>
                 <View style={styles.ruta2}>
                     <Text style={styles.rutaText}>
-                        Ändra gruppbild
+                        {props.text1}
                     </Text>
                 </View>
                 <View style={styles.ruta2}>
                     <Text style={styles.rutaText}>
-                        Lägg till kompis
+                        {props.text2}
                     </Text>
                 </View>
                 <View style={styles.ruta2}>
                     <Text style={styles.rutaText}>
-                        Ändra gruppmål
+                        {props.text3}
                     </Text>
                 </View>
             </View>
