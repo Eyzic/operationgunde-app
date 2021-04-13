@@ -51,6 +51,14 @@ const pageHeader4 = (props) => {
                 <Image source={props.Image} style={styles.image} />
 
             </View>
+            <View>
+
+                <TouchableOpacity onPress={onPress} >
+                    <Text style={[styles.Oversikt1, { color: props.color1 }]} >
+                        {props.meny3}
+                    </Text>
+                </TouchableOpacity>
+            </View>
             <View >
                 <TouchableOpacity onPress={onPress} >
                     <Text style={[styles.Oversikt1, { color: props.color1 }]} >

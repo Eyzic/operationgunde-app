@@ -18,6 +18,7 @@ import ThisOrThat from './components/thisOrThat';
 import Skapa from './components/skapa'
 import ProgressView from './components/progressView';
 import GruppMedlemmar from './components/gruppMedlemmar';
+import HassesKompis from './components/hassesKompis';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
@@ -238,10 +239,10 @@ function hassesVän({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 text1='Hasses' text2='Kompisar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
+          <PageHeader4 meny3='Gå tillbaka' text1='Hasses' text2='Kompisar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
-
+          <HassesKompis />
 
         </ScrollView>
 

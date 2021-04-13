@@ -25,14 +25,31 @@ const gruppMedlemmar = (props) => {
         <View style={props.style}>
             <View style={styles.row}>
                 <ScrollView horizontal={true} >
+
                     <TouchableOpacity onPress={onPress}>
                         <Kompis Image={props.image1} />
                     </TouchableOpacity>
-                    <Kompis Image={props.image2} />
-                    <Kompis Image={props.image3} />
-                    <Kompis Image={props.image4} />
-                    <Kompis Image={props.image5} />
-                    <Kompis Image={props.image6} />
+
+                    <TouchableOpacity onPress={onPress}>
+                        <Kompis Image={props.image2} />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={onPress}>
+                        <Kompis Image={props.image3} />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={onPress}>
+                        <Kompis Image={props.image4} />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={onPress}>
+                        <Kompis Image={props.image5} />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={onPress}>
+                        <Kompis Image={props.image6} />
+                    </TouchableOpacity>
+
                 </ScrollView>
             </View>
         </View>
