@@ -69,6 +69,7 @@ const pageHeader4 = (props) => {
                 {' '}
                 <Image source={require('../assets/menu/grupp2.png')} style={styles.image2} />
             </Text>
+
         </View >
 
     );

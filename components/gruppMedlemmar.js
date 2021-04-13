@@ -19,12 +19,15 @@ function normalize(size) {
 
 const gruppMedlemmar = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
+    const onPress = () => props.nav.navigate("HassesVän");
 
     return (
         <View style={props.style}>
             <View style={styles.row}>
                 <ScrollView horizontal={true} >
-                    <Kompis Image={props.image1} />
+                    <TouchableOpacity onPress={onPress}>
+                        <Kompis Image={props.image1} />
+                    </TouchableOpacity>
                     <Kompis Image={props.image2} />
                     <Kompis Image={props.image3} />
                     <Kompis Image={props.image4} />

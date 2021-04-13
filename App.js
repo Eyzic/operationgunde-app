@@ -21,7 +21,6 @@ import GruppMedlemmar from './components/gruppMedlemmar';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
-import gruppMedlemmar from './components/gruppMedlemmar';
 
 const {
   width: SCREEN_WIDTH,
@@ -193,7 +192,7 @@ function hassesKompisar({ navigation }) {
 
           <GruppMedlemmar image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
             image3={require('./assets/Hasse.png')} image4={require('./assets/HassesKompisar.png')}
-            image5={require('./assets/Hasse.png')} image6={require('./assets/HassesKompisar.png')} />
+            image5={require('./assets/Hasse.png')} image6={require('./assets/HassesKompisar.png')} nav={navigation}> </GruppMedlemmar>
 
 
           <ProgressView />
@@ -221,6 +220,25 @@ function hassesKompisarInst({ navigation }) {
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
           <PageHeader4 color1='black' color2='red' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
+          </PageHeader4>
+
+
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+function hassesVän({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader4 text1='Hasses' text2='Kompisar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
 
@@ -268,6 +286,7 @@ export default function App() {
         <Stack.Screen name="IFKGBG" component={IFKgbg} />
         <Stack.Screen name="SkapadGrupp" component={skapadGrupp} />
         <Stack.Screen name="HassesKompisarInst" component={hassesKompisarInst} />
+        <Stack.Screen name="HassesVän" component={hassesVän} />
       </Stack.Navigator>
     </NavigationContainer>
   );

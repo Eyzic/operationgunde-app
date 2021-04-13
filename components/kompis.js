@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, View, TouchableOpacity, Image, Alert } from 'react-native';
+import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, View, onStartShouldSetResponder, TouchableOpacity, Image, Alert } from 'react-native';
 
 const {
     width: SCREEN_WIDTH,
@@ -21,14 +21,9 @@ const kompis = (props) => {
 
     return (
         <View style={props.style}>
-
-
-            <TouchableOpacity onPress={() => Alert.alert('Din kompis')}>
-                <Image
-                    source={props.Image}
-                    style={styles.kompis} />
-            </TouchableOpacity>
-
+            <Image
+                source={props.Image}
+                style={styles.kompis} />
         </View>
     )
 };
