@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, ScrollView, TextInput, Dimensions, StyleSheet } from 'react-native';
 
-import DailyMeasure from '../components/dailyMeasure';
+import BigButton from '../components/BigButton';
 
 import Style from '../styles/Style';
 
@@ -18,7 +18,7 @@ const LoginScreen = ({ navigation }) => {
 
                     <TextInput style={[Style.item]}></TextInput>
 
-                    <DailyMeasure path={'FrontPage'} text={"Logga in!"} style={Style.item} nav={navigation} />
+                    <BigButton text={"Logga in!"} style={Style.item} action={() => navigation.navigate('FrontPage')} />
 
                 </ScrollView>
             </View>

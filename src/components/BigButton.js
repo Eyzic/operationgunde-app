@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, Dimensions, PixelRatio, Platform } from 'react-native';
+import { View, StyleSheet, Text, Dimensions, PixelRatio, Platform, TouchableOpacity } from 'react-native';
 
 
 const {
@@ -17,13 +17,13 @@ function normalize(size) {
     }
 }
 
-const dailyMeasure = (props) => {
+const BigButton = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={[props.style, { backgroundColor: '#BB22AA', marginBottom: 30 }]} onStartShouldSetResponder={() => props.nav.navigate(props.path)}  >
+        <TouchableOpacity style={[props.style, { backgroundColor: '#BB22AA', marginBottom: 30 }]} onPress={props.action}  >
             <Text style={[styles.h2, { textAlign: 'center' }]}>{props.text}</Text>
-        </View>
+        </TouchableOpacity>
     )
 };
 
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
 
 
 
-export default dailyMeasure;
+export default BigButton;

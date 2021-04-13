@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, ScrollView, Dimensions, StyleSheet } from 'react-native';
 
-import DailyMeasure from '../components/dailyMeasure';
+import BigButton from '../components/BigButton';
 import PageHeader from '../components/pageHeader';
 import WeekOverview from '../components/weekOverview';
 import DayOverview from '../components/dayOverview';
@@ -25,7 +25,7 @@ const FrontScreen = ({ navigation }) => {
             <WeekOverview style={[Style.item]} />
             <DayOverview style={[Style.item]} />
 
-            <DailyMeasure path={'DailyHRV'} text={"Daily measure!"} style={Style.item} nav={navigation} />
+            <BigButton text={"Daily measure!"} style={Style.item} action={() => navigation.navigate('DailyHRV')} />
 
         </StandardTemplate>
     );
