@@ -28,18 +28,27 @@ const dayOverview = (props) => {
 
     return (
         <View style={[props.style, { flexDirection: 'row' }]}>
-            <View style={{ flexGrow: 1, padding: 0 }}>
-                <Text style={styles.h3}>Muskeltrötthet</Text>
-                <EvalBar style={styles.box} />
+            <View style={ { flexDirection: 'column' }}>
 
-                <Text style={styles.h3}>Mentalt</Text>
-                <EvalBar style={styles.box} />
+                <Text style={styles.h2}>
+                    Prognos:
+                
+                </Text>
+                <Text style={styles.h3}>
+                    HRV imorgon:
+                
+                </Text>
+                <View style={styles.box2}/>
 
-                <Text style={styles.h3}>Energi</Text>
-                <EvalBar style={styles.box} />
-
-                <Text style={styles.h3}>Sömn</Text>
-                <EvalBar style={styles.box} />
+                <Text style={styles.h3}>
+                    {'Din träningsintensitet'}
+                    {'\nbör vara:'}
+                </Text>
+                <View style={styles.box2}>
+                    <Text style={{textAlign:'center', marginTop:8}}>
+                        lugnt, normalt, max
+                    </Text>
+                </View>
             </View>
 
             <View style={[{ alignItems: 'flex-end', flexGrow: 1 }]}>
@@ -143,8 +152,17 @@ const styles = StyleSheet.create({
     },
     h3: {
         fontFamily: "Helvetica",
-        fontSize: normalize(20)
-    }
+        fontSize: normalize(20),
+        marginTop:15,
+    },
+    box2: {
+        flexDirection: 'column',
+        width: normalize(170),
+        height: normalize(35),
+        borderRadius:10,
+        marginTop:10,
+        backgroundColor: 'hsla(316,47%,73%,1)',
+    },
 });
 
 export default dayOverview;
