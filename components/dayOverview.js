@@ -42,7 +42,7 @@ const dayOverview = (props) => {
 
                 <Text style={styles.h3}>
                     {'Din träningsintensitet'}
-                    {'\nbör vara:'}
+                    {'\nimorgon bör vara:'}
                 </Text>
                 <View style={styles.box2}>
                     <Text style={{textAlign:'center', marginTop:8}}>
