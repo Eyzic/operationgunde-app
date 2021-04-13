@@ -16,7 +16,7 @@ const scale = SCREEN_WIDTH / 420;
 
 const CurrentActivityScreen = ({ navigation }) => {
     return (
-        <StandardTemplate navigation={navigation}>
+        <StandardTemplate navigation={navigation} showMenu={true}>
 
             <PageHeader2 text1='Aktiv' text2='aktivitet' style={[Style.item]} >
             </PageHeader2>
