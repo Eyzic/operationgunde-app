@@ -5,6 +5,8 @@ import PageHeader from '../components/pageHeader';
 import NavMenu from '../components/navMenu';
 import Form from '../components/Form';
 
+import Style from '../styles/Style';
+
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -14,44 +16,20 @@ const DailyHrvScreen = ({ navigation }) => {
     return (
         <SafeAreaView>
             <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
-                <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+                <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, Style.background]}>
 
-                    <PageHeader text1='Daglig' text2='HRV-mätning' style={[styles.item]} hasImage={false}>
+                    <PageHeader text1='Daglig' text2='HRV-mätning' style={[Style.item]} hasImage={false}>
                     </PageHeader>
 
-                    <Form style={styles.item} />
+                    <Form style={Style.item} />
 
                 </ScrollView>
 
-                <NavMenu style={styles.menu} nav={navigation} />
+                <NavMenu nav={navigation} />
 
             </View>
         </SafeAreaView >
     );
 }
-
-const styles = StyleSheet.create({
-    background: {
-        backgroundColor: 'hsla(268, 67%, 89%,1)'
-    },
-    border: {
-        borderColor: 'red',
-        borderWidth: 3
-    },
-    item: {
-        backgroundColor: 'hsla(272, 100%, 97%,1)',
-        marginBottom: 10,
-        padding: 20,
-        borderRadius: 15
-    },
-    menu: {
-        flexDirection: "row",
-        display: 'flex',
-        justifyContent: 'space-between',
-        backgroundColor: 'hsla(0, 0%, 100%,1)',
-        padding: 5,
-        paddingHorizontal: 20
-    }
-});
 
 export default DailyHrvScreen;

@@ -5,6 +5,8 @@ import NavMenu from '../components/navMenu';
 import HistoryItem from '../components/historyItem';
 import PageHeader from '../components/pageHeader';
 
+import Style from '../styles/Style';
+
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -14,44 +16,20 @@ const HistoryScreen = ({ navigation }) => {
     return (
         <SafeAreaView>
             <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
-                <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+                <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, Style.background]}>
 
-                    <PageHeader text1='Din' text2='Historik' style={[styles.item]} hasImage={false}>
+                    <PageHeader text1='Din' text2='Historik' style={[Style.item]} hasImage={false}>
                     </PageHeader>
 
                     <HistoryItem style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
 
                 </ScrollView>
 
-                <NavMenu style={styles.menu} nav={navigation} />
+                <NavMenu nav={navigation} />
 
             </View>
         </SafeAreaView >
     );
 }
-
-const styles = StyleSheet.create({
-    background: {
-        backgroundColor: 'hsla(268, 67%, 89%,1)'
-    },
-    border: {
-        borderColor: 'red',
-        borderWidth: 3
-    },
-    item: {
-        backgroundColor: 'hsla(272, 100%, 97%,1)',
-        marginBottom: 10,
-        padding: 20,
-        borderRadius: 15
-    },
-    menu: {
-        flexDirection: "row",
-        display: 'flex',
-        justifyContent: 'space-between',
-        backgroundColor: 'hsla(0, 0%, 100%,1)',
-        padding: 5,
-        paddingHorizontal: 20
-    }
-});
 
 export default HistoryScreen;
