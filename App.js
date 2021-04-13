@@ -62,6 +62,27 @@ function history({ navigation }) {
   );
 }
 
+function historyOverview({ navigation}){
+  return(
+    <SafeAreaView>
+            <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader text1='Din' text2='Historik' style={[styles.item]} hasImage={false}>
+          </PageHeader>
+
+          
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView>
+
+  );
+}
+
 function dailyHRV({ navigation }) {
   return (
     <SafeAreaView>
@@ -98,7 +119,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="FrontPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
         <Stack.Screen name="FrontPage" component={frontPage} />
-        <Stack.Screen name="History" component={history} />
+        <Stack.Screen name="History" component={historyOverview} />
         <Stack.Screen name="DailyHRV" component={dailyHRV} />
       </Stack.Navigator>
     </NavigationContainer>
