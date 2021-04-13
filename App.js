@@ -19,6 +19,7 @@ import Skapa from './components/skapa'
 import ProgressView from './components/progressView';
 import GruppMedlemmar from './components/gruppMedlemmar';
 import HassesKompis from './components/hassesKompis';
+import Settings from './components/settings';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
@@ -223,7 +224,7 @@ function hassesKompisarInst({ navigation }) {
           <PageHeader4 color1='black' color2='red' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
-
+          <Settings />
 
         </ScrollView>
 
