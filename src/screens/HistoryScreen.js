@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, ScrollView, Dimensions, StyleSheet } from 'react-native';
 
-import NavMenu from '../components/navMenu';
+import StandardTemplate from '../templates/StandardTemplate';
 import HistoryItem from '../components/historyItem';
 import PageHeader from '../components/pageHeader';
 
@@ -14,21 +14,14 @@ const {
 
 const HistoryScreen = ({ navigation }) => {
     return (
-        <SafeAreaView>
-            <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
-                <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, Style.background]}>
+        <StandardTemplate navigation={navigation} showMenu={true}>
 
-                    <PageHeader text1='Din' text2='Historik' style={[Style.item]} hasImage={false}>
-                    </PageHeader>
+            <PageHeader text1='Din' text2='Historik' style={[Style.item]} hasImage={false}>
+            </PageHeader>
 
-                    <HistoryItem style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
+            <HistoryItem style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
 
-                </ScrollView>
-
-                <NavMenu nav={navigation} />
-
-            </View>
-        </SafeAreaView >
+        </StandardTemplate>
     );
 }
 

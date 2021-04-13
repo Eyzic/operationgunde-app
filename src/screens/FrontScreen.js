@@ -6,6 +6,7 @@ import PageHeader from '../components/pageHeader';
 import WeekOverview from '../components/weekOverview';
 import DayOverview from '../components/dayOverview';
 import NavMenu from '../components/navMenu';
+import StandardTemplate from '../templates/StandardTemplate';
 
 import Style from '../styles/Style';
 
@@ -16,25 +17,17 @@ const {
 
 const FrontScreen = ({ navigation }) => {
     return (
-        <SafeAreaView>
-            <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
+        <StandardTemplate navigation={navigation} showMenu={true}>
 
-                <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, Style.background]}>
+            <PageHeader text1="Din" text2="Dagsform" style={[Style.item]} hasImage={true}>
+            </PageHeader>
 
-                    <PageHeader text1="Din" text2="Dagsform" style={[Style.item]} hasImage={true}>
-                    </PageHeader>
+            <WeekOverview style={[Style.item]} />
+            <DayOverview style={[Style.item]} />
 
-                    <WeekOverview style={[Style.item]} />
-                    <DayOverview style={[Style.item]} />
+            <DailyMeasure path={'DailyHRV'} text={"Daily measure!"} style={Style.item} nav={navigation} />
 
-                    <DailyMeasure path={'DailyHRV'} text={"Daily measure!"} style={Style.item} nav={navigation} />
-
-                </ScrollView>
-
-                <NavMenu nav={navigation} />
-
-            </View>
-        </SafeAreaView >
+        </StandardTemplate>
     );
 }
 

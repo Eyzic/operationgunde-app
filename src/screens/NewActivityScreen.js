@@ -4,7 +4,7 @@ import { SafeAreaView, View, ScrollView, TextInput, Dimensions, StyleSheet } fro
 import PageHeader2 from '../components/pageHeader2';
 import ConnectedHardware from '../components/connectedHardware';
 import StartActivity from '../components/startActivity';
-import NavMenu from '../components/navMenu';
+import StandardTemplate from '../templates/StandardTemplate';
 
 import Style from '../styles/Style';
 
@@ -15,24 +15,18 @@ const {
 
 const NewActivityScreen = ({ navigation }) => {
     return (
-        <SafeAreaView>
-            <View style={{ display: 'flex', height: SCREEN_HEIGHT - 55 }}>
-                <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, Style.background]}>
+        <StandardTemplate navigation={navigation} showMenu={true}>
 
-                    <PageHeader2 text1='Ny' text2='Aktivitet' style={[Style.item]}>
-                    </PageHeader2>
+            <PageHeader2 text1='Ny' text2='Aktivitet' style={[Style.item]}>
+            </PageHeader2>
 
-                    <TextInput title="Aktivitetsnamn:" style={[Style.item]}></TextInput>
+            <TextInput title="Aktivitetsnamn:" style={[Style.item]}></TextInput>
 
-                    <ConnectedHardware style={Style.item} />
+            <ConnectedHardware style={Style.item} />
 
-                    <StartActivity style={Style.item} nav={navigation} />
+            <StartActivity style={Style.item} nav={navigation} />
 
-                </ScrollView>
-
-                <NavMenu nav={navigation} />
-            </View>
-        </SafeAreaView >
+        </StandardTemplate>
     );
 }
 
