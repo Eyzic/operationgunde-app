@@ -73,7 +73,7 @@ const pageHeader4 = (props) => {
             <Text style={styles.h3}>
                 {props.antal}
                 {' '}
-                <Image source={props.amountImage} style={styles.image2} />
+                <Image source={props.Image2} style={styles.image2} />
             </Text>
 
         </View >
