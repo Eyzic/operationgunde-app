@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, StyleSheet, Text, TextInput, Button } from 'react-native';
 
 const form = (props) => {
-    const [name, onChangeName] = React.useState('Anders');
+    const [name, onChangeName] = React.useState("2");
     const [hrv, onChangeHrv] = React.useState(68);
     const [sleep, onChangeSleep] = React.useState(7);
     const [stress, onChangeStress] = React.useState(4);

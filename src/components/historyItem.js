@@ -31,7 +31,7 @@ const historyItem = (props) => {
                 <View style={{ flexGrow: 4 }}>
                     <View style={styles.title}>
                         <Text style={styles.h4}>Måndag löpning</Text>
-                        <Text style={styles.h4}>23 feb 2020</Text>
+                        <Text style={styles.h4}>{props.date}</Text>
                     </View>
                     <View style={styles.statsRow}>
                         <StatsDisplay statsTitle={"Avg HR"} value={150} textStyle={styles.h3} />
@@ -41,7 +41,7 @@ const historyItem = (props) => {
                 </View>
 
                 <View style={styles.time}>
-                    <Text style={styles.h2}>08:00</Text>
+                    <Text style={styles.h2}>{props.duration}</Text>
                 </View>
 
             </View>

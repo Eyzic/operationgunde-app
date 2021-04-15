@@ -30,16 +30,16 @@ const dayOverview = (props) => {
         <View style={[props.style, { flexDirection: 'row' }]}>
             <View style={{ flexGrow: 1, padding: 0 }}>
                 <Text style={styles.h3}>Muskeltrötthet</Text>
-                <EvalBar style={styles.box} />
+                <EvalBar limit={10} value={7} />
 
                 <Text style={styles.h3}>Mentalt</Text>
-                <EvalBar style={styles.box} />
+                <EvalBar limit={10} value={6} />
 
                 <Text style={styles.h3}>Energi</Text>
-                <EvalBar style={styles.box} />
+                <EvalBar limit={10} value={2} />
 
                 <Text style={styles.h3}>Sömn</Text>
-                <EvalBar style={styles.box} />
+                <EvalBar limit={10} value={10} />
             </View>
 
             <View style={[{ alignItems: 'flex-end', flexGrow: 1 }]}>
@@ -126,12 +126,6 @@ function today() {
 }
 
 const styles = StyleSheet.create({
-    box: {
-        width: normalize(10),
-        height: normalize(10),
-        marginRight: 4,
-        backgroundColor: "skyblue"
-    },
     h1: {
         fontFamily: "Helvetica",
         fontSize: normalize(40),
