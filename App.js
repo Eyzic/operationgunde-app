@@ -21,6 +21,7 @@ import GruppMedlemmar from './components/gruppMedlemmar';
 import HassesKompis from './components/hassesKompis';
 import Settings from './components/settings';
 import Adepter from './components/adepter';
+import AdeptKompis from './components/adeptKompis';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { TextInput } from 'react-native-gesture-handler';
@@ -126,7 +127,10 @@ function minaGrupper({ navigation }) {
           <Group text1='Hasses' text2='Kompisar' antal='5' OrgGrupp='Grupp' knapp='HassesKompisar' Image={require('./assets/HassesKompisar.png')} style={[styles.item]} nav={navigation}>
           </Group>
 
-          <Group text1='IFK' text2='Göteborg' antal='16' OrgGrupp='Organisation' knapp='IFKGBG' Image={require('./assets/IFK.png')} style={[styles.item]} nav={navigation}>
+          <Group text1='IFK' text2='Göteborg' antal='6' OrgGrupp='Organisation - tränare' knapp='IFKGBG-T' Image={require('./assets/IFK.png')} style={[styles.item]} nav={navigation}>
+          </Group>
+
+          <Group text1='IFK' text2='Göteborg' antal='6' OrgGrupp='Organisation - adept' knapp='IFKGBG-A' Image={require('./assets/IFK.png')} style={[styles.item]} nav={navigation}>
           </Group>
 
           <Pluss style={styles.item} nav={navigation} />
@@ -210,6 +214,7 @@ function hassesKompisar({ navigation }) {
           <HistoryItem text='Einar' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
 
           <HistoryItem text='Filip' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
+
         </ScrollView>
         <NavMenu style={styles.menu} nav={navigation} />
 
@@ -223,7 +228,7 @@ function hassesKompisarInst({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 over="HassesKompisar" inst="HassesKompisarInst" color1='black' color2='red' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="HassesKompisar" inst="HassesKompisarInst" color1='black' color2='red' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
           <Settings text1='Ändra gruppbild' text2='Lägg till kompis' text3='Ändra gruppmål' />
@@ -242,7 +247,7 @@ function hassesVän({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 over="HassesKompisar" inst="HassesKompisarInst" meny3='Gå tillbaka' text1='Hasses' text2='Kompisar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="HassesKompisar" inst="HassesKompisarInst" meny3='Gå tillbaka' text1='Hasses' text2='Kompisar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
           <HassesKompis />
@@ -255,19 +260,26 @@ function hassesVän({ navigation }) {
     </SafeAreaView >
   );
 }
-function IFKgbg({ navigation }) {
+function IFKgbgT({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 over="IFKGBG" inst="IFKGBGInst" color1='red' color2='black' text1='IFK' text2='Göteborg' Image={require('./assets/IFK.png')} style={[styles.item]} meny1='Översikt  ' meny2='Inställningar' antal='6' nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="IFKGBG-T" inst="IFKGBGInst-T" color1='red' color2='black' text1='IFK' text2='Göteborg' Image={require('./assets/IFK.png')} style={[styles.item]} meny1='Översikt  ' meny2='Inställningar' antal='6' nav={navigation} >
           </PageHeader4>
 
-          <Adepter image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
+          <Adepter adeptAT="AdeptT" image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
             image3={require('./assets/Hasse.png')} image4={require('./assets/HassesKompisar.png')}
             image5={require('./assets/Hasse.png')} image6={require('./assets/HassesKompisar.png')} nav={navigation}> </Adepter>
 
+          <HistoryItem text='Janne' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
+
+          <HistoryItem text='Jeremy' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
+
+          <HistoryItem text='Magnus' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
+
+          <HistoryItem text='Ali' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
 
         </ScrollView>
 
@@ -277,35 +289,81 @@ function IFKgbg({ navigation }) {
     </SafeAreaView >
   );
 }
-function adept({ navigation }) {
+function IFKgbgInstT({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 over="IFKGBG" inst="IFKGBGInst" meny3='Gå tillbaka' text1='IFK' text2='Göteborg' antal='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
-          </PageHeader4>
-
-
-
-        </ScrollView>
-
-        <NavMenu style={styles.menu} nav={navigation} />
-
-      </View>
-    </SafeAreaView >
-  );
-}
-function IFKgbgInst({ navigation }) {
-  return (
-    <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
-        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
-
-          <PageHeader4 over="IFKGBG" inst="IFKGBGInst" color1='black' color2='red' text1='IFK' text2='Göteborg' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="IFKGBG-T" inst="IFKGBGInst-T" color1='black' color2='red' text1='IFK' text2='Göteborg' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
           </PageHeader4>
 
           <Settings text1='Lägg till tränare' text2='Lägg till adept' text3='Ändra gruppbild' />
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+
+function adeptT({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="IFKGBG-T" inst="IFKGBGInst-T" meny3='Gå tillbaka' text1='IFK' text2='Göteborg' antal='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
+          </PageHeader4>
+
+          <AdeptKompis hasRuta={true} hasProfil={true} text1='Lägg till träningsprogram' />
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+function IFKgbgA({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} text1='IFK' text2='Göteborg' Image={require('./assets/IFK.png')} style={[styles.item]} antal='6' nav={navigation} >
+          </PageHeader4>
+
+          <Adepter adeptAT="AdeptA" image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
+            image3={require('./assets/Hasse.png')} image4={require('./assets/HassesKompisar.png')}
+            image5={require('./assets/Hasse.png')} image6={require('./assets/HassesKompisar.png')} nav={navigation}> </Adepter>
+
+          <AdeptKompis hasRuta={true} text1='Mitt träningsprogram' />
+
+          <AdeptKompis hasRuta={true} text1='Meddelande från tränare' />
+
+        </ScrollView>
+
+        <NavMenu style={styles.menu} nav={navigation} />
+
+      </View>
+    </SafeAreaView >
+  );
+}
+function adeptA({ navigation }) {
+  return (
+    <SafeAreaView>
+      <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
+        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
+
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="IFKGBG-A" inst="IFKGBGInst-A" meny3='Gå tillbaka' text1='IFK' text2='Göteborg' antal='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
+          </PageHeader4>
+
+          <AdeptKompis hasProfil={true} text2='Gick med i IFK Göteborg för
+                    0 år 2 mån och 23 dagar sen'/>
 
         </ScrollView>
 
@@ -328,12 +386,14 @@ export default function App() {
         <Stack.Screen name="MinaGrupper" component={minaGrupper} />
         <Stack.Screen name="NyGrupp" component={nyGrupp} />
         <Stack.Screen name="HassesKompisar" component={hassesKompisar} />
-        <Stack.Screen name="IFKGBG" component={IFKgbg} />
+        <Stack.Screen name="IFKGBG-T" component={IFKgbgT} />
+        <Stack.Screen name="IFKGBG-A" component={IFKgbgA} />
         <Stack.Screen name="SkapadGrupp" component={skapadGrupp} />
         <Stack.Screen name="HassesKompisarInst" component={hassesKompisarInst} />
         <Stack.Screen name="HassesVän" component={hassesVän} />
-        <Stack.Screen name="IFKGBGInst" component={IFKgbgInst} />
-        <Stack.Screen name="Adept" component={adept} />
+        <Stack.Screen name="IFKGBGInst-T" component={IFKgbgInstT} />
+        <Stack.Screen name="AdeptT" component={adeptT} />
+        <Stack.Screen name="AdeptA" component={adeptA} />
       </Stack.Navigator>
     </NavigationContainer>
   );

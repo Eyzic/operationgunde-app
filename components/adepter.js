@@ -19,7 +19,7 @@ function normalize(size) {
 
 const adepter = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
-    const onPress = () => props.nav.navigate("Adept");
+    const onPress = () => props.nav.navigate(props.adeptAT);
 
     return (
         <View style={props.style}>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'hsla(272, 100%, 97%,1)',
         borderRadius: 15,
         padding: 20,
-        marginBottom: 10,
+        marginBottom: 20,
     },
     kompis: {
         width: normalize(70),
