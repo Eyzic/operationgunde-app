@@ -17,9 +17,9 @@ function normalize(size) {
     }
 }
 
-const gruppMedlemmar = (props) => {
+const groupMembers = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
-    const onPress = () => props.nav.navigate("FriendGroupFriend");
+    const onPress = () => props.nav.navigate(props.groupMember);
 
     return (
         <View style={props.style}>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'hsla(272, 100%, 97%,1)',
         borderRadius: 15,
         padding: 20,
-        marginBottom: 10,
+        marginBottom: 20,
     },
     kompis: {
         width: normalize(70),
@@ -76,4 +76,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default gruppMedlemmar;
+export default groupMembers;

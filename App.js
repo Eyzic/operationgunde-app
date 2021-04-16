@@ -16,10 +16,9 @@ import Group from './components/group';
 import ThisOrThat from './components/thisOrThat';
 import CreatGroup from './components/creatGroup'
 import ProgressView from './components/progressView';
-import GruppMedlemmar from './components/gruppMedlemmar';
 import FriendsFriend from './components/friendsFriend';
 import Settings from './components/settings';
-import Athlete from './components/athlete';
+import GroupMembers from './components/groupMembers';
 import AthletesFriend from './components/athletesFriend';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
@@ -200,7 +199,7 @@ function friendGroup({ navigation }) {
 
 
 
-          <GruppMedlemmar image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
+          <GroupMembers groupMember="FriendGroupFriend" image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
             image3={require('./assets/Hasse.png')} image4={require('./assets/HassesKompisar.png')}
             image5={require('./assets/Hasse.png')} image6={require('./assets/HassesKompisar.png')} nav={navigation} />
 
@@ -269,7 +268,7 @@ function organisationCoach({ navigation }) {
           <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="OrganisationCoach" inst="OrganisationCoachSettings" color1='red' color2='black' text1='IFK' text2='Göteborg' Image={require('./assets/IFK.png')} style={[styles.item]} meny1='Översikt  ' meny2='Inställningar' antal='6' nav={navigation} >
           </PageHeader4>
 
-          <Athlete adeptAT="OrganisationCoachAthlete" image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
+          <GroupMembers groupMember="OrganisationCoachAthlete" image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
             image3={require('./assets/Hasse.png')} image4={require('./assets/HassesKompisar.png')}
             image5={require('./assets/Hasse.png')} image6={require('./assets/HassesKompisar.png')} nav={navigation} />
 
@@ -337,7 +336,7 @@ function organisationAthlete({ navigation }) {
           <PageHeader4 Image2={require('./assets/menu/grupp2.png')} text1='IFK' text2='Göteborg' Image={require('./assets/IFK.png')} style={[styles.item]} antal='6' nav={navigation} >
           </PageHeader4>
 
-          <Athlete adeptAT="OrganisationAthleteFriend" image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
+          <GroupMembers groupMember="OrganisationAthleteFriend" image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
             image3={require('./assets/Hasse.png')} image4={require('./assets/HassesKompisar.png')}
             image5={require('./assets/Hasse.png')} image6={require('./assets/HassesKompisar.png')} nav={navigation} />
 
