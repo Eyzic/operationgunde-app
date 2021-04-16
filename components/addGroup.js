@@ -21,7 +21,7 @@ const pluss = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={styles.knapp} onStartShouldSetResponder={() => props.nav.navigate('NyGrupp')}  >
+        <View style={styles.knapp} onStartShouldSetResponder={() => props.nav.navigate('NewGroup')}  >
             <Text style={styles.h2}> + </Text>
         </View>
     )

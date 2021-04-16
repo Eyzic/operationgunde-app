@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         width: normalize(130),
         height: normalize(50),
         alignSelf: 'center',
-        marginTop: 200,
+        marginTop: 20,
         justifyContent: 'center',
     },
     row: {

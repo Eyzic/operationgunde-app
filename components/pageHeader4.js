@@ -94,26 +94,12 @@ const styles = StyleSheet.create({
         marginTop: -33.4,
         marginStart: 121,
     },
-    Inställning2: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(23),
-        lineHeight: 40,
-        marginTop: -33.4,
-        marginStart: 121,
-        color: 'red',
-    },
+
     Oversikt1: {
         fontFamily: "Helvetica",
         fontSize: normalize(23),
         justifyContent: 'space-between',
     },
-    Oversikt2: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(23),
-        justifyContent: 'space-between',
-        color: 'red',
-    },
-
     top_border: {
         borderTopColor: '#000',
         borderTopWidth: 3,

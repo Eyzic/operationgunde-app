@@ -23,21 +23,21 @@ const thisOrThat = (props) => {
     const onPress = () => {
         setColor(count + 1);
     };
-    
+
 
     const ifSame = () => {
-        if (Math.floor(count % 2) == 1 ){
+        if (Math.floor(count % 2) == 1) {
             return (styles.button2);
-        } if (Math.floor(count % 2) == 0 ) {
+        } if (Math.floor(count % 2) == 0) {
             return (styles.button);
         }
     };
     const ifSame2 = () => {
-        if (count  == 0 ) {
+        if (count == 0) {
             return (styles.button);
         } if (Math.floor(count % 2) == 0) {
             return (styles.button2);
-        } if (Math.floor(count % 2) == 1 ) {
+        } if (Math.floor(count % 2) == 1) {
             return (styles.button);
         }
     };
@@ -58,6 +58,15 @@ const thisOrThat = (props) => {
                     Kompisgrupp
             </Text>
             </TouchableOpacity>
+
+            <Text style={styles.h31}>
+                Organisation = En grupp så att tränare i olika
+                idrottsgrupper och -lag kan se hur träningen går och lägga in adeptens program
+            </Text>
+            <Text style={styles.h31}>
+                Kompisgrupp = En grupp för dig och dina vänner som vill
+                följa varandras träning och som grupp jobba mot samma mål
+            </Text>
         </View>
     );
 }
@@ -69,6 +78,13 @@ const styles = StyleSheet.create({
         fontSize: normalize(20),
         textAlign: 'center',
         marginTop: -32,
+        marginBottom: 20,
+    },
+    h31: {
+        fontFamily: "Helvetica",
+        fontSize: normalize(20),
+        textAlign: 'center',
+        marginTop: 20,
         marginBottom: 20,
     },
     button: {

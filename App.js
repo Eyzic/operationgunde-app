@@ -10,9 +10,8 @@ import DayOverview from './components/dayOverview';
 import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
 import HistoryItem from './components/historyItem';
-import PageHeader3 from './components/pageHeader3';
 import PageHeader4 from './components/pageHeader4';
-import Pluss from './components/pluss';
+import AddGroup from './components/addGroup';
 import Group from './components/group';
 import ThisOrThat from './components/thisOrThat';
 import Skapa from './components/skapa'
@@ -114,17 +113,16 @@ function dailyHRV({ navigation }) {
   );
 }
 
-function minaGrupper({ navigation }) {
+function myGroups({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader3 text1='Mina' text2='Grupper' style={[styles.item]} Image={require('./assets/Hasse.png')}>
-          </PageHeader3>
 
 
-          <Group text1='Hasses' text2='Kompisar' antal='5' OrgGrupp='Grupp' knapp='HassesKompisar' Image={require('./assets/HassesKompisar.png')} style={[styles.item]} nav={navigation}>
+          <PageHeader4 text1='Mina' text2='Grupper' Image={require('./assets/Hasse.png')} style={[styles.item]} />
+          <Group text1='Hasses' text2='Kompisar' antal='5' OrgGrupp='Grupp' knapp='FriendGroup' Image={require('./assets/HassesKompisar.png')} style={[styles.item]} nav={navigation}>
           </Group>
 
           <Group text1='IFK' text2='Göteborg' antal='6' OrgGrupp='Organisation - tränare' knapp='IFKGBG-T' Image={require('./assets/IFK.png')} style={[styles.item]} nav={navigation}>
@@ -133,7 +131,7 @@ function minaGrupper({ navigation }) {
           <Group text1='IFK' text2='Göteborg' antal='6' OrgGrupp='Organisation - adept' knapp='IFKGBG-A' Image={require('./assets/IFK.png')} style={[styles.item]} nav={navigation}>
           </Group>
 
-          <Pluss style={styles.item} nav={navigation} />
+          <AddGroup style={styles.item} nav={navigation} />
 
         </ScrollView>
 
@@ -144,23 +142,25 @@ function minaGrupper({ navigation }) {
   );
 }
 
-function nyGrupp({ navigation }) {
+function newGroup({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader3 text1='Ny' text2='Grupp' style={[styles.item]} >
-          </PageHeader3>
+          <PageHeader4 text1='Ny' text2='Grupp' style={[styles.item]} >
+          </PageHeader4>
+          <View style={[styles.item]}>
 
-          <Text style={styles.h2}>Gruppnamn:</Text>
-          <TextInput style={styles.item2} />
+            <Text style={styles.h2}>Gruppnamn:</Text>
+            <TextInput style={styles.item2} />
 
-          <Text style={styles.h2}>Typ av grupp:</Text>
+            <Text style={styles.h2}>Typ av grupp:</Text>
 
-          <ThisOrThat />
+            <ThisOrThat />
 
-          <Skapa style={styles.item} nav={navigation} />
+            <Skapa style={styles.item} nav={navigation} />
+          </View>
 
         </ScrollView>
 
@@ -170,14 +170,14 @@ function nyGrupp({ navigation }) {
     </SafeAreaView >
   );
 }
-function skapadGrupp({ navigation }) {
+function createdGroup({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader3 text1='"Grupp' text2='namn"' style={[styles.item]}>
-          </PageHeader3>
+          <PageHeader4 text1='"Grupp' text2='namn"' style={[styles.item]}>
+          </PageHeader4>
 
 
         </ScrollView>
@@ -189,13 +189,13 @@ function skapadGrupp({ navigation }) {
   );
 }
 
-function hassesKompisar({ navigation }) {
+function friendGroup({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="HassesKompisar" inst="HassesKompisarInst" color1='red' color2='black' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="FriendGroup" inst="FriendGroupSettings" color1='red' color2='black' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
 
@@ -222,13 +222,13 @@ function hassesKompisar({ navigation }) {
     </SafeAreaView >
   );
 }
-function hassesKompisarInst({ navigation }) {
+function friendGroupSettings({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="HassesKompisar" inst="HassesKompisarInst" color1='black' color2='red' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="FriendGroup" inst="FriendGroupSettings" color1='black' color2='red' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
           <Settings text1='Ändra gruppbild' text2='Lägg till kompis' text3='Ändra gruppmål' />
@@ -241,13 +241,13 @@ function hassesKompisarInst({ navigation }) {
     </SafeAreaView >
   );
 }
-function hassesVän({ navigation }) {
+function friendGroupFriend({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="HassesKompisar" inst="HassesKompisarInst" meny3='Gå tillbaka' text1='Hasses' text2='Kompisar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="FriendGroup" inst="FriendGroupSettings" meny3='Gå tillbaka' text1='Hasses' text2='Kompisar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
           <HassesKompis />
@@ -383,14 +383,14 @@ export default function App() {
         <Stack.Screen name="FrontPage" component={frontPage} />
         <Stack.Screen name="History" component={history} />
         <Stack.Screen name="DailyHRV" component={dailyHRV} />
-        <Stack.Screen name="MinaGrupper" component={minaGrupper} />
-        <Stack.Screen name="NyGrupp" component={nyGrupp} />
-        <Stack.Screen name="HassesKompisar" component={hassesKompisar} />
+        <Stack.Screen name="MyGroups" component={myGroups} />
+        <Stack.Screen name="NewGroup" component={newGroup} />
+        <Stack.Screen name="FriendGroup" component={friendGroup} />
         <Stack.Screen name="IFKGBG-T" component={IFKgbgT} />
         <Stack.Screen name="IFKGBG-A" component={IFKgbgA} />
-        <Stack.Screen name="SkapadGrupp" component={skapadGrupp} />
-        <Stack.Screen name="HassesKompisarInst" component={hassesKompisarInst} />
-        <Stack.Screen name="HassesVän" component={hassesVän} />
+        <Stack.Screen name="CreatedGroup" component={createdGroup} />
+        <Stack.Screen name="FriendGroupSettings" component={friendGroupSettings} />
+        <Stack.Screen name="FriendGroupFriend" component={friendGroupFriend} />
         <Stack.Screen name="IFKGBGInst-T" component={IFKgbgInstT} />
         <Stack.Screen name="AdeptT" component={adeptT} />
         <Stack.Screen name="AdeptA" component={adeptA} />

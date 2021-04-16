@@ -19,7 +19,7 @@ function normalize(size) {
 
 const gruppMedlemmar = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
-    const onPress = () => props.nav.navigate("HassesVän");
+    const onPress = () => props.nav.navigate("friendGroupFriend");
 
     return (
         <View style={props.style}>
