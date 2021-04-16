@@ -16,60 +16,43 @@ function normalize(size) {
     }
 }
 
-const hassesKompis = (props) => {
+const athletesFriend = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
         <View style={props.style}>
-            <View style={[styles.row]}>
-                <Image
-                    source={require('../assets/Tomas.png')}
-                    style={styles.kompis} />
-                <Text style={styles.h5}>
-                    {'Tomas'}
-                    {'\n Ledin'}
-                    {'\n'}
-                </Text>
-            </View>
-            <View style={styles.row2}>
-                <Text style={styles.h3}>
-                    {'Antal steg'}
-                    {'\ndenna vecka:    '}
-                    {'\n'}
-                    {'\n'}
-                </Text>
-                <View style={styles.ruta}>
-                    <Text style={styles.rutaText}>
-                        37 309
-                     </Text>
+            {console.log(props.image)}
+            {props.hasProfil &&
+                <View style={[styles.row]}>
+                    <Image
+                        source={require('../assets/Tomas.png')}
+                        style={styles.kompis} />
+                    <Text style={styles.h5}>
+                        {'Tomas'}
+                        {'\n Ledin'}
+                        {'\n'}
+                    </Text>
                 </View>
-            </View>
+            }
             <View style={styles.row2}>
-                <Text style={styles.h3}>
-                    {'Antal km'}
-                    {'\ndenna vecka:    '}
-                    {'\n'}
-                    {'\n'}
+
+                {console.log(props.image)}
+                {props.hasRuta &&
+
+
+                    <View style={styles.ruta}>
+                        <Text style={styles.rutaText}>
+                            {props.text1}
+                        </Text>
+                    </View>
+                }
+                <Text style={styles.rutaText2}>
+                    {props.text2}
                 </Text>
-                <View style={styles.ruta}>
-                    <Text style={styles.rutaText}>
-                        18.5
-                     </Text>
-                </View>
+
             </View>
-            <View style={styles.row2}>
-                <Text style={styles.h3}>
-                    {'Träningstid'}
-                    {'\ndenna vecka:    '}
-                    {'\n'}
-                    {'\n'}
-                </Text>
-                <View style={styles.ruta}>
-                    <Text style={styles.rutaText}>
-                        5.5 h
-                     </Text>
-                </View>
-            </View>
+
+
         </View >
     )
 };
@@ -126,11 +109,12 @@ const styles = StyleSheet.create({
     ruta: {
         flex: 1,
         backgroundColor: 'hsla(316, 47%, 73%, 1)',
-        borderRadius: 20,
+        borderRadius: 10,
         width: normalize(80),
-        height: normalize(40),
+        height: normalize(60),
         alignSelf: 'center',
-        marginTop: -30,
+        marginTop: 20,
+        marginBottom: 10,
         justifyContent: 'center',
     },
     rutaText: {
@@ -139,7 +123,14 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white',
     },
+    rutaText2: {
+        fontFamily: "Helvetica",
+        fontSize: normalize(20),
+        textAlign: 'center',
+        color: 'black',
+
+    },
 
 });
 
-export default hassesKompis;
+export default athletesFriend;

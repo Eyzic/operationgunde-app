@@ -17,11 +17,11 @@ function normalize(size) {
     }
 }
 
-const skapa = (props) => {
+const creatGroup = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={styles.knapp} onStartShouldSetResponder={() => props.nav.navigate('SkapadGrupp')}  >
+        <View style={styles.knapp} onStartShouldSetResponder={() => props.nav.navigate("CreatedGroup")}  >
             <Text style={styles.h2}> Skapa </Text>
         </View>
     )
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
 
 
 
-export default skapa;
+export default creatGroup;

@@ -1,7 +1,7 @@
 import { useLinkProps } from '@react-navigation/native';
 import React from 'react';
 import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, View, TouchableOpacity, Image } from 'react-native';
-import Kompis from './kompis';
+import Friend from './friend';
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -19,7 +19,7 @@ function normalize(size) {
 
 const gruppMedlemmar = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
-    const onPress = () => props.nav.navigate("friendGroupFriend");
+    const onPress = () => props.nav.navigate("FriendGroupFriend");
 
     return (
         <View style={props.style}>
@@ -27,27 +27,27 @@ const gruppMedlemmar = (props) => {
                 <ScrollView horizontal={true} >
 
                     <TouchableOpacity onPress={onPress}>
-                        <Kompis Image={props.image1} />
+                        <Friend Image={props.image1} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={onPress}>
-                        <Kompis Image={props.image2} />
+                        <Friend Image={props.image2} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={onPress}>
-                        <Kompis Image={props.image3} />
+                        <Friend Image={props.image3} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={onPress}>
-                        <Kompis Image={props.image4} />
+                        <Friend Image={props.image4} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={onPress}>
-                        <Kompis Image={props.image5} />
+                        <Friend Image={props.image5} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={onPress}>
-                        <Kompis Image={props.image6} />
+                        <Friend Image={props.image6} />
                     </TouchableOpacity>
 
                 </ScrollView>
