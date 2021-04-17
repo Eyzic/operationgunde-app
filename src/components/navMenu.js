@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Dimensions, PixelRatio, StyleSheet, Platform, TouchableOpacity, Alert, Image } from 'react-native';
+import { View, Dimensions, PixelRatio, Platform, TouchableOpacity, Alert, Image } from 'react-native';
 import ActivityContext from './activityContext';
 
 import Style from '../styles/Style';
@@ -34,7 +34,7 @@ const navMenu = (props) => {
 
     return (
         <View style={Style.menu}>
-            {createMenuButton(require('../assets/menu/1.png'), () => Alert.alert('image clicked'))}
+            {createMenuButton(require('../assets/menu/1.png'), () => props.nav.navigate("MyGroups"))}
             {createMenuButton(require('../assets/menu/2.png'), () => Alert.alert('image clicked'))}
             {createMenuButton(require('../assets/menu/3.png'), () => props.nav.navigate("FrontPage"))}
             {createMenuButton(require('../assets/menu/4.png'), () => goToActivity(props.nav, context))}

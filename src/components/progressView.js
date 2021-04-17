@@ -35,15 +35,7 @@ const styles = StyleSheet.create({
     h3: {
         fontFamily: "Helvetica",
         fontSize: normalize(20),
-    },
-    prog: {
-
     }
 });
-
-
-
-
-
 
 export default progressView;

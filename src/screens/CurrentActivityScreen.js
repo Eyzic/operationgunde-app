@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { SafeAreaView, View, ScrollView, Dimensions, Text, PixelRatio, StyleSheet, Platform, TouchableOpacity, Image } from 'react-native';
+import { View, Dimensions, Text, PixelRatio, StyleSheet, Platform, TouchableOpacity, Image } from 'react-native';
 
 import PageHeader2 from '../components/pageHeader2';
-import NavMenu from '../components/navMenu';
 import StandardTemplate from '../templates/StandardTemplate';
 
 import ActivityContext from '../components/activityContext';

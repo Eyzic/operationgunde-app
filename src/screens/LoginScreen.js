@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, ScrollView, TextInput, Dimensions, StyleSheet } from 'react-native';
+import { SafeAreaView, View, ScrollView, TextInput, Dimensions } from 'react-native';
 
 import BigButton from '../components/BigButton';
 import UserContext from '../components/UserContext';

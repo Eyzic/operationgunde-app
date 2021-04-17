@@ -1,6 +1,9 @@
 import React from 'react';
 import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
 
+
+//Detta är en pageheader utan progressview och utan taggad och redo 
+
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -21,12 +24,14 @@ function normalize(size) {
 //       hasImage = true or false depending on whether you want to render a picture or not.
 //       image = the location of the image to be shown. Can be ignored if there is no image.
 
-const PageHeader = (props) => {
+const group = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={props.style}>
-            <View style={[styles.header]}>
+        <View style={props.style} onStartShouldSetResponder={props.nav}>
+
+            <View style={[styles.header]} >
+                <Image source={props.Image} style={styles.image} />
                 <View>
                     <Text style={styles.h1} >
                         {props.text1}
@@ -34,16 +39,17 @@ const PageHeader = (props) => {
                     <Text style={styles.h1} >
                         {props.text2}
                     </Text>
-
-                    <Text style={[styles.h3, styles.top_border]}>
-                        Taggad och redo
-                    </Text>
                 </View>
-                {props.hasImage &&
-                    <Image source={require('../assets/springa.png')} style={styles.image} />}
 
             </View>
-            {props.children}
+            <Text style={styles.h2}>
+                {props.groupType}
+            </Text>
+            <Text style={styles.h3}>
+                {props.memberCount}
+                {' '}
+                <Image source={require('../assets/menu/grupp2.png')} style={styles.image2} />
+            </Text>
         </View>
     );
 }
@@ -51,12 +57,27 @@ const PageHeader = (props) => {
 const styles = StyleSheet.create({
     h1: {
         fontFamily: "Helvetica",
-        fontSize: normalize(40),
-        lineHeight: 40
+        fontSize: normalize(30),
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 9,
+    },
+    h2: {
+        fontFamily: "Helvetica",
+        fontSize: normalize(20),
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignSelf: 'flex-start',
+        marginBottom: -25,
+
     },
     h3: {
         fontFamily: "Helvetica",
         fontSize: normalize(20),
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignSelf: 'flex-end',
+
     },
     top_border: {
         borderTopColor: '#000',
@@ -66,14 +87,21 @@ const styles = StyleSheet.create({
     header: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         marginTop: 20,
         marginBottom: 20
     },
     image: {
-        width: normalize(135),
-        height: normalize(135)
+        width: normalize(110),
+        height: normalize(110),
+        borderRadius: 20
+    },
+    image2: {
+        width: normalize(20),
+        height: normalize(20),
+        borderRadius: 0,
+        alignSelf: 'flex-end',
     }
 });
 
-export default PageHeader;
+export default group;

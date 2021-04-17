@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, ScrollView, TextInput, Dimensions, StyleSheet } from 'react-native';
+import { TextInput, Dimensions } from 'react-native';
 
 import PageHeader2 from '../components/pageHeader2';
 import ConnectedHardware from '../components/connectedHardware';

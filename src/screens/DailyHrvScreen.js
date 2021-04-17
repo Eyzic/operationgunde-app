@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, ScrollView, Dimensions, StyleSheet } from 'react-native';
+import { Dimensions } from 'react-native';
 
 import PageHeader from '../components/pageHeader';
 import StandardTemplate from '../templates/StandardTemplate';

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, StyleSheet, Text, Dimensions, PixelRatio, Platform, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, Dimensions, PixelRatio, Platform, TouchableOpacity } from 'react-native';
 import ActivityContext from './activityContext';
 
 

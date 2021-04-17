@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, StyleSheet, Text, TextInput, Button } from 'react-native';
 
 const form = (props) => {

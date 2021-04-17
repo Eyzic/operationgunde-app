@@ -4,6 +4,9 @@ const styles = StyleSheet.create({
     background: {
         backgroundColor: 'hsla(268, 67%, 89%,1)'
     },
+    pink: {
+        backgroundColor: 'hsla(316, 47%, 73%,1)'
+    },
     border: {
         borderColor: 'red',
         borderWidth: 3
