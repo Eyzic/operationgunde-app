@@ -44,7 +44,7 @@ const PageHeader = (props) => {
                     <Image source={require('../assets/springa.png')} style={styles.image} />}
 
             </View>
-            <ProgressView />
+            {props.children}
         </View>
     );
 }

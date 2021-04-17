@@ -5,7 +5,7 @@ import BigButton from '../components/BigButton';
 import PageHeader from '../components/pageHeader';
 import WeekOverview from '../components/weekOverview';
 import DayOverview from '../components/dayOverview';
-import NavMenu from '../components/navMenu';
+import ProgressView from '../components/progressView';
 import StandardTemplate from '../templates/StandardTemplate';
 
 import Style from '../styles/Style';
@@ -20,6 +20,7 @@ const FrontScreen = ({ navigation }) => {
         <StandardTemplate navigation={navigation} showMenu={true}>
 
             <PageHeader text1="Din" text2="Dagsform" style={[Style.item]} hasImage={true}>
+                <ProgressView />
             </PageHeader>
 
             <WeekOverview style={[Style.item]} />
