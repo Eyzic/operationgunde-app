@@ -16,7 +16,7 @@ function normalize(size) {
     }
 }
 
-const friend = (props) => {
+const friendLogo = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default friend;
+export default friendLogo;

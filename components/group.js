@@ -28,9 +28,9 @@ const group = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={props.style}>
+        <View style={props.style} onStartShouldSetResponder={props.nav}>
 
-            <View style={[styles.header]} onStartShouldSetResponder={() => props.nav.navigate(props.knapp)} >
+            <View style={[styles.header]} >
                 <Image source={props.Image} style={styles.image} />
                 <View>
                     <Text style={styles.h1} >
@@ -43,10 +43,10 @@ const group = (props) => {
 
             </View>
             <Text style={styles.h2}>
-                {props.OrgGrupp}
+                {props.groupType}
             </Text>
             <Text style={styles.h3}>
-                {props.antal}
+                {props.memberCount}
                 {' '}
                 <Image source={require('../assets/menu/grupp2.png')} style={styles.image2} />
             </Text>

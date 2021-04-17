@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler'
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, Dimensions, Text } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Dimensions, Text, TextInput } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native';
 import { Image, PixelRatio, Platform } from 'react-native';
 import PageHeader from './components/pageHeader';
@@ -13,16 +13,14 @@ import HistoryItem from './components/historyItem';
 import PageHeader4 from './components/pageHeader4';
 import AddGroup from './components/addGroup';
 import Group from './components/group';
-import ThisOrThat from './components/thisOrThat';
+import ToggleChoiceButton from './components/toggleChoiceButton';
 import CreatGroup from './components/creatGroup'
 import ProgressView from './components/progressView';
-import FriendsFriend from './components/friendsFriend';
 import Settings from './components/settings';
 import GroupMembers from './components/groupMembers';
-import AthletesFriend from './components/athletesFriend';
+import FriendProfile from './components/FriendProfile';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
-import { TextInput } from 'react-native-gesture-handler';
 
 
 const {
@@ -118,16 +116,35 @@ function myGroups({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-
-
           <PageHeader4 text1='Mina' text2='Grupper' Image={require('./assets/Hasse.png')} style={[styles.item]} />
-          <Group text1='Hasses' text2='Kompisar' antal='5' OrgGrupp='Grupp' knapp='FriendGroup' Image={require('./assets/HassesKompisar.png')} style={[styles.item]} nav={navigation}>
+          <Group
+            text1='Hasses'
+            text2='Kompisar'
+            memberCount='5'
+            groupType='Grupp'
+            Image={require('./assets/HassesKompisar.png')}
+            style={[styles.item]}
+            nav={() => navigation.navigate("FriendGroup")}>
           </Group>
 
-          <Group text1='IFK' text2='Göteborg' antal='6' OrgGrupp='Organisation - tränare' knapp='OrganisationCoach' Image={require('./assets/IFK.png')} style={[styles.item]} nav={navigation}>
+          <Group
+            text1='IFK'
+            text2='Göteborg'
+            memberCount='6'
+            groupType='Organisation - tränare'
+            Image={require('./assets/IFK.png')}
+            style={[styles.item]}
+            nav={() => navigation.navigate("OrganisationCoach")}>
           </Group>
 
-          <Group text1='IFK' text2='Göteborg' antal='6' OrgGrupp='Organisation - adept' knapp='OrganisationAthlete' Image={require('./assets/IFK.png')} style={[styles.item]} nav={navigation}>
+          <Group
+            text1='IFK'
+            text2='Göteborg'
+            memberCount='6'
+            groupType='Organisation - adept'
+            Image={require('./assets/IFK.png')}
+            style={[styles.item]}
+            nav={() => navigation.navigate("OrganisationAthlete")}>
           </Group>
 
           <AddGroup style={styles.item} nav={navigation} />
@@ -142,6 +159,8 @@ function myGroups({ navigation }) {
 }
 
 function newGroup({ navigation }) {
+  const [groupName, setGroupName] = React.useState("");
+
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
@@ -152,11 +171,11 @@ function newGroup({ navigation }) {
           <View style={[styles.item]}>
 
             <Text style={styles.h2}>Gruppnamn:</Text>
-            <TextInput style={styles.item2} />
+            <TextInput onTextChanged={setGroupName} style={styles.item2} />
 
             <Text style={styles.h2}>Typ av grupp:</Text>
 
-            <ThisOrThat />
+            <ToggleChoiceButton />
 
             <CreatGroup style={styles.item} nav={navigation} />
           </View>
@@ -194,7 +213,7 @@ function friendGroup({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="FriendGroup" inst="FriendGroupSettings" color1='red' color2='black' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="FriendGroup" inst="FriendGroupSettings" color1='red' color2='black' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' memberCount='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
 
@@ -227,10 +246,10 @@ function friendGroupSettings({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="FriendGroup" inst="FriendGroupSettings" color1='black' color2='red' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="FriendGroup" inst="FriendGroupSettings" color1='black' color2='red' text1='Hasses' text2='Kompisar' meny1='Översikt  ' meny2='Inställningar' memberCount='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
-          <Settings text1='Ändra gruppbild' text2='Lägg till kompis' text3='Ändra gruppmål' />
+          <Settings style={styles.item} text1='Ändra gruppbild' text2='Lägg till kompis' text3='Ändra gruppmål' />
 
         </ScrollView>
 
@@ -240,16 +259,37 @@ function friendGroupSettings({ navigation }) {
     </SafeAreaView >
   );
 }
+
+function StatsBox(props) {
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <Text style={[styles.h3, { flexGrow: 1 }]}>
+        {props.text}
+      </Text>
+      <View style={styles.ruta}>
+        <Text style={styles.rutaText}>
+          {props.value}
+        </Text>
+      </View>
+    </View>
+  );
+}
+
 function friendGroupFriend({ navigation }) {
   return (
     <SafeAreaView>
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="FriendGroup" inst="FriendGroupSettings" meny3='Gå tillbaka' text1='Hasses' text2='Kompisar' antal='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="FriendGroup" inst="FriendGroupSettings" meny3='Gå tillbaka' text1='Hasses' text2='Kompisar' memberCount='6' style={[styles.item]} Image={require('./assets/HassesKompisar.png')} nav={navigation} >
           </PageHeader4>
 
-          <FriendsFriend />
+          {/*TODO: Vet att dessa inte line:ar upp helt, men det blev lättare med strukturen. Vi kan lösa det senare med Grid tror jag.*/}
+          <FriendProfile style={styles.item} hasProfil={true}>
+            <StatsBox text={'Antal steg \ndenna vecka: '} value={"37 309"} />
+            <StatsBox text={'Antal km \ndenna vecka: '} value={"18.5"} />
+            <StatsBox text={'Träningstid \ndenna vecka: '} value={"5.5 h"} />
+          </FriendProfile>
 
         </ScrollView>
 
@@ -265,7 +305,7 @@ function organisationCoach({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="OrganisationCoach" inst="OrganisationCoachSettings" color1='red' color2='black' text1='IFK' text2='Göteborg' Image={require('./assets/IFK.png')} style={[styles.item]} meny1='Översikt  ' meny2='Inställningar' antal='6' nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="OrganisationCoach" inst="OrganisationCoachSettings" color1='red' color2='black' text1='IFK' text2='Göteborg' Image={require('./assets/IFK.png')} style={[styles.item]} meny1='Översikt  ' meny2='Inställningar' memberCount='6' nav={navigation} >
           </PageHeader4>
 
           <GroupMembers groupMember="OrganisationCoachAthlete" image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
@@ -294,7 +334,7 @@ function organisationCoachSettings({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="OrganisationCoach" inst="OrganisationCoachSettings" color1='black' color2='red' text1='IFK' text2='Göteborg' meny1='Översikt  ' meny2='Inställningar' antal='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="OrganisationCoach" inst="OrganisationCoachSettings" color1='black' color2='red' text1='IFK' text2='Göteborg' meny1='Översikt  ' meny2='Inställningar' memberCount='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
           </PageHeader4>
 
           <Settings text1='Lägg till tränare' text2='Lägg till adept' text3='Ändra gruppbild' />
@@ -314,10 +354,17 @@ function organisationCoachAthlete({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="OrganisationCoach" inst="OrganisationCoachSettings" meny3='Gå tillbaka' text1='IFK' text2='Göteborg' antal='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="OrganisationCoach" inst="OrganisationCoachSettings" meny3='Gå tillbaka' text1='IFK' text2='Göteborg' memberCount='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
           </PageHeader4>
 
-          <AthletesFriend hasRuta={true} hasProfil={true} text1='Lägg till träningsprogram' />
+          <FriendProfile style={styles.item} hasProfil={true}>
+            {/*TODO - Byt ut mot en Button*/}
+            <View style={styles.ruta}>
+              <Text style={styles.rutaText}>
+                Lägg till träningsprogram
+                </Text>
+            </View>
+          </FriendProfile>
 
         </ScrollView>
 
@@ -333,16 +380,31 @@ function organisationAthlete({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} text1='IFK' text2='Göteborg' Image={require('./assets/IFK.png')} style={[styles.item]} antal='6' nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} text1='IFK' text2='Göteborg' Image={require('./assets/IFK.png')} style={[styles.item]} memberCount='6' nav={navigation} >
           </PageHeader4>
 
           <GroupMembers groupMember="OrganisationAthleteFriend" image1={require('./assets/Hasse.png')} image2={require('./assets/HassesKompisar.png')}
             image3={require('./assets/Hasse.png')} image4={require('./assets/HassesKompisar.png')}
             image5={require('./assets/Hasse.png')} image6={require('./assets/HassesKompisar.png')} nav={navigation} />
 
-          <AthletesFriend hasRuta={true} text1='Mitt träningsprogram' />
+          <View style={styles.item}>
 
-          <AthletesFriend hasRuta={true} text1='Meddelande från tränare' />
+            {/*TODO - Byt ut mot en Button*/}
+            <View style={styles.ruta}>
+              <Text style={styles.rutaText}>
+                Mitt träningsprogram
+            </Text>
+            </View>
+
+
+            {/*TODO - Byt ut mot en Button*/}
+            <View style={styles.ruta}>
+              <Text style={styles.rutaText}>
+                Meddelande från tränare
+                </Text>
+            </View>
+          </View>
+
 
         </ScrollView>
 
@@ -358,11 +420,15 @@ function organisationAthleteFriend({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT - 50 }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="OrganisationAthlete" inst="OrganisationAthleteFriend" meny3='Gå tillbaka' text1='IFK' text2='Göteborg' antal='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
+          <PageHeader4 Image2={require('./assets/menu/grupp2.png')} over="OrganisationAthlete" inst="OrganisationAthleteFriend" meny3='Gå tillbaka' text1='IFK' text2='Göteborg' memberCount='6' style={[styles.item]} Image={require('./assets/IFK.png')} nav={navigation} >
           </PageHeader4>
 
-          <AthletesFriend hasProfil={true} text2='Gick med i IFK Göteborg för
-                    0 år 2 mån och 23 dagar sen'/>
+          <FriendProfile style={styles.item} hasProfil={true}>
+            <Text>
+              Gick med i IFK Göteborg för
+              0 år 2 mån och 23 dagar sen
+              </Text>
+          </FriendProfile>
 
         </ScrollView>
 
@@ -440,4 +506,24 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     padding: 5,
   },
+  ruta: {
+    padding: 10,
+    backgroundColor: 'hsla(316, 47%, 73%, 1)',
+    borderRadius: 10,
+    margin: 10,
+    flexGrow: 3
+  },
+  rutaText: {
+    fontFamily: "Helvetica",
+    fontSize: normalize(25),
+    textAlign: 'center',
+    color: 'white',
+  },
+  rutaText2: {
+    fontFamily: "Helvetica",
+    fontSize: normalize(20),
+    textAlign: 'center',
+    color: 'black',
+
+  }
 });

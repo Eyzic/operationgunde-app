@@ -16,9 +16,12 @@ function normalize(size) {
     }
 }
 
+//TODO
+//Har en idé på hur vi kan göra om denna komponent visuellt. Som en toggleButton som visar 
+//informationen on grupp/organisation beroende på vilken man har vald som aktiv.
+//Denna buggar också just nu iom att du kan klicka på "kompisgrupp", men den väljer ändå "organisation".
 
-
-const thisOrThat = (props) => {
+const toggleChoiceButton = (props) => {
     const [count, setColor] = useState(0);
     const onPress = () => {
         setColor(count + 1);
@@ -109,4 +112,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default thisOrThat;
+export default toggleChoiceButton;

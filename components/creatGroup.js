@@ -17,6 +17,10 @@ function normalize(size) {
     }
 }
 
+//TODO
+//Denna komponent kan tas bort när kopplingen till en riktig skapad grupp är på plats.
+//Skicka navigate till group med parametrar för vilket ID gruppen har för att populera datan.
+
 const creatGroup = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 

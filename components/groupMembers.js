@@ -1,7 +1,7 @@
 import { useLinkProps } from '@react-navigation/native';
 import React from 'react';
 import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, View, TouchableOpacity, Image } from 'react-native';
-import Friend from './friend';
+import FriendLogo from './friendLogo';
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -27,27 +27,27 @@ const groupMembers = (props) => {
                 <ScrollView horizontal={true} >
 
                     <TouchableOpacity onPress={onPress}>
-                        <Friend Image={props.image1} />
+                        <FriendLogo Image={props.image1} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={onPress}>
-                        <Friend Image={props.image2} />
+                        <FriendLogo Image={props.image2} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={onPress}>
-                        <Friend Image={props.image3} />
+                        <FriendLogo Image={props.image3} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={onPress}>
-                        <Friend Image={props.image4} />
+                        <FriendLogo Image={props.image4} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={onPress}>
-                        <Friend Image={props.image5} />
+                        <FriendLogo Image={props.image5} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={onPress}>
-                        <Friend Image={props.image6} />
+                        <FriendLogo Image={props.image6} />
                     </TouchableOpacity>
 
                 </ScrollView>

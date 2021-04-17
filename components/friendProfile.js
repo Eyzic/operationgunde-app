@@ -16,12 +16,11 @@ function normalize(size) {
     }
 }
 
-const athletesFriend = (props) => {
+const FriendProfile = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
         <View style={props.style}>
-            {console.log(props.image)}
             {props.hasProfil &&
                 <View style={[styles.row]}>
                     <Image
@@ -34,23 +33,9 @@ const athletesFriend = (props) => {
                     </Text>
                 </View>
             }
-            <View style={styles.row2}>
 
-                {console.log(props.image)}
-                {props.hasRuta &&
+            {props.children}
 
-
-                    <View style={styles.ruta}>
-                        <Text style={styles.rutaText}>
-                            {props.text1}
-                        </Text>
-                    </View>
-                }
-                <Text style={styles.rutaText2}>
-                    {props.text2}
-                </Text>
-
-            </View>
 
 
         </View >
@@ -80,8 +65,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         backgroundColor: 'hsla(272, 100%, 97%,1)',
         borderRadius: 15,
-        padding: 20,
-        marginBottom: 10,
+        marginBottom: 20
     },
     row2: {
         flexDirection: "row",
@@ -105,32 +89,7 @@ const styles = StyleSheet.create({
         height: normalize(150),
         borderRadius: 50,
         marginLeft: 3,
-    },
-    ruta: {
-        flex: 1,
-        backgroundColor: 'hsla(316, 47%, 73%, 1)',
-        borderRadius: 10,
-        width: normalize(80),
-        height: normalize(60),
-        alignSelf: 'center',
-        marginTop: 20,
-        marginBottom: 10,
-        justifyContent: 'center',
-    },
-    rutaText: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(20),
-        textAlign: 'center',
-        color: 'white',
-    },
-    rutaText2: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(20),
-        textAlign: 'center',
-        color: 'black',
-
-    },
-
+    }
 });
 
-export default athletesFriend;
+export default FriendProfile;

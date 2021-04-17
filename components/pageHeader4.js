@@ -71,7 +71,7 @@ const pageHeader4 = (props) => {
                 </TouchableOpacity>
             </View>
             <Text style={styles.h3}>
-                {props.antal}
+                {props.memberCount}
                 {' '}
                 <Image source={props.Image2} style={styles.image2} />
             </Text>

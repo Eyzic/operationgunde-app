@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, View, onStartShouldSetResponder, TouchableOpacity, Image, Alert } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import { Text, Dimensions, PixelRatio, StyleSheet, Platform, View, TextInput } from 'react-native';
 
 const {
     width: SCREEN_WIDTH,
@@ -50,40 +49,10 @@ const settings = (props) => {
 };
 
 const styles = StyleSheet.create({
-    h3: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(20),
-    },
-    h5: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(40),
-        marginRight: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 22,
-    },
     h6: {
         fontFamily: "Helvetica",
         fontSize: normalize(20),
         textAlign: 'left',
-    },
-    row: {
-        flexDirection: "row",
-        justifyContent: 'space-between',
-        backgroundColor: 'hsla(272, 100%, 97%,1)',
-        borderRadius: 15,
-        padding: 20,
-        marginBottom: 10,
-        marginTop: 0,
-    },
-    row2: {
-        flexDirection: "row",
-        justifyContent: 'space-between',
-        backgroundColor: 'hsla(272, 100%, 97%,1)',
-        borderRadius: 15,
-        padding: 20,
-        marginBottom: 10,
-        marginTop: -40,
     },
     column: {
         flexDirection: "column",
@@ -93,18 +62,11 @@ const styles = StyleSheet.create({
         padding: 20,
         marginBottom: 10,
     },
-    kompis: {
-        width: normalize(150),
-        height: normalize(150),
-        borderRadius: 50,
-        marginLeft: 3,
-    },
     ruta: {
         flex: 1,
         backgroundColor: 'hsla(316, 47%, 73%, 1)',
         borderRadius: 20,
-        width: normalize(350),
-        height: normalize(40),
+        padding: 15,
         marginTop: 15,
         justifyContent: 'center',
     },
@@ -112,11 +74,9 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'hsla(316, 47%, 73%, 1)',
         borderRadius: 20,
-        width: normalize(250),
-        height: normalize(60),
         marginTop: 25,
-        alignSelf: 'center',
         justifyContent: 'center',
+        padding: 10
     },
     rutaText: {
         fontFamily: "Helvetica",
