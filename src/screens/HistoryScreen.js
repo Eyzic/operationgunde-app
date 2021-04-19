@@ -15,14 +15,15 @@ const {
 
 const HistoryScreen = ({ navigation }) => {
     const context = React.useContext(UserContext);
-    const [historyData, setHistoryData] = React.useState();
-    console.log(historyData);
+    const [historyData, setHistoryData] = React.useState(
+    );
 
     React.useEffect(() => {
 
         let data = {
             user: context.user,
-            date: new Date().toISOString().substr(0, 10)
+            //date: new Date().toISOString().substr(0, 10)
+            number: 5
         };
 
         getHistory(data)
@@ -41,18 +42,30 @@ const HistoryScreen = ({ navigation }) => {
 }
 
 function renderHistoryItems(data) {
+    const items = [];
     if (data) {
-        return <HistoryItem date={data.date} duration={"2:00 h"} style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
-    } else { null }
+        for (const element of data) {
+            items.push(<HistoryItem
+                date={element.start_date_local}
+                duration={`${element.elapsed_time} h`}
+                title={element.title}
+                key={element.activity_id}
+                avgHR={element.average_heartrate}
+                distance={element.distance}
+                type={element.type}
+                style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />);
+        }
+    }
+    return items
 }
 
 function getHistory(data) {
     let user = encodeURIComponent(data.user);
-    let date = encodeURIComponent(data.date);
+    let number = encodeURIComponent(data.number);
     let base = "http://localhost:5000/"
-    return fetch(base + `api/stats?user=${user}&date=${date}`)
-        .then(response => response.json())
-        .catch(error => console.log(error));
+    return fetch(base + `api/activities?user_id=${user}&nb_activities=${number}`)
+        .then(res => res.json())
+        .catch(error => console.error(error));
 }
 
 export default HistoryScreen;

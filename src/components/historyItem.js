@@ -26,16 +26,17 @@ function normalize(size) {
 
 const historyItem = (props) => {
     return (
-        <TouchableWithoutFeedback onPress={() => Alert.alert('till passets sida')}>
+        <TouchableWithoutFeedback id={props.activityId} onPress={() => Alert.alert('till passets sida')}>
             <View style={[styles.container, props.style]}>
                 <View style={{ flexGrow: 4 }}>
                     <View style={styles.title}>
-                        <Text style={styles.h4}>Måndag löpning</Text>
+                        <Text style={styles.h4}>{props.title}</Text>
                         <Text style={styles.h4}>{props.date}</Text>
                     </View>
                     <View style={styles.statsRow}>
-                        <StatsDisplay statsTitle={"Avg HR"} value={150} textStyle={styles.h3} />
-                        <StatsDisplay statsTitle={"Min/km"} value={"4:25"} textStyle={styles.h3} />
+                        <StatsDisplay statsTitle={"Avg HR"} value={props.avgHR} textStyle={styles.h3} />
+                        <StatsDisplay statsTitle={"Distance"} value={props.distance} textStyle={styles.h3} />
+                        <StatsDisplay statsTitle={"Type"} value={props.type} textStyle={styles.h3} />
 
                     </View>
                 </View>
