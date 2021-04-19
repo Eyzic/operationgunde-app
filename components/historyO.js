@@ -33,7 +33,6 @@ function normalize(size) {
 const historyOver = (props) => {
   const [value, onChangeText] = React.useState("Default Placeholder");
 
-  //GÖR DENNA NUUUUUUUUU const data
   return (
     <View style={[styles.mainsquare]}>
       <View style={[styles.calendarholder]}>
@@ -118,7 +117,7 @@ const historyOver = (props) => {
               fontWeight: "bold",
             }}
           >
-            Månadsstatistik
+            {"Månadsstatistik"}
           </Text>
         </View>
 
@@ -128,7 +127,6 @@ const historyOver = (props) => {
           <StatItem color="transparent" stat="Mål" value="4/5"></StatItem>
         </View>
       </View>
-      style={[styles.statVal]}
     </View>
   );
 };
