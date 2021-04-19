@@ -18,7 +18,7 @@ import CreatGroup from './components/creatGroup'
 import ProgressView from './components/progressView';
 import Settings from './components/settings';
 import GroupMembers from './components/groupMembers';
-import FriendProfile from './components/FriendProfile';
+import FriendProfile from './components/friendProfile';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 
