@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Text, TextInput, Button } from 'react-native';
+import UserContext from './UserContext';
 
 const form = (props) => {
-    const [name, onChangeName] = React.useState("2");
+    const context = React.useContext(UserContext);
+    const [name, onChangeName] = React.useState(context.user);
     const [hrv, onChangeHrv] = React.useState(68);
     const [sleep, onChangeSleep] = React.useState(7);
     const [stress, onChangeStress] = React.useState(4);
@@ -10,6 +12,8 @@ const form = (props) => {
     const [soreness, onChangeSoreness] = React.useState(6);
     const [injuries, onChangeInjuries] = React.useState(2);
     const [energy, onChangeEnergy] = React.useState(9);
+
+    console.log(UserContext);
 
     let base = "http://localhost:5000/"
 

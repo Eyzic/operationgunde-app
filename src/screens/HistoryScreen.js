@@ -19,7 +19,6 @@ const HistoryScreen = ({ navigation }) => {
     );
 
     React.useEffect(() => {
-
         let data = {
             user: context.user,
             //date: new Date().toISOString().substr(0, 10)
