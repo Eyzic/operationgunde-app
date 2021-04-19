@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         margin: 5
     },
     h2: {
-        fontFamily: "Roboto",
+      //  fontFamily: "Roboto",
         fontSize: normalize(30),
     }
 });

@@ -24,27 +24,28 @@ const navMenu = (props) => {
 
             <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
                 <Image
-                    source={require('../assets/menu/grupp2.png')}
+
+                    source={require('../assets/menu/GRUPP.png')}
                     style={styles.normalize} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
                 <Image
-                    source={require('../assets/menu/profil2.png')}
+                    source={require('../assets/menu/PROFIL.png')}
                     style={styles.normalize} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => props.nav.navigate("FrontPage")}>
                 <Image
-                    source={require('../assets/menu/hus1.png')}
+                    source={require('../assets/menu/HEM.png')}
                     style={styles.normalize} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => Alert.alert('image clicked')}>
                 <Image
-                    source={require('../assets/menu/timer1.png')}
+                    source={require('../assets/menu/TIMER.png')}
                     style={styles.normalize} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => props.nav.navigate("History")}>
+            <TouchableOpacity onPress={() => props.nav.navigate("History1")}>
                 <Image
-                    source={require('../assets/menu/historik2.png')}
+                    source={require('../assets/menu/HISTORIK.png')}
                     style={styles.normalize} />
             </TouchableOpacity>
 

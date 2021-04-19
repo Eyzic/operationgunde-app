@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'hsla(272, 100%, 97%,1)'
     },
     h2: {
-        fontFamily: "Roboto",
+    //    fontFamily: "Roboto",
         fontSize: normalize(30),
     },
 });
