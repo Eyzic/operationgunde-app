@@ -15,7 +15,7 @@ const form = (props) => {
 
     let data =
         JSON.stringify({
-            user: name,
+            user_id: name,
             date: new Date().toISOString().substr(0, 10),
             hrv: hrv,
             sleeping_hours: sleep,
@@ -28,7 +28,7 @@ const form = (props) => {
 
     function saveMeasure() {
         console.log("SaveMeasure");
-        fetch(base + "api/stats", {
+        fetch(base + "api/form/stats", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
