@@ -29,7 +29,7 @@ const organisationAthleteScreen = ({ navigation }) => {
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
 
-            <PageHeader4 Image2={require('../../assets/menu/grupp2.png')} text1='IFK' text2='Göteborg' Image={require('../../assets/groups/IFK.png')} style={[Style.item]} memberCount='6' nav={navigation} >
+            <PageHeader4 Image2={require('../../assets/menu/group.png')} text1='IFK' text2='Göteborg' Image={require('../../assets/groups/IFK.png')} style={[Style.item]} memberCount='6' nav={navigation} >
             </PageHeader4>
 
             <GroupMembers groupMember="OrganisationAthleteFriend" image1={require('../../assets/groups/Hasse.png')} image2={require('../../assets/groups/HassesKompisar.png')}

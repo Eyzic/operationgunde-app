@@ -29,7 +29,7 @@ const organisationAthleteFriendScreen = ({ navigation }) => {
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
 
-            <PageHeader4 Image2={require('../../assets/menu/grupp2.png')} over="OrganisationAthlete" inst="OrganisationAthleteFriend" meny3='Gå tillbaka' text1='IFK' text2='Göteborg' memberCount='6' style={[Style.item]} Image={require('../../assets/groups/IFK.png')} nav={navigation} >
+            <PageHeader4 Image2={require('../../assets/menu/group.png')} over="OrganisationAthlete" inst="OrganisationAthleteFriend" meny3='Gå tillbaka' text1='IFK' text2='Göteborg' memberCount='6' style={[Style.item]} Image={require('../../assets/groups/IFK.png')} nav={navigation} >
             </PageHeader4>
 
             <FriendProfile style={Style.item} hasProfil={true}>

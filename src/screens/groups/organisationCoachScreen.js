@@ -20,7 +20,7 @@ const organisationCoachScreen = ({ navigation }) => {
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
 
-            <PageHeader4 Image2={require('../../assets/menu/grupp2.png')} over="OrganisationCoach" inst="OrganisationCoachSettings" color1='red' color2='black' text1='IFK' text2='Göteborg' Image={require('../../assets/groups/IFK.png')} style={[Style.item]} meny1='Översikt  ' meny2='Inställningar' memberCount='6' nav={navigation} >
+            <PageHeader4 Image2={require('../../assets/menu/group.png')} over="OrganisationCoach" inst="OrganisationCoachSettings" color1='red' color2='black' text1='IFK' text2='Göteborg' Image={require('../../assets/groups/IFK.png')} style={[Style.item]} meny1='Översikt  ' meny2='Inställningar' memberCount='6' nav={navigation} >
             </PageHeader4>
 
             <GroupMembers groupMember="OrganisationCoachAthlete" image1={require('../../assets/groups/Hasse.png')} image2={require('../../assets/groups/HassesKompisar.png')}

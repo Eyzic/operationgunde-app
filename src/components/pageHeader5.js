@@ -29,7 +29,8 @@ function normalize(size) {
 // hasImage = true or false depending on whether you want to render a picture or not.
 // image = the location of the image to be shown. Can be ignored if there is no image.
 
-const pageHeader4 = (props) => {
+const pageHeader5 = (props) => {
+
   const onPress = () => {
     props.nav.navigate(props.over);
   };
@@ -49,16 +50,10 @@ const pageHeader4 = (props) => {
           <Text style={styles.h1}>{props.text1}</Text>
           <Text style={styles.h1}>{props.text2}</Text>
         </View>
-        <Image source={props.Image} style={styles.image} />
+
       </View>
-      <View>
-        <TouchableOpacity onPress={onPress}>
-          <Text style={[styles.Oversikt1, { color: props.color1 }]}>
-            {props.meny3}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View>
+
+      <View style={styles.header2}>
         <TouchableOpacity onPress={onPress}>
           <Text style={[styles.Oversikt1, { color: props.color1 }]}>
             {props.meny1}
@@ -92,41 +87,31 @@ const styles = StyleSheet.create({
   Inställning1: {
     // fontFamily: "Helvetica",
     fontSize: normalize(23),
-    lineHeight: 40,
-    marginTop: -33.4,
-    marginStart: 80,
+    // lineHeight: 40,
+    // marginTop: -20,
+    // marginStart: 80,
   },
   val1: {
     //fontFamily: "Helvetica",
     fontSize: normalize(23),
-    lineHeight: 40,
-    marginTop: -40.3,
-    marginStart: 185,
+    // lineHeight: 40,
+    // marginTop: -40,
+    //marginStart: 185,
   },
-  Inställning2: {
-    // fontFamily: "Helvetica",
-    fontSize: normalize(23),
-    lineHeight: 40,
-    marginTop: -33.4,
-    marginStart: 121,
-    color: "red",
-  },
+
+
   Oversikt1: {
     // fontFamily: "Helvetica",
     fontSize: normalize(23),
-    justifyContent: "space-between",
-  },
-  Oversikt2: {
-    // fontFamily: "Helvetica",
-    fontSize: normalize(23),
-    justifyContent: "space-between",
-    color: "red",
+    // justifyContent: "space-between",
+    // marginTop: 20,
   },
 
   top_border: {
     borderTopColor: "#000",
     borderTopWidth: 3,
     paddingTop: 10,
+
   },
   header: {
     display: "flex",
@@ -135,6 +120,16 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginBottom: 0,
   },
+
+  header2: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 20,
+    marginBottom: 0,
+    marginEnd: SCREEN_WIDTH * 0.3
+  },
+
   image: {
     width: normalize(135),
     height: normalize(135),
@@ -156,4 +151,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default pageHeader4;
+export default pageHeader5;

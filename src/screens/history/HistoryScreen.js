@@ -1,12 +1,12 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
 
-import StandardTemplate from '../templates/StandardTemplate';
-import HistoryItem from '../components/historyItem';
-import PageHeader from '../components/pageHeader';
+import StandardTemplate from '../../templates/StandardTemplate';
+import HistoryItem from '../../components/historyItem';
+import PageHeader5 from '../../components/pageHeader5';
 
-import UserContext from '../components/UserContext';
-import Style from '../styles/Style';
+import UserContext from '../../components/UserContext';
+import Style from '../../styles/Style';
 
 const {
     width: SCREEN_WIDTH,
@@ -32,11 +32,26 @@ const HistoryScreen = ({ navigation }) => {
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
 
-            <PageHeader text1='Din' text2='Historik' style={[Style.item]} hasImage={false}>
-            </PageHeader>
-            {renderHistoryItems(historyData)}
+            <PageHeader5
+                text1='Din'
+                text2='Historik'
+                color1="#C631CA"
+                color2="black"
+                color4="black"
+                over={'History'}
+                over={"History"}
+                meny1={"flöde"}
+                inst={'HistoryCalendar'}
+                meny2={"översikt"}
+                val={'HistoryHrv'}
+                meny4={"värden"} style={[Style.item]} hasImage={false}
+                style={[Style.item]}
+                nav={navigation}
+            >
+            </PageHeader5>
+            { renderHistoryItems(historyData)}
 
-        </StandardTemplate>
+        </StandardTemplate >
     );
 }
 
@@ -68,3 +83,20 @@ function getHistory(data) {
 }
 
 export default HistoryScreen;
+
+/*
+
+meny1="flöde"
+            meny2="översikt"
+            meny4="värden"
+            color1="#C631CA"
+            color2="black"
+            color4="black"
+            text1="Din"
+            text2="Historik"
+            over="History1"
+            inst="History2"
+            val="History3"
+            style={[styles.hist]}
+            nav={navigation}
+*/
