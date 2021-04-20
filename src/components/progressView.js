@@ -1,5 +1,4 @@
 import React from 'react';
-import Progress from 'react-circle-progress-bar';
 import { View, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform } from 'react-native';
 
 const {
