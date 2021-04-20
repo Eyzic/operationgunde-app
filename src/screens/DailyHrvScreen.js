@@ -3,7 +3,7 @@ import { Dimensions } from 'react-native';
 
 import PageHeader from '../components/pageHeader';
 import StandardTemplate from '../templates/StandardTemplate';
-import Form from '../components/Form';
+import Form from '../components/form';
 
 import Style from '../styles/Style';
 
