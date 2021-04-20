@@ -9,6 +9,7 @@ const {
     height: SCREEN_HEIGHT,
 } = Dimensions.get('window');
 
+
 const StandardTemplate = ({ navigation, showMenu, children }) => {
     return (
         <SafeAreaView>

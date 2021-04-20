@@ -83,20 +83,3 @@ function getHistory(data) {
 }
 
 export default HistoryScreen;
-
-/*
-
-meny1="flöde"
-            meny2="översikt"
-            meny4="värden"
-            color1="#C631CA"
-            color2="black"
-            color4="black"
-            text1="Din"
-            text2="Historik"
-            over="History1"
-            inst="History2"
-            val="History3"
-            style={[styles.hist]}
-            nav={navigation}
-*/

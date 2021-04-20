@@ -18,15 +18,18 @@ function normalize(size) {
 
 const hardwareButton = (props) => {
     const [selected, setSelected] = useState(false);
+    const firstUpdate = React.useRef(true);
+
     const onPress = () => {
         setSelected(!selected);
-        if (selected) {
-            return (Alert.alert('Hårdvara vald'));
-        }
-        else {
-            return (Alert.alert('Hårdvara borttagen'));
-        }
     };
+
+    React.useEffect(() => {
+        if (!firstUpdate.current) {
+            selected ? Alert.alert('Hårdvara vald') : Alert.alert('Hårdvara borttagen');
+        }
+        firstUpdate.current = false;
+    }, [selected]);
 
     const setSelectedColor = () => selected ? { backgroundColor: 'red' } : null;
 
