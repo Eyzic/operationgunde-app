@@ -31,7 +31,7 @@ const friendGroupFriendScreen = ({ navigation }) => {
 
         <StandardTemplate navigation={navigation} showMenu={true}>
 
-            <PageHeader4 Image2={require('../../assets/menu/grupp2.png')} over="FriendGroup" inst="FriendGroupSettings" meny3='Gå tillbaka' text1='Hasses' text2='Kompisar' memberCount='6' style={[Style.item]} Image={require('../../assets/groups/HassesKompisar.png')} nav={navigation} >
+            <PageHeader4 Image2={require('../../assets/menu/group.png')} over="FriendGroup" inst="FriendGroupSettings" meny3='Gå tillbaka' text1='Hasses' text2='Kompisar' memberCount='6' style={[Style.item]} Image={require('../../assets/groups/HassesKompisar.png')} nav={navigation} >
             </PageHeader4>
 
             {/*TODO: Vet att dessa inte line:ar upp helt, men det blev lättare med strukturen. Vi kan lösa det senare med Grid tror jag.*/}

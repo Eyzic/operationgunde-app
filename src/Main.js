@@ -11,7 +11,7 @@ import StopWatch from './components/stopWatch';
 //Menu screens
 import LoginScreen from './screens/LoginScreen';
 import FrontScreen from './screens/FrontScreen';
-import HistoryScreen from './screens/HistoryScreen';
+import HistoryScreen from './screens/history/HistoryScreen';
 import DailyHrvScreen from './screens/DailyHrvScreen';
 import NewActivityScreen from './screens/NewActivityScreen';
 import CurrentActivityScreen from './screens/CurrentActivityScreen';
@@ -28,6 +28,11 @@ import OrganisationAthleteScreen from './screens/groups/organisationAthleteScree
 import OrganisationCoachAthleteScreen from './screens/groups/organisationCoachAthleteScreen';
 import OrganisationCoachScreen from './screens/groups/organisationCoachScreen';
 import OrganisationCoachSettingsScreen from './screens/groups/organisationCoachSettingsScreen';
+
+//History
+import HistoryCalendarScreen from './screens/history/HistoryCalendarScreen';
+import HistoryHrvScreen from './screens/history/HistoryHrvScreen';
+
 
 
 const activityState = {
@@ -50,7 +55,6 @@ export default function Main() {
                     <Stack.Navigator initialRouteName="LoginPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
                         <Stack.Screen name="LoginPage" component={LoginScreen} />
                         <Stack.Screen name="FrontPage" component={FrontScreen} />
-                        <Stack.Screen name="History" component={HistoryScreen} />
                         <Stack.Screen name="DailyHRV" component={DailyHrvScreen} />
                         <Stack.Screen name="NewActivity" component={NewActivityScreen} />
                         <Stack.Screen name="CurrentActivity" component={CurrentActivityScreen} />
@@ -66,6 +70,13 @@ export default function Main() {
                         <Stack.Screen name="OrganisationCoachSettings" component={OrganisationCoachSettingsScreen} />
                         <Stack.Screen name="OrganisationCoachAthlete" component={OrganisationCoachAthleteScreen} />
                         <Stack.Screen name="OrganisationAthleteFriend" component={OrganisationAthleteFriendScreen} />
+
+                        <Stack.Screen name="History" component={HistoryScreen} />
+                        <Stack.Screen name="HistoryCalendar" component={HistoryCalendarScreen} />
+                        <Stack.Screen name="HistoryHrv" component={HistoryHrvScreen} />
+
+
+
                     </Stack.Navigator>
                 </ActivityContext.Provider>
             </UserContext.Provider>

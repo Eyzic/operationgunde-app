@@ -48,7 +48,7 @@ const group = (props) => {
             <Text style={styles.h3}>
                 {props.memberCount}
                 {' '}
-                <Image source={require('../assets/menu/grupp2.png')} style={styles.image2} />
+                <Image source={require('../assets/menu/group.png')} style={styles.image2} />
             </Text>
         </View>
     );
