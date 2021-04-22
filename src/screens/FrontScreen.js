@@ -20,7 +20,7 @@ const FrontScreen = ({ navigation }) => {
         <StandardTemplate navigation={navigation} showMenu={true}>
 
             <PageHeader text1="Din" text2="Dagsform" style={[Style.item]} hasImage={true}>
-                <ProgressView />
+
             </PageHeader>
 
             <WeekOverview style={[Style.item]} />

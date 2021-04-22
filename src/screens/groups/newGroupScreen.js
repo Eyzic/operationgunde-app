@@ -3,7 +3,7 @@ import { View, Text, TextInput, Dimensions } from 'react-native';
 
 import PageHeader4 from '../../components/pageHeader4';
 import CreatGroup from '../../components/creatGroup';
-import ToggleChoiceButton from '../../components/ToggleChoiceButton';
+import ToggleChoiceButton from '../../components/toggleChoiceButton';
 import StandardTemplate from '../../templates/StandardTemplate';
 
 import Style from '../../styles/Style';

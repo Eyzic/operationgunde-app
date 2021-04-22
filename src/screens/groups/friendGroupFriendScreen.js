@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, PixelRatio, Platform, Dimensions, StyleSheet } from 'react-native';
 
 import PageHeader4 from '../../components/pageHeader4';
-import FriendProfile from '../../components/FriendProfile';
+import FriendProfile from '../../components/friendProfile';
 
 import StandardTemplate from '../../templates/StandardTemplate';
 
