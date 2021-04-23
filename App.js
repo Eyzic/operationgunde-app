@@ -1,40 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
-import DefaultInput from './defaultInput';
-import DisplayValue from './displayValue';
+
+import Main from './src/Main';
 
 export default function App() {
 
-  console.log("Application running!");
-
   return (
-    <View style={styles.container}>
-      <DefaultInput>Placeholder</DefaultInput>
-      <DisplayValue />
-      <Button title="Login" />
-      <StatusBar style="auto" />
-    </View>
+    <Main />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'hsla(200, 50%, 50%,1)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-
-//How to do a regular fetch.
-
-/* fetch('http://localhost:5000')
-   .then(response => response.json())
-   .then((data) => {
-    #Do stuff here
-   })
-   .catch((error) => {
-     console.error(error);
-   }); */
