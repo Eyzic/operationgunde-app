@@ -16,6 +16,7 @@ const {
 } = Dimensions.get('window');
 
 const FrontScreen = ({ navigation }) => {
+
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
 

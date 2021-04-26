@@ -9,7 +9,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import StopWatch from './components/stopWatch';
 
 //Menu screens
-import LoginScreen from './screens/LoginScreen';
 import FrontScreen from './screens/FrontScreen';
 import HistoryScreen from './screens/history/HistoryScreen';
 import DailyHrvScreen from './screens/DailyHrvScreen';
@@ -33,6 +32,9 @@ import OrganisationCoachSettingsScreen from './screens/groups/organisationCoachS
 import HistoryCalendarScreen from './screens/history/HistoryCalendarScreen';
 import HistoryHrvScreen from './screens/history/HistoryHrvScreen';
 
+import LoginScreen from './screens/LoginScreen';
+import SignupScreen from './screens/SignupScreen';
+
 
 
 const activityState = {
@@ -54,6 +56,8 @@ export default function Main() {
                 <ActivityContext.Provider value={activityState}>
                     <Stack.Navigator initialRouteName="LoginPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
                         <Stack.Screen name="LoginPage" component={LoginScreen} />
+                        <Stack.Screen name="Signup" component={SignupScreen} />
+
                         <Stack.Screen name="FrontPage" component={FrontScreen} />
                         <Stack.Screen name="DailyHRV" component={DailyHrvScreen} />
                         <Stack.Screen name="NewActivity" component={NewActivityScreen} />

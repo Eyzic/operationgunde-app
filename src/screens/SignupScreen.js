@@ -1,9 +1,9 @@
 import React from 'react';
-import { Text, SafeAreaView, View, ScrollView, TextInput, Dimensions } from 'react-native';
+import { SafeAreaView, View, ScrollView, TextInput, Dimensions } from 'react-native';
 
 import BigButton from '../components/BigButton';
-
 import UserContext from '../components/UserContext';
+
 import Style from '../styles/Style';
 
 const {
@@ -11,14 +11,15 @@ const {
     height: SCREEN_HEIGHT,
 } = Dimensions.get('window');
 
-const LoginScreen = ({ navigation }) => {
+const SignupScreen = ({ navigation }) => {
+    const [username, setUsername] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    const [error, setError] = React.useState("");
     const context = React.useContext(UserContext);
 
 
     let user = {
+        "name": username,
         "email": email,
         "password": password
     }
@@ -28,36 +29,28 @@ const LoginScreen = ({ navigation }) => {
             <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
                 <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1, paddingTop: 250 }, Style.background]}>
 
+                    <TextInput style={[Style.item]} placeholder={"Username"} onChangeText={setUsername}></TextInput>
                     <TextInput style={[Style.item]} placeholder={"E-mail"} onChangeText={setEmail}></TextInput>
-                    <TextInput style={[Style.item]} placeholder={"password"} secureTextEntry={true} onChangeText={setPassword}></TextInput>
-                    <Text>{error}</Text>
+                    <TextInput style={[Style.item]} secureTextEntry={true} placeholder={"Password"} onChangeText={setPassword}></TextInput>
 
-                    <BigButton text={"Logga in!"} style={Style.item} action={() => login(navigation, user)} />
-
-                    <BigButton text={"Sign up"} style={Style.item} action={() => navigation.navigate("Signup")} />
+                    <BigButton text={"Sign up!"} style={Style.item} action={() => registerUser(navigation, context, user)} />
 
                 </ScrollView>
             </View>
         </SafeAreaView>);
-
-    function login(nav, user) {
-        signup(JSON.stringify(user))
-            .then(res => {
-                console.log(res.user_id);
-                context.user = res.user_id;
-            })
-            .then(nav.navigate('FrontPage'))
-            .catch(error => console.log(error));
-    }
-
 }
 
-
+function registerUser(nav, context, user) {
+    signup(JSON.stringify(user))
+        .then(res => context.user = res.user_id)
+        .then(nav.navigate('FrontPage'))
+        .catch(error => console.error(error));
+}
 
 
 function signup(user) {
 
-    return fetch('http://localhost:5000/login', {
+    return fetch('http://localhost:5000/signup', {
         method: "POST",
         headers: {
             'content-type': 'application/json'
@@ -68,4 +61,4 @@ function signup(user) {
 
 }
 
-export default LoginScreen;
+export default SignupScreen;
