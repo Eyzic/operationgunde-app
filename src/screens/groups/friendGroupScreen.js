@@ -31,7 +31,7 @@ const friendGroupScreen = ({ navigation }) => {
                 image5={require('../../assets/groups/Hasse.png')} image6={require('../../assets/groups/HassesKompisar.png')} nav={navigation} />
 
 
-            <ProgressView />
+
 
             <HistoryItem text='Jessica' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
 
