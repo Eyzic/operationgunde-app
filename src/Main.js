@@ -12,8 +12,10 @@ import StopWatch from './components/stopWatch';
 import FrontScreen from './screens/FrontScreen';
 import HistoryScreen from './screens/history/HistoryScreen';
 import DailyHrvScreen from './screens/DailyHrvScreen';
-import NewActivityScreen from './screens/NewActivityScreen';
-import CurrentActivityScreen from './screens/CurrentActivityScreen';
+
+//Activity screens
+import NewActivityScreen from './screens/activity/NewActivityScreen';
+import CurrentActivityScreen from './screens/activity/CurrentActivityScreen';
 
 //Group screens
 import CreatedGroupScreen from './screens/groups/createdGroupScreen';
@@ -31,6 +33,7 @@ import OrganisationCoachSettingsScreen from './screens/groups/organisationCoachS
 //History
 import HistoryCalendarScreen from './screens/history/HistoryCalendarScreen';
 import HistoryHrvScreen from './screens/history/HistoryHrvScreen';
+import HistoryItemScreen from './screens/history/HistoryItemScreen';
 
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
@@ -39,7 +42,8 @@ import SignupScreen from './screens/SignupScreen';
 
 const activityState = {
     activityRunning: false,
-    timer: new StopWatch()
+    timer: new StopWatch(),
+    activityTitle: ""
 };
 
 const loginState = {
@@ -78,6 +82,7 @@ export default function Main() {
                         <Stack.Screen name="History" component={HistoryScreen} />
                         <Stack.Screen name="HistoryCalendar" component={HistoryCalendarScreen} />
                         <Stack.Screen name="HistoryHrv" component={HistoryHrvScreen} />
+                        <Stack.Screen name="HistoryItemScreen" component={HistoryItemScreen} />
 
 
 

@@ -61,7 +61,7 @@ function renderHistoryItems(data) {
         for (const element of data) {
             items.push(<HistoryItem
                 date={element.start_date_local}
-                duration={`${element.elapsed_time} h`}
+                duration={element.elapsed_time}
                 title={element.title}
                 key={element.activity_id}
                 avgHR={element.average_heartrate}

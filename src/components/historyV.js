@@ -31,17 +31,17 @@ const valueItem = (props) => {
             <View style={[styles.container, props.style]}>
                 <View style={{ flexGrow: 4 }}>
                     <View style={styles.title}>
-                        <Text style={styles.h4}>Måndag 23 feb 2020 </Text>
-                        
+                        <Text style={styles.h4}>{props.date}</Text>
+
                     </View>
                     <View style={styles.statsRow}>
-                        <StatsDisplay statsTitle={"HRV"} value={80} textStyle={styles.h3} />
+                        <StatsDisplay statsTitle={"HRV"} value={props.hrv} textStyle={styles.h3} />
                         <StatsDisplay statsTitle={"nåt annat"} value={3} textStyle={styles.h3} />
-                        
+
                     </View>
                 </View>
 
-               
+
 
             </View>
         </TouchableWithoutFeedback>
