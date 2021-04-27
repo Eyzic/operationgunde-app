@@ -11,6 +11,8 @@ import Sizes from '../../styles/Sizes';
 import BigButton from '../../components/BigButton';
 import StopWatch from '../../components/stopWatch';
 
+import local_ip from '../../local_ip';
+
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -69,7 +71,7 @@ function resetTimer(context) {
 
 function postActivity(activity) {
 
-    return fetch('http://localhost:5000/api/activity', {
+    return fetch(local_ip + '/api/activity', {
         method: "POST",
         headers: {
             'content-type': 'application/json'

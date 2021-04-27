@@ -6,6 +6,8 @@ import UserContext from '../components/UserContext';
 
 import Style from '../styles/Style';
 
+import local_ip from '../local_ip';
+
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -50,7 +52,7 @@ function registerUser(nav, context, user) {
 
 function signup(user) {
 
-    return fetch('http://localhost:5000/signup', {
+    return fetch(local_ip + '/signup', {
         method: "POST",
         headers: {
             'content-type': 'application/json'

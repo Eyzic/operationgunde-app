@@ -10,6 +10,8 @@ import UserContext from '../../components/UserContext';
 
 import Style from '../../styles/Style';
 
+import local_ip from '../../local_ip';
+
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -58,7 +60,7 @@ function getHrvHistory(data) {
     let user = encodeURIComponent(data.user);
     let date = encodeURIComponent(data.date);
     let base = "http://localhost:5000/"
-    return fetch(base + `api/form/stats?user_id=${user}&date=${date}`)
+    return fetch(local_ip + `/api/form/stats?user_id=${user}&date=${date}`)
         .then(res => res.json())
         .catch(error => console.error(error));
 }

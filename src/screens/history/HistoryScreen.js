@@ -8,6 +8,8 @@ import PageHeader5 from '../../components/pageHeader5';
 import UserContext from '../../components/UserContext';
 import Style from '../../styles/Style';
 
+import local_ip from '../../local_ip';
+
 const {
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -77,7 +79,7 @@ function getHistory(data) {
     let user = encodeURIComponent(data.user);
     let number = encodeURIComponent(data.number);
     let base = "http://localhost:5000/"
-    return fetch(base + `api/activities?user_id=${user}&nb_activities=${number}`)
+    return fetch(local_ip + `/api/activities?user_id=${user}&nb_activities=${number}`)
         .then(res => res.json())
         .catch(error => console.error(error));
 }

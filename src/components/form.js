@@ -2,6 +2,8 @@ import React from 'react';
 import { View, StyleSheet, Text, TextInput, Button } from 'react-native';
 import UserContext from './UserContext';
 
+import local_ip from '../local_ip';
+
 const form = (props) => {
     const userState = React.useContext(UserContext);
     const [hrv, onChangeHrv] = React.useState(68);
@@ -30,7 +32,7 @@ const form = (props) => {
 
     function saveMeasure() {
         console.log("SaveMeasure");
-        fetch(base + "api/form/stats", {
+        fetch(local_ip + "/api/form/stats", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
