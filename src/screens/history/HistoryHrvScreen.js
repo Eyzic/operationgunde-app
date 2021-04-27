@@ -6,6 +6,8 @@ import PageHeader5 from '../../components/pageHeader5';
 import StandardTemplate from '../../templates/StandardTemplate';
 import ValueItem from '../../components/historyV';
 
+import UserContext from '../../components/UserContext';
+
 import Style from '../../styles/Style';
 
 const {
@@ -14,6 +16,20 @@ const {
 } = Dimensions.get('window');
 
 const HistoryHrvScreen = ({ navigation }) => {
+    const context = React.useContext(UserContext);
+    const [HrvData, setHrvData] = React.useState({});
+
+    React.useEffect(() => {
+        let data = {
+            user: context.user,
+            date: new Date().toISOString().substr(0, 10)
+        };
+
+        getHrvHistory(data)
+            .then(res => setHrvData(res));
+    }, []);
+
+
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
 
@@ -33,9 +49,18 @@ const HistoryHrvScreen = ({ navigation }) => {
                 nav={navigation}
             ></PageHeader5>
 
-            <ValueItem></ValueItem>
+            <ValueItem date={HrvData.date} hrv={HrvData.hrv}></ValueItem>
         </StandardTemplate>
     );
+}
+
+function getHrvHistory(data) {
+    let user = encodeURIComponent(data.user);
+    let date = encodeURIComponent(data.date);
+    let base = "http://localhost:5000/"
+    return fetch(base + `api/form/stats?user_id=${user}&date=${date}`)
+        .then(res => res.json())
+        .catch(error => console.error(error));
 }
 
 export default HistoryHrvScreen;
