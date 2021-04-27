@@ -22,6 +22,7 @@ class StopWatch {
 
     _time() { this.currentTime = Date.now() - this.startTime; }
 
+    getRawTime() { return this.currentTime }
     getTime() { return formatTime(this.currentTime) }
 
     stop() {
