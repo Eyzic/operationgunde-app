@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
+import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, Platform, TouchableWithoutFeedback } from 'react-native';
 
 
 //Detta är en pageheader utan progressview och utan taggad och redo 
@@ -28,29 +28,32 @@ const group = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
-        <View style={props.style} onStartShouldSetResponder={props.nav}>
 
-            <View style={[styles.header]} >
-                <Image source={props.Image} style={styles.image} />
-                <View>
-                    <Text style={styles.h1} >
-                        {props.text1}
-                    </Text>
-                    <Text style={styles.h1} >
-                        {props.text2}
-                    </Text>
+        <TouchableWithoutFeedback onPress={props.nav}>
+            <View style={props.style} >
+                <View style={[styles.header]} >
+                    <Image source={props.Image} style={styles.image} />
+                    <View>
+                        <Text style={styles.h1} >
+                            {props.text1}
+                        </Text>
+                        <Text style={styles.h1} >
+                            {props.text2}
+                        </Text>
+                    </View>
+
                 </View>
+                <Text style={styles.h2}>
+                    {props.groupType}
+                </Text>
+                <Text style={styles.h3}>
+                    {props.memberCount}
+                    {' '}
+                    <Image source={require('../assets/menu/group.png')} style={styles.image2} />
+                </Text>
 
             </View>
-            <Text style={styles.h2}>
-                {props.groupType}
-            </Text>
-            <Text style={styles.h3}>
-                {props.memberCount}
-                {' '}
-                <Image source={require('../assets/menu/group.png')} style={styles.image2} />
-            </Text>
-        </View>
+        </TouchableWithoutFeedback>
     );
 }
 
