@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 
-const sizes = StyleSheet.create({
+const Sizes = StyleSheet.create({
     h2: {
         fontSize: 25,
         fontFamily: 'Helvetica'
     }
 });
 
-export default sizes;
+export default Sizes;
