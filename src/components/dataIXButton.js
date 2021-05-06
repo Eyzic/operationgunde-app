@@ -8,6 +8,7 @@ import {
   Dimensions,
   PixelRatio,
   StyleSheet,
+  TouchableOpacity,
 } from "react-native";
 import StatsDisplay from "./statsDisplay";
 
@@ -25,20 +26,22 @@ function normalize(size) {
 
 const DataIX = (props) => {
   return (
-    <View
-      style={{
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#DB9ACA",
-        height: normalize(40),
-        width: SCREEN_WIDTH * 0.8,
-        borderRadius: normalize(10),
-        marginBottom: 5,
-        marginTop: 5,
-      }}
-    >
-      <Text style={{ color: "white" }}>{props.name}</Text>
-    </View>
+    <TouchableOpacity>
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#DB9ACA",
+          height: normalize(40),
+          width: SCREEN_WIDTH * 0.8,
+          borderRadius: normalize(10),
+          marginBottom: 5,
+          marginTop: 5,
+        }}
+      >
+        <Text style={{ color: "white" }}>{props.name}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 

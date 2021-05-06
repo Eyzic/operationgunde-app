@@ -24,12 +24,6 @@ function normalize(size) {
 }
 
 const Goal = (props) => {
-  // if ({props.done}==='ja') {
-  //     filled="hsla(0,0%,100%,0.7)",
-  //    }
-  //  else: {
-  //  filled='transparent',
-  // },
   return (
     <View style={[styles.container]}>
       <View
@@ -45,7 +39,6 @@ const Goal = (props) => {
             backgroundColor: "hsla(316, 47%, 73%, 1)",
             width: normalize(30),
             height: normalize(30),
-            //flexDirection: "column",
             alignContent: "center",
             alignItems: "center",
             justifyContent: "center",
@@ -57,7 +50,6 @@ const Goal = (props) => {
               backgroundColor: "hsla(0,0%,100%,0.7)",
               width: normalize(24),
               height: normalize(24),
-              //flexDirection: "column",
               alignContent: "center",
               borderRadius: normalize(10),
             }}
@@ -79,7 +71,9 @@ const Goal = (props) => {
           alignContent: "center",
         }}
       >
-        <Text style={{ color: "white" }}>{props.value}</Text>
+        <Text style={{ color: "white", fontFamily: "monospace" }}>
+          {props.value}
+        </Text>
       </View>
     </View>
   );
@@ -94,37 +88,6 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     height: 50,
-  },
-  title: {
-    flexDirection: "row",
-    //padding: 10,
-    justifyContent: "space-between",
-    backgroundColor: "#DB9ACA",
-  },
-
-  statsRow: {
-    backgroundColor: "hsla(324, 53%, 66%,0.65)",
-    flexDirection: "row",
-    borderTopRightRadius: normalize(15),
-    borderBottomLeftRadius: 0,
-    padding: 1,
-  },
-  time: {
-    alignItems: "center",
-    justifyContent: "space-around",
-    flexGrow: 1,
-    margin: 10,
-    padding: 10,
-  },
-  h2: {
-    fontSize: normalize(20),
-  },
-  h3: {
-    color: "white",
-    fontSize: normalize(15),
-  },
-  h4: {
-    fontSize: normalize(18),
   },
 });
 

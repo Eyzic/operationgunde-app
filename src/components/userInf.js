@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -8,6 +8,7 @@ import {
   Dimensions,
   PixelRatio,
   StyleSheet,
+  TextInput,
 } from "react-native";
 import StatsDisplay from "./statsDisplay";
 
@@ -30,32 +31,30 @@ const UserInf = (props) => {
   //  else: {
   //  filled='transparent',
   // },
+  //const [text, setText] = useState("");
   return (
     <View style={[styles.container]}>
       <View
         style={{
           flexDirection: "row",
-         // justifyContent: "center",
+          // justifyContent: "center",
           alignContent: "center",
           alignItems: "center",
         }}
       >
-     
-        
-          <Text style={styles.h4}> {props.infoType}: </Text>
-        
+        <Text style={styles.h4}> {props.infoType}: </Text>
       </View>
       <View
         style={{
           backgroundColor: "#DB9ACA",
-          width: SCREEN_WIDTH*0.9,
+          // width: SCREEN_WIDTH * 0.9,
           height: normalize(30),
           flexDirection: "row",
           alignItems: "center",
-        //  justifyContent: "center",
+          //  justifyContent: "center",
           borderRadius: normalize(13),
-         // alignContent: "center",
-         paddingLeft:normalize(10),
+          // alignContent: "center",
+          paddingLeft: normalize(10),
         }}
       >
         <Text style={{ color: "white" }}>{props.value}</Text>
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-   // alignContent: "center",
+    // alignContent: "center",
     //alignItems: "center",
     paddingBottom: normalize(10),
     height: 50,
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
   title: {
     flexDirection: "row",
     //padding: 10,
-   // justifyContent: "space-between",
+    // justifyContent: "space-between",
     backgroundColor: "#DB9ACA",
   },
 
