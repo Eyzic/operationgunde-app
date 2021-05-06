@@ -51,13 +51,13 @@ const HistoryScreen = ({ navigation }) => {
                 nav={navigation}
             >
             </PageHeader5>
-            { renderHistoryItems(historyData)}
+            { createHistoryItems(historyData)}
 
         </StandardTemplate >
     );
 }
 
-function renderHistoryItems(data) {
+function createHistoryItems(data) {
     const items = [];
     if (data) {
         for (const element of data) {

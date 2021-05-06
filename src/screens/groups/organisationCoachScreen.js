@@ -14,8 +14,10 @@ const {
     height: SCREEN_HEIGHT,
 } = Dimensions.get('window');
 
-const organisationCoachScreen = ({ navigation }) => {
+const organisationCoachScreen = ({ route, navigation }) => {
     const [groupName, setGroupName] = React.useState("");
+    const { group } = route.params;
+    console.log(group);
 
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
@@ -23,9 +25,7 @@ const organisationCoachScreen = ({ navigation }) => {
             <PageHeader4 Image2={require('../../assets/menu/group.png')} over="OrganisationCoach" inst="OrganisationCoachSettings" color1='red' color2='black' text1='IFK' text2='Göteborg' Image={require('../../assets/groups/IFK.png')} style={[Style.item]} meny1='Översikt  ' meny2='Inställningar' memberCount='6' nav={navigation} >
             </PageHeader4>
 
-            <GroupMembers groupMember="OrganisationCoachAthlete" image1={require('../../assets/groups/Hasse.png')} image2={require('../../assets/groups/HassesKompisar.png')}
-                image3={require('../../assets/groups/Hasse.png')} image4={require('../../assets/groups/HassesKompisar.png')}
-                image5={require('../../assets/groups/Hasse.png')} image6={require('../../assets/groups/HassesKompisar.png')} nav={navigation} />
+            <GroupMembers group={group} nav={navigation}></GroupMembers>
 
             <HistoryItem text='Janne' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
 

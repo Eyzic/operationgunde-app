@@ -23,8 +23,10 @@ function normalize(size) {
     }
 }
 
-const organisationAthleteScreen = ({ navigation }) => {
+const organisationAthleteScreen = ({ route, navigation }) => {
     const [groupName, setGroupName] = React.useState("");
+    const { group } = route.params;
+    console.log(group);
 
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
@@ -32,9 +34,7 @@ const organisationAthleteScreen = ({ navigation }) => {
             <PageHeader4 Image2={require('../../assets/menu/group.png')} text1='IFK' text2='Göteborg' Image={require('../../assets/groups/IFK.png')} style={[Style.item]} memberCount='6' nav={navigation} >
             </PageHeader4>
 
-            <GroupMembers groupMember="OrganisationAthleteFriend" image1={require('../../assets/groups/Hasse.png')} image2={require('../../assets/groups/HassesKompisar.png')}
-                image3={require('../../assets/groups/Hasse.png')} image4={require('../../assets/groups/HassesKompisar.png')}
-                image5={require('../../assets/groups/Hasse.png')} image6={require('../../assets/groups/HassesKompisar.png')} nav={navigation} />
+            <GroupMembers group={group} nav={navigation}></GroupMembers>
 
             <View style={Style.item}>
 

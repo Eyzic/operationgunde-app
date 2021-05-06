@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, Alert, View, TouchableOpacity } from 'react-native';
+import { Text, Dimensions, PixelRatio, StyleSheet, Platform, View, TouchableOpacity } from 'react-native';
 
 const {
     width: SCREEN_WIDTH,

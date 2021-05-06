@@ -15,9 +15,6 @@ const MyGroupsScreen = ({ navigation }) => {
     const [groups, setGroups] = React.useState([]);
     const context = React.useContext(UserContext);
 
-    console.log("TEST:");
-    console.log(groups);
-
     React.useEffect(() => {
         fetch(local_ip + `/api/user/group?user_id=${context.user}`)
             .then(res => res.json())
@@ -39,22 +36,15 @@ async function createGroupObjects(data, navigation) {
     const items = [];
     if (data instanceof Array) {
         for (const element of data) {
-            console.log("ELEMENT");
-            console.log(element);
-            await fetch(local_ip + `/api/group?group=${element[0]}`)
-                .then(res => res.json())
-                .then(members => {
-                    console.log(members.length);
-                    items.push(<Group
-                        title={element}
-                        key={element}
-                        memberCount={members.length}
-                        groupType={"Group"}
-                        style={Style.item}
-                        nav={() => navigation.navigate("FriendGroup")}
-                        image={{ uri: local_ip + '/get_png?logo=lion' }}
-                    />)
-                })
+            items.push(<Group
+                title={element[0]}
+                key={element[0]}
+                memberCount={element[1]}
+                groupType={"Group"}
+                style={Style.item}
+                nav={() => navigation.navigate("FriendGroup", { group: element[0] })}
+                image={{ uri: local_ip + `/get_png?logo=${element[2]}` }}
+            />)
         }
     }
     return items
