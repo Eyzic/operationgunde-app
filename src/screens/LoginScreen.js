@@ -43,30 +43,28 @@ const LoginScreen = ({ navigation }) => {
         </SafeAreaView>);
 
     function login(nav, user) {
-        signup(JSON.stringify(user))
+        fetch(local_ip + '/login', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => { return !res.ok ? alert(res.json().error) : res.json() })
             .then(res => {
-                console.log(res.user_id);
+                console.log(`USER_ID: ${res.user_id}`);
                 context.user = res.user_id;
-            })
-            .then(nav.navigate('FrontPage'))
+                nav.navigate('FrontPage')
+            }
+            )
             .catch(error => console.log(error));
     }
 
 }
 
+function sendLoginToServer(user) {
 
-
-
-function signup(user) {
-
-    return fetch(local_ip + '/login', {
-        method: "POST",
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: user
-    })
-        .then(res => res.json())
+    return
 
 }
 

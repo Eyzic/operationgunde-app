@@ -34,7 +34,7 @@ const group = (props) => {
                 <Image source={props.Image} style={styles.image} />
                 <View>
                     <Text style={styles.h1} >
-                        {props.text1}
+                        {props.title}
                     </Text>
                     <Text style={styles.h1} >
                         {props.text2}

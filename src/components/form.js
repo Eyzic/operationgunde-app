@@ -14,7 +14,7 @@ const form = (props) => {
     const [injuries, onChangeInjuries] = React.useState(2);
     const [energy, onChangeEnergy] = React.useState(9);
 
-    console.log(UserContext);
+    console.log(userState.user);
 
     let base = "http://localhost:5000/"
 

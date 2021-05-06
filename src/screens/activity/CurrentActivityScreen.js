@@ -48,7 +48,6 @@ function endActivity(nav, context, userID) {
 
     const activity = {
         user_id: userID,
-        activity_id: "11", //Ta bort när FILIP har implementerat detta i servern istället.
         title: context.activityTitle,
         average_heartrate: 75,
         start_date_local: new Date().toISOString().substr(0, 10),
