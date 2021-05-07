@@ -26,7 +26,8 @@ function normalize(size) {
     return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
   }
 }
-const SingleActivity = ({ navigation }) => {
+const SingleActivity = ({ route, navigation }) => {
+  const { activity_id } = route.params;
   return (
     <StandardTemplate navigation={navigation} showMenu={true}>
       <View

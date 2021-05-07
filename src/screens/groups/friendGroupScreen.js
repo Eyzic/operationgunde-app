@@ -17,33 +17,26 @@ const {
 } = Dimensions.get('window');
 
 const friendGroupScreen = ({ route, navigation }) => {
-    const [historyData, setHistoryData] = React.useState();
-    const [historyItems, setHistoryItems] = React.useState();
-    const [members, setMembers] = React.useState();
+    const [historyItems, setHistoryItems] = React.useState([]);
     const { group } = route.params;
-    console.log(historyData);
+
+    console.log("HISTORY");
+    console.log(historyItems);
 
     React.useEffect(() => {
         fetch(local_ip + `/api/group?group=${group}`)
             .then(res => res.json())
-            .then(members => {
-                for (const member in members) {
-                    console.log("MEMBER");
-                    console.log(member);
-                    let data = {
-                        user: member,   //Dubbelkolla så det blir ID.
-                        //date: new Date().toISOString().substr(0, 10)
-                        numberOfItems: 5
-                    };
-
-                    getHistory(data)
-                        .then(res => res.json())
-                        .then(res => createHistoryItems(res, member))  //Dubbelkolla så de är samma typ.
-                        .then(items => setHistoryItems(historyItems + items));
-                }
+            .then(async members => {
+                let activities = await Promise.all(members.map(member => {
+                    return getHistory({ user: member.user_id, numberOfItems: 5 })
+                        .then(res => createHistoryItems(res, member.username, navigation))
+                }));
+                const flattened = activities.flat();
+                const sorted = flattened.sort((currentItem, nextItem) => {
+                    return currentItem.props.date < nextItem.props.date
+                });
+                setHistoryItems(sorted);
             })
-            .then(console.log(historyItems))  //Lägg till sort på array utifrån datum. 
-
     }, [])
 
     return (
@@ -53,16 +46,13 @@ const friendGroupScreen = ({ route, navigation }) => {
             </PageHeader4>
 
             <GroupMembers group={group} nav={navigation}></GroupMembers>
-
             {historyItems}
-
-            <HistoryItem text='Jessica' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
 
         </StandardTemplate>
     );
 }
 
-function createHistoryItems(data, username) {
+function createHistoryItems(data, username, nav) {
     const items = [];
     if (data) {
         for (const element of data) {
@@ -74,7 +64,9 @@ function createHistoryItems(data, username) {
                 avgHR={element.average_heartrate}
                 distance={element.distance}
                 type={element.type}
-                style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />);
+                style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }}
+                action={() => nav.navigate("SingleActivity", { activity_id: element.activity_id })}
+            />);
         }
     }
     return items

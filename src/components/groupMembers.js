@@ -27,14 +27,14 @@ const groupMembers = (props) => {
     )
 };
 
-async function createMemberObjects(data, navigation, group) {
+async function createMemberObjects(members, navigation, group) {
     const items = [];
-    if (data instanceof Array) {
-        for (const element of data) {
+    if (members instanceof Array) {
+        for (const member of members) {
             items.push(
-                <TouchableOpacity key={element} onPress={() => navigation.navigate("FriendGroupFriend", { memberName: element, group: group })}>
+                <TouchableOpacity key={member.user_id} onPress={() => navigation.navigate("FriendGroupFriend", { memberName: member.username, group: group })}>
                     <FriendLogo Image={require('../assets/groups/Hasse.png')} />
-                    <Text style={{ alignSelf: "center" }}>{element}</Text>
+                    <Text style={{ alignSelf: "center" }}>{member.username}</Text>
                 </TouchableOpacity>
             )
         }

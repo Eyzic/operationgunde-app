@@ -70,7 +70,7 @@ function createHistoryItems(data, nav) {
                 distance={element.distance}
                 type={element.type}
                 style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }}
-                action={() => nav.navigate("SingleActivity")} />);
+                action={() => nav.navigate("SingleActivity", { activity_id: element.activity_id })} />);
         }
     }
     return items
