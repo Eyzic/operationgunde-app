@@ -16,6 +16,9 @@ import DailyHrvScreen from './screens/DailyHrvScreen';
 //Activity screens
 import NewActivityScreen from './screens/activity/NewActivityScreen';
 import CurrentActivityScreen from './screens/activity/CurrentActivityScreen';
+import Profile from './screens/Profile';
+
+import ProfileInst from './screens/ProfileInst'
 
 //Group screens
 import CreatedGroupScreen from './screens/groups/createdGroupScreen';
@@ -66,6 +69,9 @@ export default function Main() {
                         <Stack.Screen name="DailyHRV" component={DailyHrvScreen} />
                         <Stack.Screen name="NewActivity" component={NewActivityScreen} />
                         <Stack.Screen name="CurrentActivity" component={CurrentActivityScreen} />
+
+                        <Stack.Screen name="Profile" component={Profile} />
+                        <Stack.Screen name="ProfileInst" component={ProfileInst} />
 
                         <Stack.Screen name="MyGroups" component={MyGroupsScreen} />
                         <Stack.Screen name="NewGroup" component={NewGroupScreen} />
