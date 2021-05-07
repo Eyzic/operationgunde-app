@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, Alert, View, TouchableOpacity } from 'react-native';
+import RNPickerSelect from "react-native-picker-select";
 
 const {
     width: SCREEN_WIDTH,
@@ -44,32 +45,39 @@ const toggleChoiceButton = (props) => {
             return (styles.button);
         }
     };
+    const whichType = () => {
 
+        if (type == "Organisation") {
+            return (
+                "Organisation = En grupp så att tränare i olika idrottsgrupper och -lag kan se hur träningen går och lägga in adeptens program"
+            );
+        } if (type == "Kompisgrupp") {
+            return ("Kompisgrupp = En grupp för dig och dina vänner som vill följa varandras träning och som grupp jobba mot samma mål");
+        } else {
+            return (" ");
+        }
+    };
+
+    const [type, setType] = useState("");
 
     return (
         <View style={props.style}>
-            <TouchableOpacity onPress={onPress} >
-                <View style={ifSame()} />
-                <Text style={styles.h3}>
-                    Organisation
-            </Text>
-            </TouchableOpacity>
 
-            <TouchableOpacity onPress={onPress} >
-                <View style={ifSame2()} />
-                <Text style={styles.h3}>
-                    Kompisgrupp
-            </Text>
-            </TouchableOpacity>
+            <RNPickerSelect
+                onValueChange={(type) => setType(type)}
+                items={[
+                    { label: "Ingen", value: "Ingen" },
+                    { label: "Organisation", value: "Organisation" },
+                    { label: "Kompisgrupp", value: "Kompisgrupp" },
+
+                ]} />
 
             <Text style={styles.h31}>
-                Organisation = En grupp så att tränare i olika
-                idrottsgrupper och -lag kan se hur träningen går och lägga in adeptens program
+                {whichType()}
             </Text>
-            <Text style={styles.h31}>
-                Kompisgrupp = En grupp för dig och dina vänner som vill
-                följa varandras träning och som grupp jobba mot samma mål
-            </Text>
+
+
+
         </View>
     );
 }
@@ -110,6 +118,9 @@ const styles = StyleSheet.create({
         backgroundColor: "red",
         flexDirection: 'row',
     },
+    space: {
+
+    }
 });
 
 export default toggleChoiceButton;
