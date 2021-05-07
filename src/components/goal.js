@@ -25,7 +25,6 @@ const Goal = (props) => {
     <View style={[styles.container]}>
       <View style={[styles.positions]}>
         <View style={[styles.checkbox]}>
-          <View style={[styles.filled]}></View>
         </View>
         <View style={([styles.title], { paddingLeft: normalize(20) })}>
           <Text style={styles.h4}> {props.goalType} </Text>
@@ -59,23 +58,17 @@ const styles = StyleSheet.create({
   },
 
   checkbox: {
-    backgroundColor: "hsla(316, 47%, 73%, 1)",
+    backgroundColor: "hsla(0,0%,100%,0.7)",
     width: normalize(30),
     height: normalize(30),
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: normalize(13),
-  },
+    borderColor: 'hsla(316, 47%, 73%, 1)',
+    borderWidth: 4
 
-  filled: {
-    backgroundColor: "hsla(0,0%,100%,0.7)",
-    width: normalize(24),
-    height: normalize(24),
-    alignContent: "center",
-    borderRadius: normalize(10),
   },
-
   valueBox: {
     backgroundColor: "#DB9ACA",
     width: normalize(100),

@@ -47,10 +47,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     paddingBottom: normalize(10),
-    height: 50,
   },
   h4: {
-    fontSize: normalize(18),
+    fontSize: normalize(14),
   },
   infobox: {
     backgroundColor: "#DB9ACA",
