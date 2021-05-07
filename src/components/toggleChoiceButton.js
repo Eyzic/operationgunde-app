@@ -23,28 +23,6 @@ function normalize(size) {
 //Denna buggar också just nu iom att du kan klicka på "kompisgrupp", men den väljer ändå "organisation".
 
 const toggleChoiceButton = (props) => {
-    const [count, setColor] = useState(0);
-    const onPress = () => {
-        setColor(count + 1);
-    };
-
-
-    const ifSame = () => {
-        if (Math.floor(count % 2) == 1) {
-            return (styles.button2);
-        } if (Math.floor(count % 2) == 0) {
-            return (styles.button);
-        }
-    };
-    const ifSame2 = () => {
-        if (count == 0) {
-            return (styles.button);
-        } if (Math.floor(count % 2) == 0) {
-            return (styles.button2);
-        } if (Math.floor(count % 2) == 1) {
-            return (styles.button);
-        }
-    };
     const whichType = () => {
 
         if (type == "Organisation") {
@@ -66,17 +44,15 @@ const toggleChoiceButton = (props) => {
             <RNPickerSelect
                 onValueChange={(type) => setType(type)}
                 items={[
-                    { label: "Ingen", value: "Ingen" },
                     { label: "Organisation", value: "Organisation" },
                     { label: "Kompisgrupp", value: "Kompisgrupp" },
-
-                ]} />
+                ]}
+                style={{ ...customPickerStyles }}
+            />
 
             <Text style={styles.h31}>
                 {whichType()}
             </Text>
-
-
 
         </View>
     );
@@ -84,13 +60,6 @@ const toggleChoiceButton = (props) => {
 
 
 const styles = StyleSheet.create({
-    h3: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(20),
-        textAlign: 'center',
-        marginTop: -32,
-        marginBottom: 20,
-    },
     h31: {
         fontFamily: "Helvetica",
         fontSize: normalize(20),
@@ -98,29 +67,31 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom: 20,
     },
-    button: {
-        width: normalize(40),
-        height: normalize(40),
-        marginTop: 10,
-        backgroundColor: "skyblue",
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-    },
-    button2: {
-        width: normalize(40),
-        height: normalize(40),
-        marginTop: 10,
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: "red",
-        flexDirection: 'row',
-    },
-    space: {
+});
 
-    }
+const customPickerStyles = StyleSheet.create({
+    inputIOS: {
+        marginTop: 15,
+        fontSize: 20,
+        paddingVertical: 10,
+        paddingHorizontal: 12,
+        borderWidth: 1,
+        borderColor: 'black',
+        borderRadius: 8,
+        color: 'black',
+        paddingRight: 30, // to ensure the text is never behind the icon
+    },
+    inputAndroid: {
+        marginTop: 15,
+        fontSize: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 8,
+        borderWidth: 1,
+        borderColor: 'black',
+        borderRadius: 8,
+        color: 'black',
+        paddingRight: 30, // to ensure the text is never behind the icon
+    },
 });
 
 export default toggleChoiceButton;
