@@ -7,7 +7,7 @@ import FriendProfile from '../../components/friendProfile';
 import StandardTemplate from '../../templates/StandardTemplate';
 
 import Style from '../../styles/Style';
-import Sizes from '../../styles/Sizes';
+import Sizes from '../../styles/sizes';
 
 const {
     width: SCREEN_WIDTH,
