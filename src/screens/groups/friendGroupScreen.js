@@ -17,9 +17,34 @@ const {
 } = Dimensions.get('window');
 
 const friendGroupScreen = ({ route, navigation }) => {
-
+    const [historyData, setHistoryData] = React.useState();
+    const [historyItems, setHistoryItems] = React.useState();
+    const [members, setMembers] = React.useState();
     const { group } = route.params;
-    console.log(group);
+    console.log(historyData);
+
+    React.useEffect(() => {
+        fetch(local_ip + `/api/group?group=${group}`)
+            .then(res => res.json())
+            .then(members => {
+                for (const member in members) {
+                    console.log("MEMBER");
+                    console.log(member);
+                    let data = {
+                        user: member,   //Dubbelkolla så det blir ID.
+                        //date: new Date().toISOString().substr(0, 10)
+                        numberOfItems: 5
+                    };
+
+                    getHistory(data)
+                        .then(res => res.json())
+                        .then(res => createHistoryItems(res, member))  //Dubbelkolla så de är samma typ.
+                        .then(items => setHistoryItems(historyItems + items));
+                }
+            })
+            .then(console.log(historyItems))  //Lägg till sort på array utifrån datum. 
+
+    }, [])
 
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
@@ -29,16 +54,40 @@ const friendGroupScreen = ({ route, navigation }) => {
 
             <GroupMembers group={group} nav={navigation}></GroupMembers>
 
+            {historyItems}
+
             <HistoryItem text='Jessica' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
-
-            <HistoryItem text='Frida' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
-
-            <HistoryItem text='Einar' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
-
-            <HistoryItem text='Filip' style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />
 
         </StandardTemplate>
     );
 }
+
+function createHistoryItems(data, username) {
+    const items = [];
+    if (data) {
+        for (const element of data) {
+            items.push(<HistoryItem
+                date={element.start_date_local}
+                duration={element.elapsed_time}
+                title={username}
+                key={element.activity_id}
+                avgHR={element.average_heartrate}
+                distance={element.distance}
+                type={element.type}
+                style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />);
+        }
+    }
+    return items
+}
+
+function getHistory(data) {
+    let user = encodeURIComponent(data.user);
+    let number = encodeURIComponent(data.numberOfItems);
+    let base = "http://localhost:5000/"
+    return fetch(local_ip + `/api/activities?user_id=${user}&nb_activities=${number}`)
+        .then(res => res.json())
+        .catch(error => console.error(error));
+}
+
 
 export default friendGroupScreen;
