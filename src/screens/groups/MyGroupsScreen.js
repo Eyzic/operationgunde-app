@@ -34,6 +34,7 @@ const MyGroupsScreen = ({ navigation }) => {
 
 async function createGroupObjects(data, navigation) {
     const items = [];
+
     if (data instanceof Array) {
         for (const element of data) {
             items.push(<Group
