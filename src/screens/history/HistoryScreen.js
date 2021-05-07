@@ -51,13 +51,13 @@ const HistoryScreen = ({ navigation }) => {
                 nav={navigation}
             >
             </PageHeader5>
-            { createHistoryItems(historyData)}
+            { createHistoryItems(historyData, navigation)}
 
         </StandardTemplate >
     );
 }
 
-function createHistoryItems(data) {
+function createHistoryItems(data, nav) {
     const items = [];
     if (data) {
         for (const element of data) {
@@ -69,7 +69,8 @@ function createHistoryItems(data) {
                 avgHR={element.average_heartrate}
                 distance={element.distance}
                 type={element.type}
-                style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }} />);
+                style={{ backgroundColor: 'hsla(272, 100%, 97%,1)', borderRadius: 15 }}
+                action={() => nav.navigate("SingleActivity")} />);
         }
     }
     return items

@@ -26,7 +26,7 @@ function normalize(size) {
 
 const historyItem = (props) => {
     return (
-        <TouchableWithoutFeedback id={props.activityId} onPress={() => Alert.alert('till passets sida')}>
+        <TouchableWithoutFeedback id={props.activityId} onPress={props.action}>
             <View style={[styles.container, props.style]}>
                 <View style={{ flexGrow: 4 }}>
                     <View style={styles.title}>

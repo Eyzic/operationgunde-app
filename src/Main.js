@@ -1,12 +1,12 @@
-import 'react-native-gesture-handler'
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { } from 'react-native';
-import ActivityContext from './components/activityContext';
-import UserContext from './components/UserContext';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import StopWatch from './components/stopWatch';
+import "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { } from "react-native";
+import ActivityContext from "./components/activityContext";
+import UserContext from "./components/UserContext";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import StopWatch from "./components/stopWatch";
 
 //Menu screens
 import FrontScreen from './screens/FrontScreen';
@@ -18,20 +18,21 @@ import NewActivityScreen from './screens/activity/NewActivityScreen';
 import CurrentActivityScreen from './screens/activity/CurrentActivityScreen';
 import Profile from './screens/Profile';
 
-import ProfileInst from './screens/ProfileInst'
+import ProfileInst from "./screens/ProfileInst";
+import SingleActivity from "./screens/SingleActivity";
 
 //Group screens
-import CreatedGroupScreen from './screens/groups/createdGroupScreen';
-import FriendGroupFriendScreen from './screens/groups/friendGroupFriendScreen';
-import FriendGroupScreen from './screens/groups/friendGroupScreen';
-import FriendGroupSettingsScreen from './screens/groups/friendGroupSettingsScreen';
-import MyGroupsScreen from './screens/groups/MyGroupsScreen';
-import NewGroupScreen from './screens/groups/newGroupScreen';
-import OrganisationAthleteFriendScreen from './screens/groups/organisationAthleteFriendScreen';
-import OrganisationAthleteScreen from './screens/groups/organisationAthleteScreen';
-import OrganisationCoachAthleteScreen from './screens/groups/organisationCoachAthleteScreen';
-import OrganisationCoachScreen from './screens/groups/organisationCoachScreen';
-import OrganisationCoachSettingsScreen from './screens/groups/organisationCoachSettingsScreen';
+import CreatedGroupScreen from "./screens/groups/createdGroupScreen";
+import FriendGroupFriendScreen from "./screens/groups/friendGroupFriendScreen";
+import FriendGroupScreen from "./screens/groups/friendGroupScreen";
+import FriendGroupSettingsScreen from "./screens/groups/friendGroupSettingsScreen";
+import MyGroupsScreen from "./screens/groups/MyGroupsScreen";
+import NewGroupScreen from "./screens/groups/newGroupScreen";
+import OrganisationAthleteFriendScreen from "./screens/groups/organisationAthleteFriendScreen";
+import OrganisationAthleteScreen from "./screens/groups/organisationAthleteScreen";
+import OrganisationCoachAthleteScreen from "./screens/groups/organisationCoachAthleteScreen";
+import OrganisationCoachScreen from "./screens/groups/organisationCoachScreen";
+import OrganisationCoachSettingsScreen from "./screens/groups/organisationCoachSettingsScreen";
 
 //History
 import HistoryCalendarScreen from './screens/history/HistoryCalendarScreen';
@@ -50,7 +51,7 @@ const activityState = {
 };
 
 const loginState = {
-    user: null
+    user: null,
 };
 
 const Stack = createStackNavigator();
@@ -89,6 +90,7 @@ export default function Main() {
                         <Stack.Screen name="HistoryCalendar" component={HistoryCalendarScreen} />
                         <Stack.Screen name="HistoryHrv" component={HistoryHrvScreen} />
                         <Stack.Screen name="HistoryItemScreen" component={HistoryItemScreen} />
+                        <Stack.Screen name="SingleActivity" component={SingleActivity} />
 
 
 
@@ -98,4 +100,3 @@ export default function Main() {
         </NavigationContainer>
     );
 }
-
