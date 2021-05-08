@@ -30,15 +30,13 @@ const group = (props) => {
         <TouchableWithoutFeedback onPress={props.nav}>
             <View style={props.style} >
                 <View style={[styles.header]} >
-                    <Image source={props.Image} style={styles.image} />
+                    <Image source={props.image} style={styles.image} />
                     <View>
                         <Text style={styles.h1} >
                             {props.title}
                         </Text>
-                        <Text style={styles.h1} >
-                            {props.text2}
-                        </Text>
                     </View>
+                </View>
 
                 <Text style={styles.h2}>
                     {props.groupType}
