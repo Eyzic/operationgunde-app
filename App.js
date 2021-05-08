@@ -23,7 +23,7 @@ function frontPage({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader style={[styles.item]} image={'./assets/springa.png'} hasImage={true}>
+          <PageHeader style={[styles.item]} hasImage={false}>
           </PageHeader>
 
           <WeekOverview style={[styles.item]} />
@@ -40,23 +40,8 @@ function frontPage({ navigation }) {
   );
 }
 
-function backPage({ navigation }) {
-  return (
-    <SafeAreaView>
-      <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
-        <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader style={[styles.item]} hasImage={false}>
-          </PageHeader>
 
-        </ScrollView>
-
-        <NavMenu style={styles.menu} nav={navigation} />
-
-      </View>
-    </SafeAreaView >
-  );
-}
 
 const Stack = createStackNavigator();
 
@@ -69,7 +54,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="FrontPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
         <Stack.Screen name="FrontPage" component={frontPage} />
-        <Stack.Screen name="BackPage" component={backPage} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
