@@ -1,24 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Text, Dimensions, PixelRatio, Platform } from 'react-native';
-
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import { View, StyleSheet, Text } from 'react-native';
+import Normalize from "../Normalize";
 
 const pluss = (props) => {
-    const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
         <View style={styles.knapp} onStartShouldSetResponder={() => props.nav.navigate('NewGroup')}  >
@@ -32,8 +16,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#BB22AA',
         borderRadius: 20,
-        width: normalize(130),
-        height: normalize(50),
+        width: Normalize(130),
+        height: Normalize(50),
         alignSelf: 'center',
         marginTop: 20,
         justifyContent: 'center',
@@ -44,12 +28,10 @@ const styles = StyleSheet.create({
     },
     h2: {
         fontFamily: "Helvetica",
-        fontSize: normalize(30),
+        fontSize: Normalize(30),
         textAlign: 'center',
         color: 'hsla(0, 0%, 100%,1)',
     }
 });
-
-
 
 export default pluss;

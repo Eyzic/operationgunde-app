@@ -1,20 +1,6 @@
 import React from 'react';
-import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import { Text, View, Image, StyleSheet } from 'react-native';
+import Normalize from "../Normalize";
 
 
 //Props: style = css for the toplevel of the component.
@@ -36,7 +22,7 @@ const PageHeader = (props) => {
                     </Text>
 
                     <Text style={[styles.h3, styles.top_border]}>
-                        Taggad och redo
+                        Lugn träning
                     </Text>
                 </View>
                 {props.hasImage &&
@@ -51,12 +37,12 @@ const PageHeader = (props) => {
 const styles = StyleSheet.create({
     h1: {
         fontFamily: "Helvetica",
-        fontSize: normalize(40),
+        fontSize: Normalize(30),
         lineHeight: 40
     },
     h3: {
         fontFamily: "Helvetica",
-        fontSize: normalize(20),
+        fontSize: Normalize(20),
     },
     top_border: {
         borderTopColor: '#000',
@@ -71,8 +57,8 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     image: {
-        width: normalize(135),
-        height: normalize(135)
+        width: Normalize(105),
+        height: Normalize(105)
     }
 });
 

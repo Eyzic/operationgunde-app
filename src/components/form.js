@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
 import UserContext from './UserContext';
 
+import local_ip from '../local_ip';
+
 const form = (props) => {
-    const context = React.useContext(UserContext);
-    const [name, onChangeName] = React.useState(context.user);
+    const userState = React.useContext(UserContext);
     const [hrv, onChangeHrv] = React.useState(68);
     const [sleep, onChangeSleep] = React.useState(7);
     const [stress, onChangeStress] = React.useState(4);
@@ -13,31 +14,30 @@ const form = (props) => {
     const [injuries, onChangeInjuries] = React.useState(2);
     const [energy, onChangeEnergy] = React.useState(9);
 
-    console.log(UserContext);
+    console.log(userState.user);
 
     let base = "http://localhost:5000/"
 
-    let data =
-        JSON.stringify({
-            user_id: name,
-            date: new Date().toISOString().substr(0, 10),
-            hrv: hrv,
-            sleeping_hours: sleep,
-            stress_level: stress,
-            muscle_ache: soreness,
-            mood_level: mood,
-            injury_level: injuries,
-            energy_level: energy
-        })
+    let data = {
+        user_id: userState.user,
+        date: new Date().toISOString().substr(0, 10),
+        hrv: hrv,
+        sleeping_hours: sleep,
+        stress_level: stress,
+        muscle_ache: soreness,
+        mood_level: mood,
+        injury_level: injuries,
+        energy_level: energy
+    }
 
     function saveMeasure() {
         console.log("SaveMeasure");
-        fetch(base + "api/form/stats", {
+        fetch(local_ip + "/api/form/stats", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
-            body: data
+            body: JSON.stringify(data)
         })
             .then(response => response.json())
             .then(res => alert(JSON.stringify(res)))
@@ -46,9 +46,6 @@ const form = (props) => {
 
     return (
         <View style={props.item} >
-            <Text>Namn: (UserID just nu)</Text>
-            <TextInput style={[props.style]} onChangeText={onChangeName} value={name}></TextInput>
-
             <Text>HRV:</Text>
             <TextInput style={[props.style]} onChangeText={onChangeHrv} value={hrv}></TextInput>
 
@@ -69,16 +66,8 @@ const form = (props) => {
 
             <Text>Energinivå:</Text>
             <TextInput style={[props.style]} onChangeText={onChangeEnergy} value={energy}></TextInput>
-            <Button style={props.style} color="#BB22AA" title="Daily Measure!" onPress={() => saveMeasure()} />
+            <Button style={props.style} color="#BB22AA" title="Spara!" onPress={() => { saveMeasure(); props.nav.navigate("HrvDoneScreen") }} />
         </View>
     )
 };
-
-const styles = StyleSheet.create({
-    row: {
-        flexDirection: "row",
-        margin: 5
-    }
-});
-
 export default form;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Dimensions, Platform, PixelRatio, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 import PageHeader4 from '../../components/pageHeader4';
 import FriendProfile from '../../components/friendProfile';
@@ -7,21 +7,8 @@ import FriendProfile from '../../components/friendProfile';
 import StandardTemplate from '../../templates/StandardTemplate';
 
 import Style from '../../styles/Style';
+import Normalize from "../../Normalize";
 
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
 const organisationCoachAthleteScreen = ({ navigation }) => {
     const [groupName, setGroupName] = React.useState("");
 
@@ -54,7 +41,7 @@ const styles = StyleSheet.create({
     },
     rutaText: {
         fontFamily: "Helvetica",
-        fontSize: normalize(25),
+        fontSize: Normalize(25),
         textAlign: 'center',
         color: 'white',
     }

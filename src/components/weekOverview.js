@@ -1,20 +1,6 @@
 import React from 'react';
-import { Text, View, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import { Text, View, StyleSheet } from 'react-native';
+import Normalize from "../Normalize";
 
 Date.prototype.getWeek = function () {
     var date = new Date(this.getTime());
@@ -36,7 +22,6 @@ function weekNumber() {
 }
 
 const weekOverview = (props) => {
-    const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
         <View style={props.style}>
@@ -71,8 +56,8 @@ const weekOverview = (props) => {
 
 const styles = StyleSheet.create({
     box: {
-        width: normalize(30),
-        height: normalize(30),
+        width: Normalize(20),
+        height: Normalize(20),
         backgroundColor: "skyblue"
     },
     row: {
@@ -82,7 +67,7 @@ const styles = StyleSheet.create({
     },
     h2: {
         fontFamily: "Helvetica",
-        fontSize: normalize(30),
+        fontSize: Normalize(20),
     },
 });
 

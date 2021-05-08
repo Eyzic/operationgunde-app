@@ -1,29 +1,8 @@
-import React, { useState } from "react";
-import {
-  Text,
-  Dimensions,
-  PixelRatio,
-  StyleSheet,
-  ScrollView,
-  Platform,
-  Image,
-  View,
-  TouchableOpacity,
-} from "react-native";
+import React from "react";
+import { Text, StyleSheet, Image, View, TouchableOpacity } from "react-native";
 
 //Detta är en pageheader utan progressview och utan taggad och redo
-
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-  const newSize = size * scale;
-  if (Platform.OS === "ios") {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize));
-  } else {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
-  }
-}
+import Normalize from "../Normalize";
 
 //Props: style = css for the toplevel of the component.
 // hasImage = true or false depending on whether you want to render a picture or not.
@@ -86,47 +65,27 @@ const pageHeader4 = (props) => {
 const styles = StyleSheet.create({
   h1: {
     // fontFamily: "Helvetica",
-    fontSize: normalize(40),
+    fontSize: Normalize(30),
     lineHeight: 40,
   },
   Inställning1: {
     // fontFamily: "Helvetica",
-    fontSize: normalize(23),
+    fontSize: Normalize(18),
     lineHeight: 40,
     marginTop: -33.4,
     marginStart: 80,
   },
   val1: {
     //fontFamily: "Helvetica",
-    fontSize: normalize(23),
+    fontSize: Normalize(18),
     lineHeight: 40,
     marginTop: -40.3,
     marginStart: 185,
   },
-  Inställning2: {
-    // fontFamily: "Helvetica",
-    fontSize: normalize(23),
-    lineHeight: 40,
-    marginTop: -33.4,
-    marginStart: 121,
-    color: "red",
-  },
   Oversikt1: {
     // fontFamily: "Helvetica",
-    fontSize: normalize(23),
+    fontSize: Normalize(18),
     justifyContent: "space-between",
-  },
-  Oversikt2: {
-    // fontFamily: "Helvetica",
-    fontSize: normalize(23),
-    justifyContent: "space-between",
-    color: "red",
-  },
-
-  top_border: {
-    borderTopColor: "#000",
-    borderTopWidth: 3,
-    paddingTop: 10,
   },
   header: {
     display: "flex",
@@ -136,21 +95,21 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   image: {
-    width: normalize(135),
-    height: normalize(135),
+    width: Normalize(105),
+    height: Normalize(105),
     borderRadius: 70,
   },
   h3: {
     fontFamily: "Helvetica",
-    fontSize: normalize(20),
+    fontSize: Normalize(20),
     flexDirection: "row",
     justifyContent: "flex-end",
     alignSelf: "flex-end",
     marginTop: -31,
   },
   image2: {
-    width: normalize(20),
-    height: normalize(20),
+    width: Normalize(20),
+    height: Normalize(20),
     borderRadius: 0,
     alignSelf: "flex-end",
   },

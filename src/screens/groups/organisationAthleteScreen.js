@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Dimensions, PixelRatio, Platform, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 import PageHeader4 from '../../components/pageHeader4';
 import GroupMembers from '../../components/groupMembers';
@@ -7,24 +7,12 @@ import GroupMembers from '../../components/groupMembers';
 import StandardTemplate from '../../templates/StandardTemplate';
 
 import Style from '../../styles/Style';
+import Normalize from "../../Normalize";
 
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
-
-const organisationAthleteScreen = ({ navigation }) => {
+const organisationAthleteScreen = ({ route, navigation }) => {
     const [groupName, setGroupName] = React.useState("");
+    const { group } = route.params;
+    console.log(group);
 
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
@@ -32,9 +20,7 @@ const organisationAthleteScreen = ({ navigation }) => {
             <PageHeader4 Image2={require('../../assets/menu/group.png')} text1='IFK' text2='Göteborg' Image={require('../../assets/groups/IFK.png')} style={[Style.item]} memberCount='6' nav={navigation} >
             </PageHeader4>
 
-            <GroupMembers groupMember="OrganisationAthleteFriend" image1={require('../../assets/groups/Hasse.png')} image2={require('../../assets/groups/HassesKompisar.png')}
-                image3={require('../../assets/groups/Hasse.png')} image4={require('../../assets/groups/HassesKompisar.png')}
-                image5={require('../../assets/groups/Hasse.png')} image6={require('../../assets/groups/HassesKompisar.png')} nav={navigation} />
+            <GroupMembers group={group} nav={navigation}></GroupMembers>
 
             <View style={Style.item}>
 
@@ -69,7 +55,7 @@ const styles = StyleSheet.create({
     },
     rutaText: {
         fontFamily: "Helvetica",
-        fontSize: normalize(25),
+        fontSize: Normalize(25),
         textAlign: 'center',
         color: 'white',
     }

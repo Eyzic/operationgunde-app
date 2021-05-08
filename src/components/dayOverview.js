@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
-import EvalBar from './evalBar';
+import { Text, View, StyleSheet } from 'react-native';
 
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import local_ip from '../local_ip';
+import Normalize from "../Normalize";
+import UserContext from '../components/UserContext'
 
 const dayOverview = (props) => {
+    const userContext = React.useContext(UserContext);
     const [temperature, setTemp] = useState('0');
+    const [hrvPrediction, setHrvPrediction] = useState("");
 
     useEffect(() => {
         getPosition(6)
@@ -26,20 +16,24 @@ const dayOverview = (props) => {
             .then((temp) => setTemp(temp))
     }, []);
 
+    useEffect(() => {
+        fetch(local_ip + `/ml/neural?user_id=${userContext.user}`)
+            .then(res => res.json())
+            .then(hrv => setHrvPrediction(hrv.predicted_hrv))
+    }, []);
+
     return (
         <View style={[props.style, { flexDirection: 'row' }]}>
-            <View style={{ flexGrow: 1, padding: 0 }}>
-                <Text style={styles.h3}>Muskeltrötthet</Text>
-                <EvalBar limit={10} value={7} />
+            <View style={{ flexDirection: 'column', maxWidth: '50%' }}>
 
-                <Text style={styles.h3}>Mentalt</Text>
-                <EvalBar limit={10} value={6} />
+                <Text style={styles.h2}>Prognos:</Text>
+                <Text style={styles.h3}>HRV imorgon: {hrvPrediction}</Text>
+                <View style={styles.box2} />
 
-                <Text style={styles.h3}>Energi</Text>
-                <EvalBar limit={10} value={2} />
-
-                <Text style={styles.h3}>Sömn</Text>
-                <EvalBar limit={10} value={10} />
+                <Text style={styles.h3}>Din träningsintensitet imorgon bör vara:</Text>
+                <View style={styles.box2}>
+                    <Text style={{ textAlign: 'center', marginTop: 8, fontSize: Normalize(20) }}>lugnt, normalt, max</Text>
+                </View>
             </View>
 
             <View style={[{ alignItems: 'flex-end', flexGrow: 1 }]}>
@@ -128,17 +122,26 @@ function today() {
 const styles = StyleSheet.create({
     h1: {
         fontFamily: "Helvetica",
-        fontSize: normalize(40),
+        fontSize: Normalize(30),
     },
     h2: {
         fontFamily: "Helvetica",
-        fontSize: normalize(30),
+        fontSize: Normalize(20),
         lineHeight: 28
     },
     h3: {
         fontFamily: "Helvetica",
-        fontSize: normalize(20)
-    }
-});
+        fontSize: Normalize(15),
+        marginTop: 15,
+    },
+    box2: {
+        flexDirection: 'column',
+        borderRadius: 10,
+        marginTop: 10,
+        backgroundColor: 'hsla(316,47%,73%,1)',
+    },
+    fontSize: Normalize(15)
+}
+);
 
 export default dayOverview;

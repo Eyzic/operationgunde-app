@@ -10,12 +10,8 @@ import StandardTemplate from '../templates/StandardTemplate';
 
 import Style from '../styles/Style';
 
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-
 const FrontScreen = ({ navigation }) => {
+
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
 

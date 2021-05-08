@@ -1,28 +1,15 @@
 import React from 'react'
-import { Text, View, TouchableWithoutFeedback, Button, Platform, Dimensions, PixelRatio, StyleSheet } from 'react-native'
+import { Text, View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import StatsDisplay from './statsDisplay';
+import Normalize from "../Normalize";
 
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 320;
-
-const radie = normalize(10);
+const radie = Normalize(10);
 const logo = {
     uri: 'https://reactnative.dev/img/tiny_logo.png',
     width: 64,
     height: 64
 };
 
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
 
 
 const valueItem = (props) => {
@@ -31,17 +18,17 @@ const valueItem = (props) => {
             <View style={[styles.container, props.style]}>
                 <View style={{ flexGrow: 4 }}>
                     <View style={styles.title}>
-                        <Text style={styles.h4}>Måndag 23 feb 2020 </Text>
-                        
+                        <Text style={styles.h4}>{props.date}</Text>
+
                     </View>
                     <View style={styles.statsRow}>
-                        <StatsDisplay statsTitle={"HRV"} value={80} textStyle={styles.h3} />
+                        <StatsDisplay statsTitle={"HRV"} value={props.hrv} textStyle={styles.h3} />
                         <StatsDisplay statsTitle={"nåt annat"} value={3} textStyle={styles.h3} />
-                        
+
                     </View>
                 </View>
 
-               
+
 
             </View>
         </TouchableWithoutFeedback>
@@ -62,7 +49,7 @@ const styles = StyleSheet.create({
     statsRow: {
         backgroundColor: 'hsla(324, 53%, 66%,0.65)',
         flexDirection: "row",
-        borderTopRightRadius: normalize(15),
+        borderTopRightRadius: Normalize(15),
         borderBottomLeftRadius: 0,
         padding: 1,
     },
@@ -74,14 +61,14 @@ const styles = StyleSheet.create({
         padding: 10
     },
     h2: {
-        fontSize: normalize(20)
+        fontSize: Normalize(20)
     },
     h3: {
         color: 'white',
-        fontSize: normalize(15)
+        fontSize: Normalize(15)
     },
     h4: {
-        fontSize: normalize(18)
+        fontSize: Normalize(18)
     }
 });
 

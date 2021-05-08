@@ -1,20 +1,6 @@
 import React, { useState } from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, Alert, View, TouchableOpacity } from 'react-native';
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import { Text, StyleSheet, Alert, View, TouchableOpacity } from 'react-native';
+import Normalize from "../Normalize";
 
 const hardwareButton = (props) => {
     const [selected, setSelected] = useState(false);
@@ -47,12 +33,12 @@ const hardwareButton = (props) => {
 const styles = StyleSheet.create({
     h3: {
         fontFamily: "Helvetica",
-        fontSize: normalize(20),
+        fontSize: Normalize(15),
         textAlign: 'center',
     },
     button: {
-        width: normalize(100),
-        height: normalize(100),
+        width: Normalize(80),
+        height: Normalize(80),
         marginTop: 20,
         marginRight: 4,
         backgroundColor: "skyblue",
