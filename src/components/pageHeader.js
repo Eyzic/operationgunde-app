@@ -22,7 +22,7 @@ const PageHeader = (props) => {
                     </Text>
 
                     <Text style={[styles.h3, styles.top_border]}>
-                        Taggad och redo
+                        Lugn träning
                     </Text>
                 </View>
                 {props.hasImage &&
