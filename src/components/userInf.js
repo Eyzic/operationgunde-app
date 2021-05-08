@@ -1,25 +1,6 @@
 import React, { useState } from "react";
-import {
-  Text,
-  View,
-  Platform,
-  Dimensions,
-  PixelRatio,
-  StyleSheet,
-  TextInput,
-} from "react-native";
-
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
-const scale = SCREEN_WIDTH / 320;
-
-function normalize(size) {
-  const newSize = size * scale;
-  if (Platform.OS === "ios") {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize));
-  } else {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
-  }
-}
+import { Text, View, StyleSheet } from "react-native";
+import Normalize from "../Normalize";
 
 const UserInf = (props) => {
   return (
@@ -46,18 +27,18 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    paddingBottom: normalize(10),
+    paddingBottom: Normalize(10),
   },
   h4: {
-    fontSize: normalize(14),
+    fontSize: Normalize(14),
   },
   infobox: {
     backgroundColor: "#DB9ACA",
-    height: normalize(30),
+    height: Normalize(30),
     flexDirection: "row",
     alignItems: "center",
-    borderRadius: normalize(13),
-    paddingLeft: normalize(10),
+    borderRadius: Normalize(13),
+    paddingLeft: Normalize(10),
   },
 });
 

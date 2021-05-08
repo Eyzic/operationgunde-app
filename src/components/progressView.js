@@ -1,20 +1,6 @@
 import React from 'react';
-import { View, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform } from 'react-native';
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import { View, StyleSheet, ScrollView } from 'react-native';
+import Normalize from "../Normalize";
 
 const progressView = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
@@ -29,12 +15,4 @@ const progressView = (props) => {
         </ScrollView>
     )
 };
-
-const styles = StyleSheet.create({
-    h3: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(20),
-    }
-});
-
 export default progressView;

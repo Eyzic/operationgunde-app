@@ -1,22 +1,7 @@
 import React, { useContext } from 'react';
-import { StyleSheet, Text, Dimensions, PixelRatio, Platform, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import ActivityContext from './activityContext';
-
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import Normalize from "../Normalize";
 
 const startActivity = (props) => {
     const context = useContext(ActivityContext);
@@ -36,7 +21,7 @@ function goToNext(nav, context) {
 const styles = StyleSheet.create({
     h2: {
         fontFamily: "Helvetica",
-        fontSize: normalize(30),
+        fontSize: Normalize(30),
     }
 });
 

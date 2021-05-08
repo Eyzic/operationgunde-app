@@ -1,31 +1,15 @@
 import React from "react";
 
-import {
-  Dimensions,
-  View,
-  Text,
-  Platform,
-  PixelRatio,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { Dimensions, View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
 import StandardTemplate from "../templates/StandardTemplate";
+import Normalize from "../Normalize";
 
-import { circle } from "react-native/Libraries/Animated/src/Easing";
+const {
+  width: SCREEN_WIDTH,
+  height: SCREEN_HEIGHT,
+} = Dimensions.get('window');
 
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
-const scale = SCREEN_WIDTH / 320;
-
-function normalize(size) {
-  const newSize = size * scale;
-  if (Platform.OS === "ios") {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize));
-  } else {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
-  }
-}
 const SingleActivity = ({ route, navigation }) => {
   const { activity_title, date, duration, avg_HR, meters } = route.params;
   return (
@@ -35,8 +19,8 @@ const SingleActivity = ({ route, navigation }) => {
           height: SCREEN_HEIGHT * 0.2,
           backgroundColor: "hsla(268, 100%, 96%,0.63)",
           flexDirection: "row",
-          paddingRight: normalize(5),
-          paddingLeft: normalize(20),
+          paddingRight: Normalize(5),
+          paddingLeft: Normalize(20),
         }}
       >
         <View
@@ -44,11 +28,11 @@ const SingleActivity = ({ route, navigation }) => {
             flex: 3,
             justifyContent: "center",
             borderBottomWidth: 2,
-            marginBottom: normalize(20),
+            marginBottom: Normalize(20),
           }}
         >
-          <Text style={{ fontSize: normalize(30) }}>{activity_title}</Text>
-          <Text style={{ fontSize: normalize(30) }}>{date}</Text>
+          <Text style={{ fontSize: Normalize(30) }}>{activity_title}</Text>
+          <Text style={{ fontSize: Normalize(30) }}>{date}</Text>
         </View>
         <View
           style={{ flex: 2, alignItems: "center", justifyContent: "center" }}
@@ -56,15 +40,15 @@ const SingleActivity = ({ route, navigation }) => {
           <View
             style={{ position: "absolute", zIndex: 1, alignItems: "center" }}
           >
-            <Text style={{ fontSize: normalize(19), fontWeight: "bold" }}>
+            <Text style={{ fontSize: Normalize(19), fontWeight: "bold" }}>
               Längd:
             </Text>
-            <Text style={{ fontSize: normalize(21) }}>{duration}</Text>
+            <Text style={{ fontSize: Normalize(21) }}>{duration}</Text>
           </View>
           <Image
             style={{
-              height: normalize(100),
-              width: normalize(100),
+              height: Normalize(100),
+              width: Normalize(100),
               position: "absolute",
               zIndex: 2,
             }}
@@ -88,7 +72,7 @@ const SingleActivity = ({ route, navigation }) => {
       <View style={[styles.buttonBlock]}>
         <TouchableOpacity>
           <View style={[styles.button]}>
-            <Text style={{ fontSize: normalize(18), color: "white" }}>
+            <Text style={{ fontSize: Normalize(18), color: "white" }}>
               Redigera aktivitet
             </Text>
           </View>
@@ -100,46 +84,40 @@ const SingleActivity = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: normalize(20),
-  },
-  rutaText: {
-    fontFamily: "Helvetica",
-    fontSize: normalize(25),
-    textAlign: "center",
-    color: "white",
+    fontSize: Normalize(20),
   },
   kmBlock: {
-    height: normalize(45),
+    height: Normalize(45),
     backgroundColor: "hsla(268, 100%, 96%,0.63)",
-    marginTop: normalize(10),
+    marginTop: Normalize(10),
     alignItems: "center",
     justifyContent: "center",
   },
   hrBlock: {
     flexDirection: "row",
-    height: normalize(45),
+    height: Normalize(45),
     backgroundColor: "hsla(268, 100%, 96%,0.63)",
-    marginTop: normalize(10),
+    marginTop: Normalize(10),
     alignItems: "center",
     justifyContent: "space-evenly",
   },
 
   hrvBlock: {
-    height: normalize(100),
+    height: Normalize(100),
     backgroundColor: "hsla(268, 100%, 96%,0.63)",
-    marginTop: normalize(10),
+    marginTop: Normalize(10),
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
     flexDirection: "column",
-    paddingRight: normalize(20),
-    paddingLeft: normalize(20),
+    paddingRight: Normalize(20),
+    paddingLeft: Normalize(20),
   },
 
   buttonBlock: {
-    height: normalize(75),
+    height: Normalize(75),
     backgroundColor: "hsla(268, 100%, 96%,0.63)",
-    marginTop: normalize(10),
+    marginTop: Normalize(10),
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
@@ -147,11 +125,11 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    height: normalize(50),
-    width: normalize(200),
+    height: Normalize(50),
+    width: Normalize(200),
     backgroundColor: "hsla(268, 62%, 46%, 1)",
     flexDirection: "row",
-    borderRadius: normalize(10),
+    borderRadius: Normalize(10),
     justifyContent: "space-evenly",
     alignItems: "center",
     flexDirection: "column",

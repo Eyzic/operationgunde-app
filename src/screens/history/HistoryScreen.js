@@ -19,7 +19,7 @@ const HistoryScreen = ({ navigation }) => {
         let data = {
             user: context.user,
             //date: new Date().toISOString().substr(0, 10)
-            number: 5
+            number: 10
         };
 
         getHistory(data)

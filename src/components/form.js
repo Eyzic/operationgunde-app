@@ -66,16 +66,8 @@ const form = (props) => {
 
             <Text>Energinivå:</Text>
             <TextInput style={[props.style]} onChangeText={onChangeEnergy} value={energy}></TextInput>
-            <Button style={props.style} color="#BB22AA" title="Daily Measure!" onPress={() => saveMeasure()} />
+            <Button style={props.style} color="#BB22AA" title="Spara!" onPress={() => saveMeasure()} />
         </View>
     )
 };
-
-const styles = StyleSheet.create({
-    row: {
-        flexDirection: "row",
-        margin: 5
-    }
-});
-
 export default form;

@@ -1,24 +1,6 @@
 import React from "react";
-import {
-  Text,
-  View,
-  Platform,
-  Dimensions,
-  PixelRatio,
-  StyleSheet,
-} from "react-native";
-
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
-const scale = SCREEN_WIDTH / 320;
-
-function normalize(size) {
-  const newSize = size * scale;
-  if (Platform.OS === "ios") {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize));
-  } else {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
-  }
-}
+import { Text, View, StyleSheet } from "react-native";
+import Normalize from "../Normalize";
 
 const Goal = (props) => {
   return (
@@ -26,7 +8,7 @@ const Goal = (props) => {
       <View style={[styles.positions]}>
         <View style={[styles.checkbox]}>
         </View>
-        <View style={([styles.title], { paddingLeft: normalize(20) })}>
+        <View style={([styles.title], { paddingLeft: Normalize(20) })}>
           <Text style={styles.h4}> {props.goalType} </Text>
         </View>
       </View>
@@ -59,24 +41,24 @@ const styles = StyleSheet.create({
 
   checkbox: {
     backgroundColor: "hsla(0,0%,100%,0.7)",
-    width: normalize(30),
-    height: normalize(30),
+    width: Normalize(30),
+    height: Normalize(30),
     alignContent: "center",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: normalize(13),
+    borderRadius: Normalize(13),
     borderColor: 'hsla(316, 47%, 73%, 1)',
     borderWidth: 4
 
   },
   valueBox: {
     backgroundColor: "#DB9ACA",
-    width: normalize(100),
+    width: Normalize(100),
     height: 35,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: normalize(13),
+    borderRadius: Normalize(13),
     alignContent: "center",
   },
 });

@@ -1,20 +1,6 @@
 import React from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, Platform, View, TextInput } from 'react-native';
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import { Text, StyleSheet, View, TextInput } from 'react-native';
+import Normalize from "../Normalize";
 
 const settings = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
@@ -51,7 +37,7 @@ const settings = (props) => {
 const styles = StyleSheet.create({
     h6: {
         fontFamily: "Helvetica",
-        fontSize: normalize(20),
+        fontSize: Normalize(20),
         textAlign: 'left',
     },
     column: {
@@ -80,7 +66,7 @@ const styles = StyleSheet.create({
     },
     rutaText: {
         fontFamily: "Helvetica",
-        fontSize: normalize(20),
+        fontSize: Normalize(15),
         textAlign: 'center',
         color: 'white',
     },

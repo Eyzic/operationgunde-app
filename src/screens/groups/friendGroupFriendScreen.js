@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, PixelRatio, Platform, Dimensions, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 import PageHeader4 from '../../components/pageHeader4';
 import FriendProfile from '../../components/friendProfile';
@@ -9,21 +9,7 @@ import GroupContext from '../../components/groupContext';
 
 import Style from '../../styles/Style';
 import Sizes from '../../styles/Sizes';
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import Normalize from "../../Normalize";
 
 const friendGroupFriendScreen = ({ route, navigation }) => {
     const { memberName } = route.params;
@@ -71,7 +57,7 @@ const styles = StyleSheet.create({
     },
     rutaText: {
         fontFamily: "Helvetica",
-        fontSize: normalize(25),
+        fontSize: Normalize(25),
         textAlign: 'center',
         color: 'white',
     }

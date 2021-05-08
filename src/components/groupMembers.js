@@ -32,9 +32,9 @@ async function createMemberObjects(members, navigation, group) {
     if (members instanceof Array) {
         for (const member of members) {
             items.push(
-                <TouchableOpacity key={member.user_id} onPress={() => navigation.navigate("FriendGroupFriend", { memberName: member.username })}>
+                <TouchableOpacity key={member.user_id} onPress={() => navigation.navigate("FriendGroupFriend", { memberName: member.name })}>
                     <FriendLogo Image={require('../assets/groups/Hasse.png')} />
-                    <Text style={{ alignSelf: "center" }}>{member.username}</Text>
+                    <Text style={{ alignSelf: "center" }}>{member.name}</Text>
                 </TouchableOpacity>
             )
         }

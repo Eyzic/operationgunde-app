@@ -1,23 +1,6 @@
 import React from 'react';
-import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, Platform, TouchableWithoutFeedback } from 'react-native';
-
-import local_ip from '../local_ip';
-//Detta är en pageheader utan progressview och utan taggad och redo 
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import { Text, View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import Normalize from "../Normalize";
 
 
 //Props: style = css for the toplevel of the component.
@@ -55,14 +38,14 @@ const group = (props) => {
 const styles = StyleSheet.create({
     h1: {
         fontFamily: "Helvetica",
-        fontSize: normalize(30),
+        fontSize: Normalize(25),
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 9,
     },
     h2: {
         fontFamily: "Helvetica",
-        fontSize: normalize(20),
+        fontSize: Normalize(15),
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignSelf: 'flex-start',
@@ -71,16 +54,11 @@ const styles = StyleSheet.create({
     },
     h3: {
         fontFamily: "Helvetica",
-        fontSize: normalize(20),
+        fontSize: Normalize(20),
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignSelf: 'flex-end',
 
-    },
-    top_border: {
-        borderTopColor: '#000',
-        borderTopWidth: 3,
-        paddingTop: 10
     },
     header: {
         display: 'flex',
@@ -90,13 +68,13 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     image: {
-        width: normalize(110),
-        height: normalize(110),
+        width: Normalize(100),
+        height: Normalize(100),
         borderRadius: 20
     },
     image2: {
-        width: normalize(20),
-        height: normalize(20),
+        width: Normalize(15),
+        height: Normalize(15),
         borderRadius: 0,
         alignSelf: 'flex-end',
     }

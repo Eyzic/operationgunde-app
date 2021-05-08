@@ -23,7 +23,7 @@ const friendGroupScreen = ({ route, navigation }) => {
             .then(async members => {
                 let activities = await Promise.all(members.map(member => {
                     return getHistory({ user: member.user_id, numberOfItems: 5 })
-                        .then(res => createHistoryItems(res, member.username, navigation))
+                        .then(res => createHistoryItems(res, member.name, navigation))
                 }));
                 const flattened = activities.flat();
                 const sorted = flattened.sort((currentItem, nextItem) => {

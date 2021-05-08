@@ -1,21 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, Dimensions, PixelRatio, StyleSheet, Platform } from 'react-native';
 import EvalBar from './evalBar';
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import Normalize from "../Normalize";
 
 const dayOverview = (props) => {
     const [temperature, setTemp] = useState('0');
@@ -128,16 +114,16 @@ function today() {
 const styles = StyleSheet.create({
     h1: {
         fontFamily: "Helvetica",
-        fontSize: normalize(40),
+        fontSize: Normalize(30),
     },
     h2: {
         fontFamily: "Helvetica",
-        fontSize: normalize(30),
+        fontSize: Normalize(20),
         lineHeight: 28
     },
     h3: {
         fontFamily: "Helvetica",
-        fontSize: normalize(20)
+        fontSize: Normalize(15)
     }
 });
 

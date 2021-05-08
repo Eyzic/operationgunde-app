@@ -1,20 +1,6 @@
 import React from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, Platform, View, Image } from 'react-native';
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import { StyleSheet, View, Image } from 'react-native';
+import Normalize from "../Normalize";
 
 const friendLogo = (props) => {
     const [value, onChangeText] = React.useState('Default Placeholder');
@@ -29,10 +15,6 @@ const friendLogo = (props) => {
 };
 
 const styles = StyleSheet.create({
-    h3: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(20),
-    },
     row: {
         flexDirection: "row",
         justifyContent: 'space-between',
@@ -42,8 +24,8 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     kompis: {
-        width: normalize(70),
-        height: normalize(70),
+        width: Normalize(50),
+        height: Normalize(50),
         borderRadius: 35,
         marginLeft: 10,
     }

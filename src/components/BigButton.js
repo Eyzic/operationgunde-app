@@ -1,21 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Text, Dimensions, PixelRatio, Platform, TouchableOpacity } from 'react-native';
-
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import Normalize from "../Normalize";
 
 const BigButton = (props) => {
 
@@ -33,7 +18,7 @@ const styles = StyleSheet.create({
     },
     h2: {
         fontFamily: "Helvetica",
-        fontSize: normalize(30),
+        fontSize: Normalize(25),
     }
 });
 

@@ -24,7 +24,7 @@ const NewActivityScreen = ({ navigation }) => {
             <PageHeader2 text1='Ny' text2='Aktivitet' style={[Style.item]}>
             </PageHeader2>
 
-            <TextInput onChangeText={setTitle} style={[Style.item]}></TextInput>
+            <TextInput placeholder={"Namn på aktivitet"} onChangeText={setTitle} style={[Style.item]}></TextInput>
 
             <ConnectedHardware style={Style.item} />
 

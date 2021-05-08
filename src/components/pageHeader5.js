@@ -55,19 +55,19 @@ const pageHeader5 = (props) => {
 
       <View style={styles.header2}>
         <TouchableOpacity onPress={onPress}>
-          <Text style={[styles.Oversikt1, { color: props.color1 }]}>
+          <Text style={[styles.tabs, { color: props.color1 }]}>
             {props.meny1}
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={onPress2}>
-          <Text style={[styles.Inställning1, { color: props.color2 }]}>
+          <Text style={[styles.tabs, { color: props.color2 }]}>
             {props.meny2}
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={onPress4}>
-          <Text style={[styles.val1, { color: props.color4 }]}>
+          <Text style={[styles.tabs, { color: props.color4 }]}>
             {props.meny4}
           </Text>
         </TouchableOpacity>
@@ -80,38 +80,11 @@ const pageHeader5 = (props) => {
 };
 const styles = StyleSheet.create({
   h1: {
-    // fontFamily: "Helvetica",
-    fontSize: normalize(40),
+    fontSize: normalize(30),
     lineHeight: 40,
   },
-  Inställning1: {
-    // fontFamily: "Helvetica",
+  tabs: {
     fontSize: normalize(23),
-    // lineHeight: 40,
-    // marginTop: -20,
-    // marginStart: 80,
-  },
-  val1: {
-    //fontFamily: "Helvetica",
-    fontSize: normalize(23),
-    // lineHeight: 40,
-    // marginTop: -40,
-    //marginStart: 185,
-  },
-
-
-  Oversikt1: {
-    // fontFamily: "Helvetica",
-    fontSize: normalize(23),
-    // justifyContent: "space-between",
-    // marginTop: 20,
-  },
-
-  top_border: {
-    borderTopColor: "#000",
-    borderTopWidth: 3,
-    paddingTop: 10,
-
   },
   header: {
     display: "flex",
@@ -120,7 +93,6 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginBottom: 0,
   },
-
   header2: {
     display: "flex",
     flexDirection: "row",
@@ -129,7 +101,6 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     marginEnd: SCREEN_WIDTH * 0.3
   },
-
   image: {
     width: normalize(135),
     height: normalize(135),

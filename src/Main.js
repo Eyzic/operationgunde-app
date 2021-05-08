@@ -81,7 +81,6 @@ export default function Main() {
                             <Stack.Screen name="Profile" component={Profile} />
                             <Stack.Screen name="ProfileInst" component={ProfileInst} />
 
-
                             <Stack.Screen name="MyGroups" component={MyGroupsScreen} />
                             <Stack.Screen name="NewGroup" component={NewGroupScreen} />
                             <Stack.Screen name="FriendGroup" component={FriendGroupScreen} />
@@ -94,15 +93,11 @@ export default function Main() {
                             <Stack.Screen name="OrganisationCoachAthlete" component={OrganisationCoachAthleteScreen} />
                             <Stack.Screen name="OrganisationAthleteFriend" component={OrganisationAthleteFriendScreen} />
 
-
-
                             <Stack.Screen name="History" component={HistoryScreen} />
                             <Stack.Screen name="HistoryCalendar" component={HistoryCalendarScreen} />
                             <Stack.Screen name="HistoryHrv" component={HistoryHrvScreen} />
                             <Stack.Screen name="HistoryItemScreen" component={HistoryItemScreen} />
                             <Stack.Screen name="SingleActivity" component={SingleActivity} />
-
-
 
                         </Stack.Navigator>
                     </GroupContext.Provider>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { View, Dimensions, Text, PixelRatio, StyleSheet, Platform, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 import PageHeader2 from '../../components/pageHeader2';
 import StandardTemplate from '../../templates/StandardTemplate';
@@ -12,12 +12,7 @@ import BigButton from '../../components/BigButton';
 import StopWatch from '../../components/stopWatch';
 
 import local_ip from '../../local_ip';
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
+import Normalize from '../../Normalize';
 
 const CurrentActivityScreen = ({ navigation }) => {
     const context = useContext(ActivityContext);
@@ -81,15 +76,6 @@ function postActivity(activity) {
 
 }
 
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
-
 const ActivityStateButton = (props) => {
     const context = useContext(ActivityContext);
     const [timer, setTimer] = useState(context.timer);
@@ -128,8 +114,8 @@ const ActivityStateButton = (props) => {
 
 const styles = StyleSheet.create({
     image: {
-        width: normalize(150),
-        height: normalize(150),
+        width: Normalize(150),
+        height: Normalize(150),
     },
     activity: {
         flexDirection: "row",

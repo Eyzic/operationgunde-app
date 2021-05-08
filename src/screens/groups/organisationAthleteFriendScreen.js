@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Dimensions, Platform, PixelRatio, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 import PageHeader4 from '../../components/pageHeader4';
 import FriendProfile from '../../components/friendProfile';
@@ -7,21 +7,7 @@ import FriendProfile from '../../components/friendProfile';
 import StandardTemplate from '../../templates/StandardTemplate';
 
 import Style from '../../styles/Style';
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
-
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import Normalize from "../../Normalize";
 
 const organisationAthleteFriendScreen = ({ navigation }) => {
     const [groupName, setGroupName] = React.useState("");
@@ -42,21 +28,5 @@ const organisationAthleteFriendScreen = ({ navigation }) => {
 
     );
 }
-
-const styles = StyleSheet.create({
-    ruta: {
-        padding: 10,
-        backgroundColor: 'hsla(316, 47%, 73%, 1)',
-        borderRadius: 10,
-        margin: 10,
-        flexGrow: 3
-    },
-    rutaText: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(25),
-        textAlign: 'center',
-        color: 'white',
-    }
-});
 
 export default organisationAthleteFriendScreen;

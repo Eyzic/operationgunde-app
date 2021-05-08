@@ -1,32 +1,11 @@
 import React from "react";
-import {
-  Text,
-  View,
-  TouchableWithoutFeedback,
-  Button,
-  Platform,
-  Dimensions,
-  PixelRatio,
-  StyleSheet,
-} from "react-native";
-import StatsDisplay from "./statsDisplay";
+import { Text, View, StyleSheet } from "react-native";
+
 import { Calendar, CalendarList } from "react-native-calendars";
 import StatItem from "./statItem";
-
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
-const scale = SCREEN_WIDTH / 320;
-
-function normalize(size) {
-  const newSize = size * scale;
-  if (Platform.OS === "ios") {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize));
-  } else {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
-  }
-}
+import Normalize from "../Normalize";
 
 const historyOver = (props) => {
-  const [value, onChangeText] = React.useState("Default Placeholder");
 
   return (
     <View style={[styles.mainsquare]}>
@@ -35,9 +14,6 @@ const historyOver = (props) => {
           horizontal={true}
           pagingEnabled={true}
           firstDay={1}
-          style={{
-            width: SCREEN_WIDTH * 0.9
-          }}
           theme={{
             calendarBackground: "transparent",
             dayTextColor: "white",
@@ -47,25 +23,7 @@ const historyOver = (props) => {
             todayTextColor: "hsla(324, 53%, 50%,1)",
             arrowColor: "white",
             textMonthFontWeight: "bold",
-            textMonthFontSize: normalize(17),
-            //backgroundColor: 'black',
-            //textSectionTitleDisabledColor: '#d9e1e8',
-            //selectedDayBackgroundColor: '#00adf5',
-            //selectedDayTextColor: '#ffffff',
-            //dayTextColor: '#2d4150',
-            //dotColor: '#00adf5',
-            //selectedDotColor: '#ffffff',
-            //disabledArrowColor: '#d9e1e8',
-            //monthTextColor: 'blue',
-            //indicatorColor: 'blue',
-            
-            //textDayFontFamily: 'monospace',
-            //textMonthFontFamily: 'monospace',
-            //textDayHeaderFontFamily: 'monospace',
-            //textDayFontWeight: '300',
-            //textDayHeaderFontWeight: '300',
-            //textDayFontSize: 16,
-            //textDayHeaderFontSize: 16
+            textMonthFontSize: Normalize(17),
           }}
           markedDates={{
             "2021-04-28": {
@@ -110,7 +68,7 @@ const historyOver = (props) => {
         <View style={[styles.statsTitle]}>
           <Text
             style={{
-              fontSize: normalize(17),
+              fontSize: Normalize(17),
               color: "white",
               fontWeight: "bold",
             }}
@@ -150,15 +108,15 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: normalize(5),
+    marginBottom: Normalize(5),
   },
   statistics: {
     height: "30%",
     width: "90%",
     justifyContent: "center",
     alignItems: "center",
-    top: normalize(15),
-    marginBottom: normalize(30),
+    top: Normalize(15),
+    marginBottom: Normalize(30),
   },
 
   calendarholder: {
@@ -166,7 +124,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: normalize(20),
+    paddingTop: Normalize(20),
   },
 
   mainsquare: {
@@ -176,7 +134,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    borderTopRightRadius: normalize(13),
-    borderTopLeftRadius: normalize(13),
+    borderTopRightRadius: Normalize(13),
+    borderTopLeftRadius: Normalize(13),
   },
 });
