@@ -53,16 +53,6 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 0,
         padding: 1,
     },
-    time: {
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        flexGrow: 1,
-        margin: 10,
-        padding: 10
-    },
-    h2: {
-        fontSize: Normalize(20)
-    },
     h3: {
         color: 'white',
         fontSize: Normalize(15)
