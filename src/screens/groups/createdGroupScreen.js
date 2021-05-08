@@ -6,12 +6,6 @@ import StandardTemplate from '../../templates/StandardTemplate';
 
 import Style from '../../styles/Style';
 
-
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-
 const createdGroupScreen = ({ navigation }) => {
     const [groupName, setGroupName] = React.useState("");
 

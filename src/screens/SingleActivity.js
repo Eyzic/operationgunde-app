@@ -27,7 +27,7 @@ function normalize(size) {
   }
 }
 const SingleActivity = ({ route, navigation }) => {
-  const { activity_id } = route.params;
+  const { activity_title, date, duration, avg_HR, meters } = route.params;
   return (
     <StandardTemplate navigation={navigation} showMenu={true}>
       <View
@@ -47,8 +47,8 @@ const SingleActivity = ({ route, navigation }) => {
             marginBottom: normalize(20),
           }}
         >
-          <Text style={{ fontSize: normalize(30) }}>Aktivitet-</Text>
-          <Text style={{ fontSize: normalize(30) }}>2 feb 2020</Text>
+          <Text style={{ fontSize: normalize(30) }}>{activity_title}</Text>
+          <Text style={{ fontSize: normalize(30) }}>{date}</Text>
         </View>
         <View
           style={{ flex: 2, alignItems: "center", justifyContent: "center" }}
@@ -59,7 +59,7 @@ const SingleActivity = ({ route, navigation }) => {
             <Text style={{ fontSize: normalize(19), fontWeight: "bold" }}>
               Längd:
             </Text>
-            <Text style={{ fontSize: normalize(21) }}>1:23:15</Text>
+            <Text style={{ fontSize: normalize(21) }}>{duration}</Text>
           </View>
           <Image
             style={{
@@ -73,11 +73,11 @@ const SingleActivity = ({ route, navigation }) => {
         </View>
       </View>
       <View style={[styles.hrBlock]}>
-        <Text style={[styles.text]}>Snitt HR: 83</Text>
+        <Text style={[styles.text]}>Snitt HR: {avg_HR}</Text>
         <Text style={[styles.text]}>Max HR: 116</Text>
       </View>
       <View style={[styles.kmBlock]}>
-        <Text style={[styles.text]}>Antal km: 3.5</Text>
+        <Text style={[styles.text]}>Antal km: {meters / 1000}</Text>
       </View>
 
       <View style={[styles.hrvBlock]}>

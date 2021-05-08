@@ -22,7 +22,7 @@ class StopWatch {
 
     _time() { this.currentTime = Date.now() - this.startTime; }
 
-    getRawTime() { return this.currentTime }
+    getRawTime() { return (this.currentTime / 1000) }
     getTime() { return formatTime(this.currentTime) }
 
     stop() {
@@ -43,7 +43,7 @@ class StopWatch {
 const leftPad = (value, length) => value.toString().length < length ? leftPad("0" + value, length) : value;
 
 function formatTime(time) {
-    let hours = Math.floor((time / (60 * 60 * 1000) % 60));
+    let hours = Math.floor((time / (60 * 60 * 1000) % 24));
     hours = leftPad(hours, 2);
 
     let minutes = Math.floor((time / (60 * 1000)) % 60);

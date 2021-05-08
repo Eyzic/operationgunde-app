@@ -8,8 +8,6 @@ import StandardTemplate from "../templates/StandardTemplate";
 import Style from "../styles/Style";
 import Goal from "../components/goal";
 
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
-
 const Profile = ({ navigation }) => {
   return (
     <StandardTemplate navigation={navigation} showMenu={true}>
@@ -22,7 +20,6 @@ const Profile = ({ navigation }) => {
         text2="Profil"
         over="Profile"
         inst="ProfileInst"
-        // val="HistoryHrv"
         style={[Style.item]}
         nav={navigation}
       ></PageHeader5>

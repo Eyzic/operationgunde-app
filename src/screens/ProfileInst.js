@@ -8,7 +8,6 @@ import StandardTemplate from "../templates/StandardTemplate";
 import Style from "../styles/Style";
 import UserInf from "../components/userInf";
 import DataIX from "../components/dataIXButton";
-import { ScrollView, TextInput } from "react-native-gesture-handler";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 const scale = SCREEN_WIDTH / 320;

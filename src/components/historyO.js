@@ -58,6 +58,7 @@ const historyOver = (props) => {
             //disabledArrowColor: '#d9e1e8',
             //monthTextColor: 'blue',
             //indicatorColor: 'blue',
+            
             //textDayFontFamily: 'monospace',
             //textMonthFontFamily: 'monospace',
             //textDayHeaderFontFamily: 'monospace',

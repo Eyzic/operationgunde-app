@@ -10,11 +10,6 @@ import ActivityContext from '../../components/activityContext';
 
 import Style from '../../styles/Style';
 
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-
 const NewActivityScreen = ({ navigation }) => {
     const context = React.useContext(ActivityContext);
     const [title, setTitle] = React.useState("Activity");

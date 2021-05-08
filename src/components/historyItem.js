@@ -53,13 +53,13 @@ const historyItem = (props) => {
 const leftPad = (value, length) => value.toString().length < length ? leftPad("0" + value, length) : value;
 
 function formatTime(timeInSeconds) {
-    let hours = Math.floor((timeInSeconds / (60 * 60 * 1000) % 60));
+    let hours = Math.floor((timeInSeconds / (60 * 60) % 60));
     hours = leftPad(hours, 2);
 
-    let minutes = Math.floor((timeInSeconds / (60 * 1000)) % 60);
+    let minutes = Math.floor((timeInSeconds / (60)) % 60);
     minutes = leftPad(minutes, 2);
 
-    let seconds = Math.floor((timeInSeconds / 1000) % 60);
+    let seconds = Math.floor(timeInSeconds % 60);
     seconds = leftPad(seconds, 2);
 
     let displayTime = hours + ":" + minutes + " h";

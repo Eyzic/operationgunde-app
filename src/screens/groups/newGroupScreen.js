@@ -12,11 +12,6 @@ import Style from '../../styles/Style';
 import Sizes from '../../styles/Sizes';
 import BigButton from '../../components/BigButton';
 
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-
 const newGroupScreen = ({ navigation }) => {
     const [groupName, setGroupName] = React.useState("");
     const context = React.useContext(UserContext);

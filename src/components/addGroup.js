@@ -18,7 +18,6 @@ function normalize(size) {
 }
 
 const pluss = (props) => {
-    const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
         <View style={styles.knapp} onStartShouldSetResponder={() => props.nav.navigate('NewGroup')}  >

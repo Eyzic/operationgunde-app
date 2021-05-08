@@ -40,21 +40,11 @@ const navMenu = (props) => {
 
     return (
         <View style={Style.menu}>
-            {createMenuButton(require("../assets/menu/group.png"), () =>
-                props.nav.navigate("MyGroups")
-            )}
-            {createMenuButton(require("../assets/menu/profile.png"), () =>
-                props.nav.navigate("Profile")
-            )}
-            {createMenuButton(require("../assets/menu/home.png"), () =>
-                props.nav.navigate("FrontPage")
-            )}
-            {createMenuButton(require("../assets/menu/timer.png"), () =>
-                goToActivity(props.nav, context)
-            )}
-            {createMenuButton(require("../assets/menu/history.png"), () =>
-                props.nav.navigate("History")
-            )}
+            {createMenuButton(require("../assets/menu/group.png"), () => props.nav.navigate("MyGroups"))}
+            {createMenuButton(require("../assets/menu/profile.png"), () => props.nav.navigate("Profile"))}
+            {createMenuButton(require("../assets/menu/home.png"), () => props.nav.navigate("FrontPage"))}
+            {createMenuButton(require("../assets/menu/timer.png"), () => goToActivity(props.nav, context))}
+            {createMenuButton(require("../assets/menu/history.png"), () => props.nav.navigate("History"))}
         </View>
     );
 };

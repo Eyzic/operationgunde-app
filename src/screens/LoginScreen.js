@@ -50,7 +50,7 @@ const LoginScreen = ({ navigation }) => {
             },
             body: JSON.stringify(user)
         })
-            .then(res => { return !res.ok ? alert(res.json().error) : res.json() })
+            .then(res => { return !res.ok ? setError(res.json().error) : res.json() })
             .then(res => {
                 console.log(`USER_ID: ${res.user_id}`);
                 context.user = res.user_id;
@@ -59,12 +59,6 @@ const LoginScreen = ({ navigation }) => {
             )
             .catch(error => console.log(error));
     }
-
-}
-
-function sendLoginToServer(user) {
-
-    return
 
 }
 

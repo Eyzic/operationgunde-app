@@ -43,7 +43,7 @@ async function createGroupObjects(data, navigation) {
                 memberCount={element[1]}
                 groupType={"Group"}
                 style={Style.item}
-                nav={() => navigation.navigate("FriendGroup", { group: element[0] })}
+                nav={() => navigation.navigate("FriendGroup", { group: element[0], logo: local_ip + `/get_png?logo=${element[2]}` })}
                 image={{ uri: local_ip + `/get_png?logo=${element[2]}` }}
             />)
         }
