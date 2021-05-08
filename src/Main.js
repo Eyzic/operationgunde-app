@@ -4,6 +4,7 @@ import React from "react";
 import { } from "react-native";
 import ActivityContext from "./components/activityContext";
 import UserContext from "./components/UserContext";
+import GroupContext from "./components/groupContext";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import StopWatch from "./components/stopWatch";
@@ -50,6 +51,11 @@ const activityState = {
     activityTitle: ""
 };
 
+const activeGroup = {
+    groupName: null,
+    logo: null
+};
+
 const loginState = {
     user: null,
 };
@@ -62,39 +68,44 @@ export default function Main() {
         <NavigationContainer>
             <UserContext.Provider value={loginState}>
                 <ActivityContext.Provider value={activityState}>
-                    <Stack.Navigator initialRouteName="LoginPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
-                        <Stack.Screen name="LoginPage" component={LoginScreen} />
-                        <Stack.Screen name="Signup" component={SignupScreen} />
+                    <GroupContext.Provider value={activeGroup}>
+                        <Stack.Navigator initialRouteName="LoginPage" screenOptions={{ headerShown: false, animationEnabled: false }}>
+                            <Stack.Screen name="LoginPage" component={LoginScreen} />
+                            <Stack.Screen name="Signup" component={SignupScreen} />
 
-                        <Stack.Screen name="FrontPage" component={FrontScreen} />
-                        <Stack.Screen name="DailyHRV" component={DailyHrvScreen} />
-                        <Stack.Screen name="NewActivity" component={NewActivityScreen} />
-                        <Stack.Screen name="CurrentActivity" component={CurrentActivityScreen} />
+                            <Stack.Screen name="FrontPage" component={FrontScreen} />
+                            <Stack.Screen name="DailyHRV" component={DailyHrvScreen} />
+                            <Stack.Screen name="NewActivity" component={NewActivityScreen} />
+                            <Stack.Screen name="CurrentActivity" component={CurrentActivityScreen} />
 
-                        <Stack.Screen name="Profile" component={Profile} />
-                        <Stack.Screen name="ProfileInst" component={ProfileInst} />
+                            <Stack.Screen name="Profile" component={Profile} />
+                            <Stack.Screen name="ProfileInst" component={ProfileInst} />
 
-                        <Stack.Screen name="MyGroups" component={MyGroupsScreen} />
-                        <Stack.Screen name="NewGroup" component={NewGroupScreen} />
-                        <Stack.Screen name="FriendGroup" component={FriendGroupScreen} />
-                        <Stack.Screen name="OrganisationCoach" component={OrganisationCoachScreen} />
-                        <Stack.Screen name="OrganisationAthlete" component={OrganisationAthleteScreen} />
-                        <Stack.Screen name="CreatedGroup" component={CreatedGroupScreen} />
-                        <Stack.Screen name="FriendGroupSettings" component={FriendGroupSettingsScreen} />
-                        <Stack.Screen name="FriendGroupFriend" component={FriendGroupFriendScreen} />
-                        <Stack.Screen name="OrganisationCoachSettings" component={OrganisationCoachSettingsScreen} />
-                        <Stack.Screen name="OrganisationCoachAthlete" component={OrganisationCoachAthleteScreen} />
-                        <Stack.Screen name="OrganisationAthleteFriend" component={OrganisationAthleteFriendScreen} />
 
-                        <Stack.Screen name="History" component={HistoryScreen} />
-                        <Stack.Screen name="HistoryCalendar" component={HistoryCalendarScreen} />
-                        <Stack.Screen name="HistoryHrv" component={HistoryHrvScreen} />
-                        <Stack.Screen name="HistoryItemScreen" component={HistoryItemScreen} />
-                        <Stack.Screen name="SingleActivity" component={SingleActivity} />
+                            <Stack.Screen name="MyGroups" component={MyGroupsScreen} />
+                            <Stack.Screen name="NewGroup" component={NewGroupScreen} />
+                            <Stack.Screen name="FriendGroup" component={FriendGroupScreen} />
+                            <Stack.Screen name="OrganisationCoach" component={OrganisationCoachScreen} />
+                            <Stack.Screen name="OrganisationAthlete" component={OrganisationAthleteScreen} />
+                            <Stack.Screen name="CreatedGroup" component={CreatedGroupScreen} />
+                            <Stack.Screen name="FriendGroupSettings" component={FriendGroupSettingsScreen} />
+                            <Stack.Screen name="FriendGroupFriend" component={FriendGroupFriendScreen} />
+                            <Stack.Screen name="OrganisationCoachSettings" component={OrganisationCoachSettingsScreen} />
+                            <Stack.Screen name="OrganisationCoachAthlete" component={OrganisationCoachAthleteScreen} />
+                            <Stack.Screen name="OrganisationAthleteFriend" component={OrganisationAthleteFriendScreen} />
 
 
 
-                    </Stack.Navigator>
+                            <Stack.Screen name="History" component={HistoryScreen} />
+                            <Stack.Screen name="HistoryCalendar" component={HistoryCalendarScreen} />
+                            <Stack.Screen name="HistoryHrv" component={HistoryHrvScreen} />
+                            <Stack.Screen name="HistoryItemScreen" component={HistoryItemScreen} />
+                            <Stack.Screen name="SingleActivity" component={SingleActivity} />
+
+
+
+                        </Stack.Navigator>
+                    </GroupContext.Provider>
                 </ActivityContext.Provider>
             </UserContext.Provider>
         </NavigationContainer>

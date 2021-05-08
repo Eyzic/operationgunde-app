@@ -3,23 +3,22 @@ import { Dimensions, ScrollView, View, TouchableOpacity, Text } from 'react-nati
 
 import PageHeader4 from '../../components/pageHeader4';
 import HistoryItem from '../../components/historyItem';
-import FriendLogo from '../../components/friendLogo';
 
 import StandardTemplate from '../../templates/StandardTemplate';
 
 import local_ip from '../../local_ip';
 import Style from '../../styles/Style';
 import GroupMembers from '../../components/groupMembers';
+import GroupContext from '../../components/groupContext';
 
 const friendGroupScreen = ({ route, navigation }) => {
     const [historyItems, setHistoryItems] = React.useState([]);
-    const { group, logo } = route.params;
+    const groupContext = React.useContext(GroupContext);
 
-    console.log("HISTORY");
-    console.log(historyItems);
+    console.log(groupContext);
 
     React.useEffect(() => {
-        fetch(local_ip + `/api/group?group=${group}`)
+        fetch(local_ip + `/api/group?group=${groupContext.groupName}`)
             .then(res => res.json())
             .then(async members => {
                 let activities = await Promise.all(members.map(member => {
@@ -37,10 +36,10 @@ const friendGroupScreen = ({ route, navigation }) => {
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
 
-            <PageHeader4 Image2={require('../../assets/menu/group.png')} over="FriendGroup" inst="FriendGroupSettings" color1='red' color2='black' text1={group} meny1='Översikt  ' meny2='Inställningar' memberCount='6' style={[Style.item]} Image={{ uri: logo }} nav={navigation} >
+            <PageHeader4 Image2={require('../../assets/menu/group.png')} over="FriendGroup" inst="FriendGroupSettings" color1='red' color2='black' text1={groupContext.groupName} meny1='Översikt  ' meny2='Inställningar' memberCount='6' style={[Style.item]} Image={{ uri: groupContext.logo }} nav={navigation} >
             </PageHeader4>
 
-            <GroupMembers group={group} nav={navigation}></GroupMembers>
+            <GroupMembers group={groupContext.groupName} nav={navigation}></GroupMembers>
             {historyItems}
 
         </StandardTemplate>
