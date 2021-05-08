@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler'
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, Dimensions } from 'react-native';
 import { ScrollView } from 'react-native';
 import PageHeader from './components/pageHeader';
 import WeekOverview from './components/weekOverview';
@@ -10,6 +10,8 @@ import NavMenu from './components/navMenu';
 import DailyMeasure from './components/dailyMeasure';
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
+import PageHeader4 from './pageHeader4';
+
 
 const {
   width: SCREEN_WIDTH,
@@ -23,13 +25,16 @@ function frontPage({ navigation }) {
       <View style={{ display: 'flex', height: SCREEN_HEIGHT }}>
         <ScrollView vertical={true} style={[{ padding: 10, flexGrow: 1 }, styles.background]}>
 
-          <PageHeader style={[styles.item]} hasImage={false}>
-          </PageHeader>
+          <PageHeader4 style={[styles.item]} text1="HRV - " text2="8 maj 2021">
+          </PageHeader4>
 
-          <WeekOverview style={[styles.item]} />
-          <DayOverview style={[styles.item]} />
+          <View style={styles.item}>
 
-          <DailyMeasure style={styles.item} nav={navigation} />
+            <Text style={styles.texten}>
+              {'\nToppen! \nDu har fyllt i dagens formulär. \n\nFör varje dag du fyller i formuläret kommer HRV prognosen förbättras.\n'}
+
+            </Text>
+          </View>
 
         </ScrollView>
 
@@ -81,5 +86,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'hsla(0, 0%, 100%,1)',
     padding: 5,
     paddingHorizontal: 20
+  },
+  texten: {
+    fontFamily: "Helvetica",
+    fontSize: 23,
+    justifyContent: "center",
+    textAlign: "center",
   }
 });
