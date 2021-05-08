@@ -26,7 +26,7 @@ function normalize(size) {
 
 const historyItem = (props) => {
     return (
-        <TouchableWithoutFeedback id={props.activityId} onPress={() => Alert.alert('till passets sida')}>
+        <TouchableWithoutFeedback id={props.activityId} onPress={props.action}>
             <View style={[styles.container, props.style]}>
                 <View style={{ flexGrow: 4 }}>
                     <View style={styles.title}>
@@ -42,13 +42,29 @@ const historyItem = (props) => {
                 </View>
 
                 <View style={styles.time}>
-                    <Text style={styles.h2}>{props.duration}</Text>
+                    <Text style={styles.h2}>{formatTime(props.duration)}</Text>
                 </View>
 
             </View>
         </TouchableWithoutFeedback>
     )
 };
+
+const leftPad = (value, length) => value.toString().length < length ? leftPad("0" + value, length) : value;
+
+function formatTime(timeInSeconds) {
+    let hours = Math.floor((timeInSeconds / (60 * 60) % 60));
+    hours = leftPad(hours, 2);
+
+    let minutes = Math.floor((timeInSeconds / (60)) % 60);
+    minutes = leftPad(minutes, 2);
+
+    let seconds = Math.floor(timeInSeconds % 60);
+    seconds = leftPad(seconds, 2);
+
+    let displayTime = hours + ":" + minutes + " h";
+    return displayTime;
+}
 
 const styles = StyleSheet.create({
     container: {

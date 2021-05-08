@@ -1,21 +1,26 @@
-import React, { useContext } from 'react';
-import { View, Dimensions, PixelRatio, Platform, TouchableOpacity, Alert, Image } from 'react-native';
-import ActivityContext from './activityContext';
+import React, { useContext } from "react";
+import {
+    View,
+    Dimensions,
+    PixelRatio,
+    Platform,
+    TouchableOpacity,
+    Alert,
+    Image,
+} from "react-native";
+import ActivityContext from "./activityContext";
 
-import Style from '../styles/Style';
+import Style from "../styles/Style";
 
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 const scale = SCREEN_WIDTH / 420;
 
 function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
+    const newSize = size * scale;
+    if (Platform.OS === "ios") {
+        return Math.round(PixelRatio.roundToNearestPixel(newSize));
     } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
+        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2;
     }
 }
 
@@ -24,7 +29,8 @@ function createMenuButton(imgSource, action) {
         <TouchableOpacity onPress={action}>
             <Image
                 source={imgSource}
-                style={{ width: normalize(60), height: normalize(60) }} />
+                style={{ width: normalize(60), height: normalize(60) }}
+            />
         </TouchableOpacity>
     );
 }
@@ -34,13 +40,13 @@ const navMenu = (props) => {
 
     return (
         <View style={Style.menu}>
-            {createMenuButton(require('../assets/menu/group.png'), () => props.nav.navigate("MyGroups"))}
-            {createMenuButton(require('../assets/menu/profile.png'), () => Alert.alert('image clicked'))}
-            {createMenuButton(require('../assets/menu/home.png'), () => props.nav.navigate("FrontPage"))}
-            {createMenuButton(require('../assets/menu/timer.png'), () => goToActivity(props.nav, context))}
-            {createMenuButton(require('../assets/menu/history.png'), () => props.nav.navigate("History"))}
+            {createMenuButton(require("../assets/menu/group.png"), () => props.nav.navigate("MyGroups"))}
+            {createMenuButton(require("../assets/menu/profile.png"), () => props.nav.navigate("Profile"))}
+            {createMenuButton(require("../assets/menu/home.png"), () => props.nav.navigate("FrontPage"))}
+            {createMenuButton(require("../assets/menu/timer.png"), () => goToActivity(props.nav, context))}
+            {createMenuButton(require("../assets/menu/history.png"), () => props.nav.navigate("History"))}
         </View>
-    )
+    );
 };
 
 function goToActivity(nav, context) {

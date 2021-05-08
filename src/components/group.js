@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Image, Dimensions, PixelRatio, StyleSheet, Platform, TouchableWithoutFeedback } from 'react-native';
 
-
+import local_ip from '../local_ip';
 //Detta är en pageheader utan progressview och utan taggad och redo 
 
 const {
@@ -25,8 +25,6 @@ function normalize(size) {
 //       image = the location of the image to be shown. Can be ignored if there is no image.
 
 const group = (props) => {
-    const [value, onChangeText] = React.useState('Default Placeholder');
-
     return (
 
         <TouchableWithoutFeedback onPress={props.nav}>
@@ -35,14 +33,13 @@ const group = (props) => {
                     <Image source={props.Image} style={styles.image} />
                     <View>
                         <Text style={styles.h1} >
-                            {props.text1}
+                            {props.title}
                         </Text>
                         <Text style={styles.h1} >
                             {props.text2}
                         </Text>
                     </View>
 
-                </View>
                 <Text style={styles.h2}>
                     {props.groupType}
                 </Text>

@@ -7,11 +7,6 @@ import Form from '../components/form';
 
 import Style from '../styles/Style';
 
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-
 const DailyHrvScreen = ({ navigation }) => {
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>

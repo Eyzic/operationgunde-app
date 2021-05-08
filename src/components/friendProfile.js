@@ -27,9 +27,7 @@ const FriendProfile = (props) => {
                         source={require('../assets/groups/Tomas.png')}
                         style={styles.kompis} />
                     <Text style={styles.h5}>
-                        {'Tomas'}
-                        {'\n Ledin'}
-                        {'\n'}
+                        {props.name}
                     </Text>
                 </View>
             }

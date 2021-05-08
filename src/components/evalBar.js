@@ -18,7 +18,7 @@ function normalize(size) {
 
 //To customize provide a Stylesheet with two styles named "Marked" and "Unmarked"
 
-const evalBar = (props) => {
+const evalBar = ({ limit, value, style }) => {
 
     const styles = StyleSheet.create({
         marked: {
@@ -39,13 +39,13 @@ const evalBar = (props) => {
     const [customStyle, setCustomStyle] = React.useState(styles);
 
     React.useEffect(() => {
-        props.style ? setCustomStyle(props.style) : setCustomStyle(styles)
+        style ? setCustomStyle(style) : setCustomStyle(styles)
     }, []);
 
 
     //Generate the boxes in the evalbar and fills color according to the values
-    for (let i = 1; i <= props.limit; i++) {
-        if (props.value > i) {
+    for (let i = 1; i <= limit; i++) {
+        if (value > i) {
             bar.push(<View key={i} style={customStyle.marked} />)
         }
         else {

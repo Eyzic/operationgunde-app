@@ -2,8 +2,7 @@ import React from 'react';
 import { Dimensions, View, SafeAreaView } from 'react-native';
 
 import PageHeader5 from '../../components/pageHeader5';
-import HistoryOver from '../../components/historyO';
-import NavMenu from '../../components/navMenu';
+import HistoryItem from '../../components/historyItem';
 import StandardTemplate from '../../templates/StandardTemplate';
 
 import Style from '../../styles/Style';
@@ -27,7 +26,7 @@ const HistoryCalendarScreen = ({ navigation }) => {
                 nav={navigation}
             ></PageHeader5>
 
-            <HistoryOver />
+            <HistoryItem />
 
         </StandardTemplate>
 

@@ -18,7 +18,6 @@ function normalize(size) {
 }
 
 const BigButton = (props) => {
-    const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
         <TouchableOpacity style={[props.style, { backgroundColor: '#BB22AA', marginBottom: 30 }]} onPress={props.action}  >

@@ -1,79 +1,45 @@
-import { useLinkProps } from '@react-navigation/native';
 import React from 'react';
-import { Text, Dimensions, PixelRatio, StyleSheet, ScrollView, Platform, View, TouchableOpacity, Image } from 'react-native';
+import { Text, ScrollView, View, TouchableOpacity } from 'react-native';
 import FriendLogo from './friendLogo';
-const {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
-} = Dimensions.get('window');
-const scale = SCREEN_WIDTH / 420;
 
-function normalize(size) {
-    const newSize = size * scale
-    if (Platform.OS === 'ios') {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-    } else {
-        return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-    }
-}
+import local_ip from '../local_ip';
+import Style from '../styles/Style'
 
 const groupMembers = (props) => {
-    const [value, onChangeText] = React.useState('Default Placeholder');
-    const onPress = () => props.nav.navigate(props.groupMember);
+    const [members, setMembers] = React.useState([]);
+
+    React.useEffect(() => {
+        fetch(local_ip + `/api/group?group=${props.group}`)
+            .then(res => res.json())
+            .then(members => createMemberObjects(members, props.nav, props.group))
+            .then(membersObjects => setMembers([...membersObjects])
+            )
+    }, [])
 
     return (
-        <View style={props.style}>
-            <View style={styles.row}>
-                <ScrollView horizontal={true} >
-
-                    <TouchableOpacity onPress={onPress}>
-                        <FriendLogo Image={props.image1} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={onPress}>
-                        <FriendLogo Image={props.image2} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={onPress}>
-                        <FriendLogo Image={props.image3} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={onPress}>
-                        <FriendLogo Image={props.image4} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={onPress}>
-                        <FriendLogo Image={props.image5} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={onPress}>
-                        <FriendLogo Image={props.image6} />
-                    </TouchableOpacity>
-
-                </ScrollView>
-            </View>
+        <View style={Style.item} >
+            <ScrollView horizontal={true}>
+                <View style={{ flexDirection: "row" }}>
+                    {members}
+                </View>
+            </ScrollView>
         </View>
     )
 };
 
-const styles = StyleSheet.create({
-    h3: {
-        fontFamily: "Helvetica",
-        fontSize: normalize(20),
-    },
-    row: {
-        flexDirection: "row",
-        justifyContent: 'space-between',
-        backgroundColor: 'hsla(272, 100%, 97%,1)',
-        borderRadius: 15,
-        padding: 20,
-        marginBottom: 20,
-    },
-    kompis: {
-        width: normalize(70),
-        height: normalize(70),
-        borderRadius: 35,
+async function createMemberObjects(members, navigation, group) {
+    const items = [];
+    if (members instanceof Array) {
+        for (const member of members) {
+            items.push(
+                <TouchableOpacity key={member.user_id} onPress={() => navigation.navigate("FriendGroupFriend", { memberName: member.username })}>
+                    <FriendLogo Image={require('../assets/groups/Hasse.png')} />
+                    <Text style={{ alignSelf: "center" }}>{member.username}</Text>
+                </TouchableOpacity>
+            )
+        }
     }
-});
+    return items;
+}
 
 export default groupMembers;

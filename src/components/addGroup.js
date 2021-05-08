@@ -18,7 +18,6 @@ function normalize(size) {
 }
 
 const pluss = (props) => {
-    const [value, onChangeText] = React.useState('Default Placeholder');
 
     return (
         <View style={styles.knapp} onStartShouldSetResponder={() => props.nav.navigate('NewGroup')}  >
@@ -49,7 +48,5 @@ const styles = StyleSheet.create({
         color: 'hsla(0, 0%, 100%,1)',
     }
 });
-
-
 
 export default pluss;

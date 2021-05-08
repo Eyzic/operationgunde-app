@@ -5,6 +5,7 @@ import PageHeader4 from '../../components/pageHeader4';
 import FriendProfile from '../../components/friendProfile';
 
 import StandardTemplate from '../../templates/StandardTemplate';
+import GroupContext from '../../components/groupContext';
 
 import Style from '../../styles/Style';
 import Sizes from '../../styles/Sizes';
@@ -24,18 +25,18 @@ function normalize(size) {
     }
 }
 
-const friendGroupFriendScreen = ({ navigation }) => {
-    const [groupName, setGroupName] = React.useState("");
-
+const friendGroupFriendScreen = ({ route, navigation }) => {
+    const { memberName } = route.params;
+    const groupContext = React.useContext(GroupContext);
     return (
 
         <StandardTemplate navigation={navigation} showMenu={true}>
 
-            <PageHeader4 Image2={require('../../assets/menu/group.png')} over="FriendGroup" inst="FriendGroupSettings" meny3='Gå tillbaka' text1='Hasses' text2='Kompisar' memberCount='6' style={[Style.item]} Image={require('../../assets/groups/HassesKompisar.png')} nav={navigation} >
+            <PageHeader4 Image2={require('../../assets/menu/group.png')} over="FriendGroup" inst="FriendGroupSettings" meny3='Gå tillbaka' text1={groupContext.groupName} memberCount='6' style={[Style.item]} Image={groupContext.logo} nav={navigation} >
             </PageHeader4>
 
             {/*TODO: Vet att dessa inte line:ar upp helt, men det blev lättare med strukturen. Vi kan lösa det senare med Grid tror jag.*/}
-            <FriendProfile style={Style.item} hasProfil={true}>
+            <FriendProfile style={Style.item} hasProfil={true} name={memberName}>
                 <StatsBox text={'Antal steg \ndenna vecka: '} value={"37 309"} />
                 <StatsBox text={'Antal km \ndenna vecka: '} value={"18.5"} />
                 <StatsBox text={'Träningstid \ndenna vecka: '} value={"5.5 h"} />
