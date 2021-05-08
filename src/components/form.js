@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
 import UserContext from './UserContext';
 
 import local_ip from '../local_ip';
@@ -66,7 +66,7 @@ const form = (props) => {
 
             <Text>Energinivå:</Text>
             <TextInput style={[props.style]} onChangeText={onChangeEnergy} value={energy}></TextInput>
-            <Button style={props.style} color="#BB22AA" title="Spara!" onPress={() => saveMeasure()} />
+            <Button style={props.style} color="#BB22AA" title="Spara!" onPress={() => { saveMeasure(); props.nav.navigate("HrvDoneScreen") }} />
         </View>
     )
 };

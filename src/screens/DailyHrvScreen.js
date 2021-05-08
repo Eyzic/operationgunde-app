@@ -14,7 +14,7 @@ const DailyHrvScreen = ({ navigation }) => {
             <PageHeader text1='Daglig' text2='HRV-mätning' style={[Style.item]} hasImage={false}>
             </PageHeader>
 
-            <Form style={Style.item} />
+            <Form style={Style.item} nav={navigation} />
 
         </StandardTemplate>
     );

@@ -13,6 +13,7 @@ import StopWatch from "./components/stopWatch";
 import FrontScreen from './screens/FrontScreen';
 import HistoryScreen from './screens/history/HistoryScreen';
 import DailyHrvScreen from './screens/DailyHrvScreen';
+import HrvDoneScreen from './screens/hrvDoneScreen';
 
 //Activity screens
 import NewActivityScreen from './screens/activity/NewActivityScreen';
@@ -75,6 +76,7 @@ export default function Main() {
 
                             <Stack.Screen name="FrontPage" component={FrontScreen} />
                             <Stack.Screen name="DailyHRV" component={DailyHrvScreen} />
+                            <Stack.Screen name="HrvDoneScreen" component={HrvDoneScreen} />
                             <Stack.Screen name="NewActivity" component={NewActivityScreen} />
                             <Stack.Screen name="CurrentActivity" component={CurrentActivityScreen} />
 

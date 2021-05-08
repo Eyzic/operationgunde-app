@@ -64,7 +64,7 @@ const newGroupScreen = ({ navigation }) => {
                 </View>
 
 
-                <BigButton action={() => addUserToGroup(group, type)} text={"Create"} style={Style.item} />
+                <BigButton action={() => { addUserToGroup(group, type); navigation.navigate("MyGroups"); }} text={"Create"} style={Style.item} />
 
             </View>
 

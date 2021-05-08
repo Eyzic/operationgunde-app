@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     image: {
-        width: Normalize(100),
-        height: Normalize(100),
+        width: Normalize(70),
+        height: Normalize(70),
         borderRadius: 20
     },
     image2: {
