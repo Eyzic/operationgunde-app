@@ -10,6 +10,8 @@ const dayOverview = (props) => {
     const [temperature, setTemp] = useState('0');
     const [hrvPrediction, setHrvPrediction] = useState("");
 
+    console.log(hrvPrediction);
+
     useEffect(() => {
         getPosition(6)
             .then((position) => getTemperature(position))
@@ -30,9 +32,11 @@ const dayOverview = (props) => {
                 <Text style={styles.h3}>HRV imorgon: {hrvPrediction}</Text>
                 <View style={styles.box2} />
 
-                <Text style={styles.h3}>Din träningsintensitet imorgon bör vara:</Text>
+                <Text style={styles.h3}>Din träningsintensitet imorgon bör vara: </Text>
                 <View style={styles.box2}>
-                    <Text style={{ textAlign: 'center', marginTop: 8, fontSize: Normalize(20) }}>lugnt, normalt, max</Text>
+                    <Text style={{ textAlign: 'center', marginTop: 8, fontSize: Normalize(20) }}>
+                        {calculateTrainingIntensity(hrvPrediction)}
+                    </Text>
                 </View>
             </View>
 
@@ -47,6 +51,14 @@ const dayOverview = (props) => {
         </View >
     )
 };
+
+function calculateTrainingIntensity(hrv) {
+    switch (hrv) {
+        case (hrv > 70): return "Max"
+        case (hrv < 55): return "Lugn"
+        default: return "Normal"
+    }
+}
 
 async function getTemperature(location) {
     var url = 'https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/'
