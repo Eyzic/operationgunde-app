@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import StatsDisplay from './statsDisplay';
 import Normalize from "../Normalize";
+import Style from "../styles/Style";
 
 const radie = Normalize(10);
 const logo = {
@@ -14,9 +15,9 @@ const logo = {
 
 const valueItem = (props) => {
     return (
-        <TouchableWithoutFeedback onPress={() => Alert.alert('till passets sida')}>
-            <View style={[styles.container, props.style]}>
-                <View style={{ flexGrow: 4 }}>
+        <TouchableWithoutFeedback style={[Style.item]} onPress={() => Alert.alert('till passets sida')}>
+            <View style={[styles.container, props.style, { border: 5 }]}>
+                <View style={{ flexGrow: 1 }}>
                     <View style={styles.title}>
                         <Text style={styles.h4}>{props.date}</Text>
 

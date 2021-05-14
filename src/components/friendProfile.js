@@ -8,7 +8,7 @@ const FriendProfile = (props) => {
             {props.hasProfil &&
                 <View style={[styles.row]}>
                     <Image
-                        source={require('../assets/groups/Tomas.png')}
+                        source={require('../assets/menu/profile.png')}
                         style={styles.kompis} />
                     <Text style={styles.h5}>
                         {props.name}

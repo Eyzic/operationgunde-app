@@ -12,8 +12,7 @@ import local_ip from '../../local_ip';
 
 const HistoryScreen = ({ navigation }) => {
     const context = React.useContext(UserContext);
-    const [historyData, setHistoryData] = React.useState(
-    );
+    const [historyData, setHistoryData] = React.useState();
 
     React.useEffect(() => {
         let data = {

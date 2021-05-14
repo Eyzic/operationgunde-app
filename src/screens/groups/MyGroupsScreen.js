@@ -27,7 +27,7 @@ const MyGroupsScreen = ({ navigation }) => {
 
     return (
         <StandardTemplate navigation={navigation} showMenu={true}>
-            <PageHeader4 text1='Mina' text2='Grupper' Image={require('../../assets/groups/Hasse.png')} style={[Style.item]} />
+            <PageHeader4 text1='Mina' text2='Grupper' Image={require('../../assets/menu/profile.png')} style={[Style.item]} />
             {groups}
             <AddGroup style={Style.item} nav={navigation} />
         </StandardTemplate>
